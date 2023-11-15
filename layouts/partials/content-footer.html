@@ -1,0 +1,16 @@
+
+{{- with .GitInfo }}
+              <p>
+                <i class='fas fa-user' title="Latest commit's author"></i> {{ .AuthorName }}
+                <i class='fas fa-calendar' title="Latest commit's date"></i> {{ .AuthorDate.Format "2006-01-02" }}
+                <i class='fas fa-clone'  title="Latest commit's hash"></i> {{ .Hash }}
+              </p>
+{{- end }}
+              <p>
+                <i class='fas fa-copyright'></i> Copyright 2023, <a href="https://www.insa-strasbourg.fr/" target="_blank">INSA Strasbourg</a>
+              </p>
+{{- partial "term-list.html" (dict
+  "page" .
+  "taxonomy" "categories"
+  "icon" "layer-group"
+) }}

@@ -1,0 +1,5 @@
+/.hugo_build.lock
+/.vscode/
+/public/
+/themes/hugo-theme-relearn/exampleSite/
+*.fr.md
