@@ -113,6 +113,14 @@ languages:
     weight: 1
     params:
       landingPageName: "<i class='fas fa-home'></i> Home"
+    menu:
+      shortcuts:
+        - name: "<i class='fab fa-fw fa-github'></i> GitHub repo"
+          url: "https://github.com/DSIN-INSA-Strasbourg/Hermes"
+          weight: 10
+        - name: "<i class='fab fa-fw fa-github'></i> Doc's GitHub repo"
+          url: "https://github.com/DSIN-INSA-Strasbourg/Hermes-doc"
+          weight: 20
 
   fr:
     disabled: true # TODO
@@ -122,6 +130,14 @@ languages:
     weight: 2
     params:
       landingPageName: "<i class='fas fa-home'></i> Accueil"
+    menu:
+      shortcuts:
+        - name: "<i class='fab fa-fw fa-github'></i> Dépôt GitHub"
+          url: "https://github.com/DSIN-INSA-Strasbourg/Hermes"
+          weight: 10
+        - name: "<i class='fab fa-fw fa-github'></i> Dépôt GitHub de la doc"
+          url: "https://github.com/DSIN-INSA-Strasbourg/Hermes-doc"
+          weight: 20
 
 markup:
   highlight:
