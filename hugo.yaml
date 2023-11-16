@@ -10,7 +10,7 @@ params:
   # This controls whether submenus will be expanded (true), or collapsed (false) in the
   # menu; if no setting is given, the first menu level is set to false, all others to true;
   # this can be overridden in the pages frontmatter
-  alwaysopen: true
+  alwaysopen: false
   # Prefix URL to edit current page. Will display an "Edit" button on top right hand corner of every page.
   # Useful to give opportunity to people to create merge request for your doc.
   # See the config.toml file from this documentation site to have an example.
@@ -83,7 +83,7 @@ params:
   # Change the title separator. Default to "::".
   titleSeparator: "-"
   # If set to true, the menu in the sidebar will be displayed in a collapsible tree view. Although the functionality works with old browsers (IE11), the display of the expander icons is limited to modern browsers
-  collapsibleMenu: false
+  collapsibleMenu: true
   # If a single page can contain content in multiple languages, add those here
   # additionalContentLanguage: [ "en", "fr" ]
   # If set to true, no index.html will be appended to prettyURLs; this will cause pages not
