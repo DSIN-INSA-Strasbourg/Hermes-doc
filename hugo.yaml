@@ -121,6 +121,9 @@ languages:
         - name: "<i class='fab fa-fw fa-github'></i> Doc's GitHub repo"
           url: "https://github.com/DSIN-INSA-Strasbourg/Hermes-doc"
           weight: 20
+        - name: "<i class='fas fa-fw fa-bullhorn'></i> Credits"
+          pageRef: "credits"
+          weight: 30
 
   fr:
     disabled: true # TODO
@@ -138,6 +141,9 @@ languages:
         - name: "<i class='fab fa-fw fa-github'></i> Dépôt GitHub de la doc"
           url: "https://github.com/DSIN-INSA-Strasbourg/Hermes-doc"
           weight: 20
+        - name: "<i class='fas fa-fw fa-bullhorn'></i> Crédits"
+          pageRef: "credits"
+          weight: 30
 
 markup:
   highlight:
