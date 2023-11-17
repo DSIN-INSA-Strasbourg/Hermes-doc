@@ -17,9 +17,9 @@ For testing, Hermes provides a simple SQLite message bus implementation, but it 
 
 ## Installation
 
-1. Download and extract the [hermes latest](https://github.com/DSIN-INSA-Strasbourg/Hermes/archive/refs/tags/Hermes-latest.zip) archive
+1. Download and extract the [hermes latest](https://github.com/DSIN-INSA-Strasbourg/Hermes/archive/refs/heads/main.zip) archive
 
-2. (*Optional*) If you want to minimize install footprint, you may remove all unnecessary plugins by deleting their directory in :
+2. (*Optional*) If you want to minimize install footprint, you may remove `tests` directory, tests launcher `run_tests.sh` and all unnecessary plugins by deleting their directory in :
 
     - `clients/`
     - `plugins/attributes/`

@@ -4,7 +4,7 @@ url: hermes/features
 weight: 12
 ---
 
-- Doesn't require any change to sources data model (ie. no need to add `last_updated` column)
+- Doesn't require any change to sources data model (ie. no need to add a `last_updated` column)
 - [Multi-source](#multi-source), with ability to set [merge](#merging-data)/[aggregation](#aggregating-data) constraints
 - Able to handle several data types, with link (*foreign keys*) between them, and to enforce [integrity constraints](#integrity-constraints)
 - Able to transform data with [Jinja filters](https://jinja.palletsprojects.com/en/3.1.x/templates/#filters)
@@ -19,11 +19,11 @@ weight: 12
 
 ## Multi-source
 
-Hermes-server is able to poll multiple sources and merge or aggregate their data as if it was providing of the same source. It is even possible to set merge/aggregation constraints to ensure data consistency.
+Hermes-server is able to poll multiple sources and merge or aggregate their data as if it was provided from the same source. It is even possible to set merge/aggregation constraints to ensure data consistency.
 
 ### Merging data
 
-Let's work with a university data set, where Hermes should manage user accounts and employees and students are stored in different datasources. Hermes will be able to merge the two datasources in one virtual `Users`, but must ensure that primary keys are differents.
+Let's take a use case, with a university data set where Hermes should manage user accounts. Employees and students data are stored on two separate data sources. Hermes will be able to merge the two datasources in one virtual `Users`, but must ensure that primary keys doesn't collide.
 
 Here we got two distinct data sources for a same data type.
 
@@ -52,7 +52,7 @@ classDiagram
 
 ### Aggregating data
 
-Another use case, where Hermes should manage user accounts and main data and wifi profile's name are stored in different datasources. Hermes will be able to aggregate the two datasources in one virtual `Users`, but must ensure that primary keys of second exists in first.
+Another use case, where Hermes should manage user accounts. Main data and wifi profile's name are stored on two separate data sources. Hermes will be able to aggregate the two datasources in one virtual `Users`, but must ensure that primary keys of second exists in first.
 
 Here we got two distinct data sources for a same entry.
 
