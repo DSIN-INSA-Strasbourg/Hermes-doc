@@ -1,7 +1,7 @@
 ---
 title: License
 url: license
-weight: 6
+weight: 7
 ---
 
 The source code in Hermes is released under the [GPLv3 license](https://choosealicense.com/licenses/gpl-3.0/).

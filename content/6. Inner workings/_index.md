@@ -1,7 +1,7 @@
 ---
 title: Inner workings
 url: inner-workings
-weight: 5
+weight: 6
 draft: true
 ---
 
