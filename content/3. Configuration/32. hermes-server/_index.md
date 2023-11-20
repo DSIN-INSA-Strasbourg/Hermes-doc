@@ -106,7 +106,7 @@ The declaration order of datasources is important to for data merging if [hermes
 
 Mandatory subsection to set up the query used to fetch data.
 
-According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.vars) may be facultative : configure them according to your datasource plugin's documentation. <!-- TODO : add a link to plugins documentation -->
+According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.vars) may be facultative : configure them according to your [datasource plugin's documentation](../plugins/datasources).
 
 ###### hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.type {#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.type}
 
@@ -144,7 +144,7 @@ Jinja vars available are :
 
 Facultative subsection to set up a query to run each time an item of current data have been processed without errors.
 
-According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.vars) may be facultative : configure them according to your datasource plugin's documentation. <!-- TODO : add a link to plugins documentation -->
+According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.vars) may be facultative : configure them according to your [datasource plugin's documentation](../plugins/datasources).
 
 {{% notice warning %}}
 [commit_one](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one) and [commit_all](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all) are mutually exclusive : you can set none or one of them, but not both at the same time.
@@ -188,7 +188,7 @@ Jinja vars available are :
 
 Facultative subsection to set up a query to run once all data have been processed with no errors.
 
-According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.vars) may be facultative : configure them according to your datasource plugin's documentation. <!-- TODO : add a link to plugins documentation -->
+According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.vars) may be facultative : configure them according to your [datasource plugin's documentation](../plugins/datasources).
 
 {{% notice warning %}}
 [commit_all](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all) and [commit_one](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one) are mutually exclusive : you can set none or one of them, but not both at the same time.

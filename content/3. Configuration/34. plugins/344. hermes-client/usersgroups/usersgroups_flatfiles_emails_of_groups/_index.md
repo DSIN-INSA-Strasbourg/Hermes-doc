@@ -1,0 +1,58 @@
+---
+title: flatfiles_emails_of_groups
+url: configuration/plugins/hermes-client/usergroups/flatfiles_emails_of_groups
+---
+
+## Description
+
+This client will generate a flat txt file by `Groups`, containing the e-mail adresses of its members (one by line).
+
+## Configuration
+
+Nothing to configure for the plugin.
+
+```yaml
+hermes-client-usersgroups_flatfiles_emails_of_groups:
+  # MANDATORY
+  destDir: "/path/where/files/are/stored"
+
+  # Facultative : if set, will generate a file only for the specified group names in list
+  onlyTheseGroups:
+    - group1
+    - group2
+```
+
+## Datamodel
+
+The following data types have to be set up :
+
+- `Users`, requires the following attribute names :
+  - `user_pkey` : the user's primary key
+  - `mail` : the user's email address
+- `Groups`, requires the following attribute names :
+  - `group_pkey` : the group's primary key
+  - `name` : the group's name, that will be compared to those in `onlyTheseGroups`, and used to name the destination file "*groupName*.txt"
+- `GroupsMembers`, requires the following attribute names :
+  - `user_pkey` : the user's primary key
+  - `group_pkey` : the group's primary key
+
+```yaml
+  datamodel:
+    Users:
+      hermesType: your_server_Users_type_name
+      attrsmapping:
+        user_pkey: user_pkey_on_server
+        mail: mail_on_server
+
+    Groups:
+      hermesType: your_server_Groups_type_name
+      attrsmapping:
+        group_pkey: group_pkey_on_server
+        name: group_name_on_server
+
+    GroupsMembers:
+      hermesType: your_server_GroupsMembers_type_name
+      attrsmapping:
+        user_pkey: user_pkey_on_server
+        group_pkey: group_pkey_on_server
+```

@@ -168,7 +168,7 @@ It is divided in a subsection by plugin type.
 
 Facultative section to declare the attributes plugins to load, and their settings.
 
-It must contains a subsection named with the plugin's name containing a facultative `settings` subsection with the plugin's settings to fill according to the plugin's documentation. <!-- TODO : add a link to plugins documentation -->
+It must contains a subsection named with the plugin's name containing a facultative `settings` subsection with the plugin's settings to fill according to the [plugin's documentation](../plugins/attributes).
 
 Example with the `ldapPasswordHash` plugin :
 
@@ -189,12 +189,12 @@ hermes:
 
 ### hermes.plugins.datasources {#hermes.plugins.datasources}
 
-Mandatory section on `hermes-server` to declare the datasource(s), and their settings. If set on `hermes-clients`, it will be silently ignored. <!-- TODO : add a link to plugins documentation -->
+Mandatory section on `hermes-server` to declare the datasource(s), and their settings. If set on `hermes-clients`, it will be silently ignored.
 
 A same datasource plugin can bu used for several datasources, so for each datasource needed, you have to declare a subsection with your desired datasource name (that will be used in datamodel), containing two mandatories entries :
 
 - `type` (*string*) : the datasource plugin to use for this datasource.
-- `settings` (*subsection*) : the datasource plugin settings for this datasource according to the plugin's documentation. <!-- TODO : add a link to plugins documentation -->
+- `settings` (*subsection*) : the datasource plugin settings for this datasource according to the [plugin's documentation](../plugins/datasources).
 
 Example :
 
@@ -238,7 +238,7 @@ Mandatory section to declare the messagebus plugin to load, and its settings. Ob
 - On `hermes-server`, it will look up for *Message bus producer plugin* in `plugins/messagebus_producers/` directory.
 - On `hermes-client`, it will look up for *Message bus consumer plugin* in `plugins/messagebus_consumers/` directory.
 
- It must contains a subsection named with the plugin's name containing a facultative `settings` subsection with the plugin's settings to fill according to the plugin's documentation. <!-- TODO : add a link to plugins documentation -->
+ It must contains a subsection named with the plugin's name containing a facultative `settings` subsection with the plugin's settings to fill according to the [messagebus producers](../plugins/messagebus_producers) or [messagebus consumers](../plugins/messagebus_consumers) plugin's documentation.
 
 Example with the `sqlite` producer plugin :
 
