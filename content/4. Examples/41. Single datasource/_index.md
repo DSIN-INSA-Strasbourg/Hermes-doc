@@ -108,9 +108,9 @@ hermes:
           servers:
             - dummy.example.com:9093
           ssl:
-            cafile: /path/to/.hermes/INTERNAL-CA-chain.crt
             certfile: /path/to/.hermes/dummy.crt
             keyfile: /path/to/.hermes/dummy.pem
+            cafile: /path/to/.hermes/INTERNAL-CA-chain.crt
           topic: hermes
 
 hermes-server:
@@ -355,9 +355,9 @@ hermes:
           servers:
             - dummy.example.com:9093
           ssl:
-            cafile: /path/to/.hermes/INTERNAL-CA-chain.crt
             certfile: /path/to/.hermes/dummy.crt
             keyfile: /path/to/.hermes/dummy.pem
+            cafile: /path/to/.hermes/INTERNAL-CA-chain.crt
           topic: hermes
 
 hermes-server:
@@ -487,14 +487,14 @@ hermes:
     messagebus:
       kafka:
         settings:
-          group_id: hermes-grp
           servers:
             - dummy.example.com:9093
           ssl:
-            cafile: /path/to/.hermes/INTERNAL-CA-chain.crt
             certfile: /path/to/.hermes/dummy.crt
             keyfile: /path/to/.hermes/dummy.pem
+            cafile: /path/to/.hermes/INTERNAL-CA-chain.crt
           topic: hermes
+          group_id: hermes-grp
 
 hermes-client-usersgroups_ldap:
     uri: ldaps://ldap.example.com:636
