@@ -105,7 +105,6 @@ hermes:
     messagebus:
       kafka:
         settings:
-          group_id: hermes-grp
           servers:
             - dummy.example.com:9093
           ssl:
@@ -353,7 +352,6 @@ hermes:
     messagebus:
       kafka:
         settings:
-          group_id: hermes-grp
           servers:
             - dummy.example.com:9093
           ssl:
