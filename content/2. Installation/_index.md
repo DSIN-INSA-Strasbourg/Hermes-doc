@@ -21,14 +21,15 @@ For testing, Hermes provides a simple SQLite message bus implementation, but it 
 
 2. (*Optional*) If you want to minimize install footprint, you may remove `tests` directory, tests launcher `run_tests.sh` and all unnecessary plugins by deleting their directory in :
 
-    - `clients/`
     - `plugins/attributes/`
+    - `plugins/clients/`
     - `plugins/datasources/`
     - `plugins/messagebus_consumers/`
     - `plugins/messagebus_producers/`
 
     If your installation is for running **hermes-server** only (without clients), you may remove the following directories :
     - `clients`
+    - `plugins/clients/`
     - `plugins/messagebus_consumers`
 
     If your installation is for running one or more **hermes-client** only (without server), you may remove the following directories :
@@ -42,7 +43,7 @@ For testing, Hermes provides a simple SQLite message bus implementation, but it 
     - Manually. You can generate and install python requirements with the following commands :
 
       ```bash
-      cat "requirements.txt" "clients/"*"/requirements.txt" "plugins/"*/*"/requirements.txt" > all_requirements.txt 2>/dev/null
+      cat "requirements.txt" "plugins/"*/*"/requirements.txt" > all_requirements.txt 2>/dev/null
 
       pip3 install -r all_requirements.txt
       ```
