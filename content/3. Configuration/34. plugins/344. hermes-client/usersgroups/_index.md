@@ -1,6 +1,7 @@
 ---
 title: usergroups
 url: configuration/plugins/hermes-client/usergroups
+ordersectionsby: title
 ---
 
 Manage users, groups, userpasswords and groups membership.

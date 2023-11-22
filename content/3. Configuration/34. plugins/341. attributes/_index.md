@@ -2,6 +2,7 @@
 title: attributes plugins
 url: configuration/plugins/attributes
 weight: 341
+ordersectionsby: title
 ---
 
 - [crypto_RSA_OAEP](crypto_RSA_OAEP) : encrypt/decrypt strings with asymetric RSA keys, using PKCS#1 OAEP, an asymmetric cipher based on RSA and the OAEP padding

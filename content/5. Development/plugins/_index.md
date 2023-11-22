@@ -2,6 +2,7 @@
 title: Plugins
 url: development/plugins
 weight: 51
+ordersectionsby: title
 ---
 
 Whatever its type, a plugin is always a folder named '*plugin_name*' containing at least the following 4 files :
