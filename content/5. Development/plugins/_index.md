@@ -14,6 +14,7 @@ For details about plugin API, please consult the following sections :
 
 - [Attributes](attributes)
 - [Clients](clients)
+- [Datasources](datasources)
 
 ## Plugin configuration schema
 
