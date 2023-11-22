@@ -20,8 +20,8 @@ from clients import GenericClient
 
 # Required for event handlers method type hints
 from lib.config import HermesConfig # only if the plugin implement an __init__() method
-from typing import Any
 from lib.datamodel.dataobject import DataObject
+from typing import Any
 
 # Only needed if the plugin use logging features
 import logging
