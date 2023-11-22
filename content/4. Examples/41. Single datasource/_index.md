@@ -120,9 +120,9 @@ hermes-server:
   # - add/modify events will be processed in the declaration order
   # - remove events will be processed in the reversed declaration order
   datamodel:
-    SRVGroups: # Settings for SRVGroups's data type
-      primarykeyattr: srv_group_id # Attribute's name that will be used as primary key
-      # Template of object's string representation that will be used in logs
+    SRVGroups: # Settings for SRVGroups data type
+      primarykeyattr: srv_group_id # Attribute name that will be used as primary key
+      # Template of object string representation that will be used in logs
       toString: "<SRVGroups[{{ srv_group_id }}, {{ srv_group_name | default('#UNDEF#') }}]>"
       sources: # datasource(s) to use to fetch data. Usually one, but several could be used
         datasource_of_example1: # The source name set in hermes.plugins.datasources
@@ -134,7 +134,7 @@ hermes-server:
           #
           # According to source type, 'query' and 'vars' may be facultative.
           # A Jinja template can be inserted in 'query' and 'vars' values to avoid wilcards
-          # and manually typing the attribute's list, or to filter the query using a cached value.
+          # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
           # See documentation for details :
@@ -149,9 +149,9 @@ hermes-server:
             srv_group_name: GROUP_NAME
             srv_group_desc: GROUP_DESC
 
-    SRVUsers: # Settings for SRVUsers's data type
-      primarykeyattr: srv_user_id # Attribute's name that will be used as primary key
-      # Facultative template of object's string representation that will be used in logs
+    SRVUsers: # Settings for SRVUsers data type
+      primarykeyattr: srv_user_id # Attribute name that will be used as primary key
+      # Facultative template of object string representation that will be used in logs
       toString: "<SRVUsers[{{ srv_user_id }}, {{ srv_login | default('#UNDEF#') }}]>"
       sources: # datasource(s) to use to fetch data. Usually one, but several could be used
         datasource_of_example1: # The source name set in hermes.plugins.datasources
@@ -163,7 +163,7 @@ hermes-server:
           #
           # According to source type, 'query' and 'vars' may be facultative.
           # A Jinja template can be inserted in 'query' and 'vars' values to avoid wilcards
-          # and manually typing the attribute's list, or to filter the query using a cached value.
+          # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
           # See documentation for details :
@@ -182,10 +182,10 @@ hermes-server:
             srv_lastname: "{{ LASTNAME | title}}"
             srv_mail: MAIL
 
-    SRVUserPasswords: # Settings for SRVUserPasswords's data type
-      primarykeyattr: srv_user_id # Attribute's name that will be used as primary key
+    SRVUserPasswords: # Settings for SRVUserPasswords data type
+      primarykeyattr: srv_user_id # Attribute name that will be used as primary key
 
-      # Integrity constraints between datamodel's type, in Jinja.
+      # Integrity constraints between datamodel type, in Jinja.
       # WARNING : could be very slow, keep it as simple as possible, and focused upon
       # primary keys
       # Jinja vars available are '_SELF' : the current object, and every types declared
@@ -206,7 +206,7 @@ hermes-server:
           #
           # According to source type, 'query' and 'vars' may be facultative.
           # A Jinja template can be inserted in 'query' and 'vars' values to avoid wilcards
-          # and manually typing the attribute's list, or to filter the query using a cached value.
+          # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
           # See documentation for details :
@@ -229,7 +229,7 @@ hermes-server:
           #
           # According to source type, 'query' and 'vars' may be facultative.
           # A Jinja template can be inserted in 'query' and 'vars' values to avoid wilcards
-          # and manually typing the attribute's list, or to filter the query using a cached value.
+          # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, ITEM_CACHED_VALUES, ITEM_FETCHED_VALUES].
           # See documentation for details :
@@ -261,9 +261,9 @@ hermes-server:
               }}
 
     SRVGroupsMembers:
-      # Attribute's names that will be used as primary key : here is is a tuple
+      # Attribute names that will be used as primary key : here is is a tuple
       primarykeyattr: [srv_group_id, srv_user_id]
-      # Integrity constraints between datamodel's type, in Jinja.
+      # Integrity constraints between datamodel type, in Jinja.
       # WARNING : could be very slow, keep it as simple as possible, and focused upon
       # primary keys
       # Jinja vars available are '_SELF' : the current object, and every types declared
@@ -283,7 +283,7 @@ hermes-server:
           #
           # According to source type, 'query' and 'vars' may be facultative.
           # A Jinja template can be inserted in 'query' and 'vars' values to avoid wilcards
-          # and manually typing the attribute's list, or to filter the query using a cached value.
+          # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
           # See documentation for details :
@@ -402,7 +402,7 @@ hermes-server:
     SRVUserPasswords:
       primarykeyattr: srv_user_id
 
-      # Integrity constraints between datamodel's type, in Jinja.
+      # Integrity constraints between datamodel type, in Jinja.
       # https://hermes.insa-strasbourg.fr/en/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
       integrity_constraints:
         - "{{ _SELF.srv_user_id in SRVUsers_pkeys }}"
@@ -447,7 +447,7 @@ hermes-server:
     SRVGroupsMembers:
       # The primary key is a tuple
       primarykeyattr: [srv_group_id, srv_user_id]
-      # Integrity constraints between datamodel's type, in Jinja.
+      # Integrity constraints between datamodel type, in Jinja.
       # https://hermes.insa-strasbourg.fr/en/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
       integrity_constraints:
         - "{{ _SELF.srv_user_id in SRVUsers_pkeys and _SELF.srv_group_id in SRVGroups_pkeys }}"
@@ -540,7 +540,7 @@ hermes-client:
   datamodel:
     Users:
       hermesType: SRVUsers
-      # Facultative template of object's string representation that will be used in logs
+      # Facultative template of object string representation that will be used in logs
       toString: "<Users[{{ user_pkey }}, {{ uid | default('#UNDEF#') }}]>"
       attrsmapping:
         user_pkey: srv_user_id

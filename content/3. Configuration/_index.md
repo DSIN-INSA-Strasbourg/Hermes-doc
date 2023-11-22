@@ -14,12 +14,12 @@ The configuration file must be named with ***APPNAME*-config.yml**, ie :
 Settings are separated in several YAML sections :
 
 - [hermes](hermes) : settings shared by server and all clients
-- [hermes-server](hermes-server) : server's settings
+- [hermes-server](hermes-server) : server settings
 - [hermes-client](hermes-client) : settings shared by all clients
-- [hermes-client-*clientName*](plugins/hermes-client) : specific client's plugin settings
+- [hermes-client-*clientName*](plugins/hermes-client) : specific client plugin settings
 - hermes
   - plugins
     - [attributes](plugins/attributes) : attributes plugins settings
     - [datasources](plugins/datasources) : datasources plugins settings
-    - [messagebus](plugins/messagebus_producers) : server's messagebus_producers plugins settings
-    - [messagebus](plugins/messagebus_consumers) : client's messagebus_consumers plugins settings
+    - [messagebus](plugins/messagebus_producers) : server messagebus_producers plugins settings
+    - [messagebus](plugins/messagebus_consumers) : client messagebus_consumers plugins settings

@@ -35,7 +35,7 @@ class MyPluginClassName(AbstractAttributePlugin):
     def __init__(self, settings: dict[str, any]):
         # Instanciate new plugin and store a copy of its settings dict in self._settings
         super().__init__(settings)
-        # ... plugin's init code
+        # ... plugin init code
 ```
 
 ## *filter* method

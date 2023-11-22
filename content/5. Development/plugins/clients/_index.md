@@ -5,7 +5,7 @@ url: development/plugins/clients
 
 ## Description
 
-A client's plugin is simply a `GenericClient` subclass designed to implement simple events handlers, and to split their tasks in atomic substasks to ensure consistent error reprocessing.
+A client plugin is simply a `GenericClient` subclass designed to implement simple events handlers, and to split their tasks in atomic substasks to ensure consistent error reprocessing.
 
 ## Requirements
 
@@ -34,14 +34,14 @@ class MyPluginClassName(GenericClient):
     def __init__(self, config: HermesConfig):
         # The 'config' var must not be used nor modified by the plugin
         super().__init__(config)
-        # ... plugin's init code
+        # ... plugin init code
 ```
 
 ## Handlers methods
 
 ### Event handlers
 
-For each data type set up in the client's datamodel, the plugin may implement an handler for the 5 possible event types :
+For each data type set up in the client datamodel, the plugin may implement an handler for the 5 possible event types :
 
 - `added` : when an object is added
 - `recycled` : when an object is restored from trashbin (will never be called if trashbin is disabled)
@@ -102,12 +102,12 @@ Example for a `Mydatatype` data type :
 
 - `objkey` : the primary key of the object affected by the event
 
-- `eventattrs` : a dictionnary containing the new object's attributes. Its content depends upon the event type :
-  - `added` / `recycled` events : contains all object's attributes names as key, and their respective values as value
+- `eventattrs` : a dictionnary containing the new object attributes. Its content depends upon the event type :
+  - `added` / `recycled` events : contains all object attributes names as key, and their respective values as value
   - `modified` event : always contains three keys :
-    - `added` : attributes that were previously unset, but now have a value. Attribute's names as key, and their respective values as value
-    - `modified` : attributes that were previously set, but whose value has changed. Attribute's names as key, and their respective new values as value.
-    - `removed` : attributes that were previously set, but now doesn't have a value anymore. Attribute's names as key, and `None` as value
+    - `added` : attributes that were previously unset, but now have a value. Attribute names as key, and their respective values as value
+    - `modified` : attributes that were previously set, but whose value has changed. Attribute names as key, and their respective new values as value.
+    - `removed` : attributes that were previously set, but now doesn't have a value anymore. Attribute names as key, and `None` as value
   - `trashed` / `removed` events : always an empty dict `{}`
 
 - `newobj` : a `DataObject` instance containing all the updated values of the object affected by the event (*see [DataObject instances](#dataobject-instances) below*)
@@ -116,7 +116,7 @@ Example for a `Mydatatype` data type :
 
 #### DataObject instances
 
-Each data type's object can be used intuitively through a `DataObject` instance.
+Each data type object can be used intuitively through a `DataObject` instance.
 Let's use a simple example with this `User` object values (without a mail) from datamodel below :
 
 ```json
@@ -189,7 +189,7 @@ But sometimes, an handler have to process to several operations. Imagine an hand
 
 At each retry the `operation1()` function will be called again, but this is not necessarily desirable.
 
-It is possible to divide an handler in steps by using the `currentStep` `GenericClient`'s attribute, to resume the retries on the failed one.
+It is possible to divide an handler in steps by using the `currentStep` `GenericClient` attribute, to resume the retries on the failed one.
 
 `currentStep` always starts at 0 on normal event processing. Its new values are then up to plugin implementations.
 

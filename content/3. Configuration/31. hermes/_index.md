@@ -58,14 +58,14 @@ Enable CLI socket that will allow communication between app and its CLI.
 ### hermes.cli_socket.owner {#hermes.cli_socket.owner}
 
 - *Description* :  Name of the user that should own the socket file when created, as would be fed to chown.  
-    When left unspecified, it uses the current hermes-server's running user.
+    When left unspecified, it uses the current hermes-server running user.
 - *Mandatory* : No
 - *Type* : string
 
 ### hermes.cli_socket.group {#hermes.cli_socket.group}
 
 - *Description* : Name of the group that should own the socket file when created, as would be fed to chown.  
-    When left unspecified, it uses the current group of hermes-server's running user.
+    When left unspecified, it uses the current group of hermes-server running user.
 - *Mandatory* : No
 - *Type* : string
 
@@ -144,7 +144,7 @@ The email will contains 3 attachments when possible : `previous.txt`, `current.t
 
 ### hermes.mail.mailtext_maxsize {#hermes.mail.mailtext_maxsize}
 
-- *Description* : Max size in bytes for mail content. If content's size is greater than *mailtext_maxsize*, then a default fallback message will be set instead.
+- *Description* : Max size in bytes for mail content. If content size is greater than *mailtext_maxsize*, then a default fallback message will be set instead.
 - *Mandatory* : No
 - *Type* : integer
 - *Default value* : 1048576 *(1 MB)*
@@ -152,7 +152,7 @@ The email will contains 3 attachments when possible : `previous.txt`, `current.t
 
 ### hermes.mail.attachment_maxsize {#hermes.mail.attachment_maxsize}
 
-- *Description* : Max size in bytes for a single mail attachment. If content's size is greater than *mailtext_maxsize*, then the attachment won't be joined to emain, and a fallback message will be added to mail content instead.
+- *Description* : Max size in bytes for a single mail attachment. If content size is greater than *mailtext_maxsize*, then the attachment won't be joined to emain, and a fallback message will be added to mail content instead.
 - *Mandatory* : No
 - *Type* : integer
 - *Default value* : 5242880 *(5 MB)*
@@ -168,7 +168,7 @@ It is divided in a subsection by plugin type.
 
 Facultative section to declare the attributes plugins to load, and their settings.
 
-It must contains a subsection named with the plugin's name containing a facultative `settings` subsection with the plugin's settings to fill according to the [plugin's documentation](../plugins/attributes).
+It must contains a subsection named with the plugin name containing a facultative `settings` subsection with the plugin settings to fill according to the [plugin documentation](../plugins/attributes).
 
 Example with the `ldapPasswordHash` plugin :
 
@@ -194,7 +194,7 @@ Mandatory section on `hermes-server` to declare the datasource(s), and their set
 A same datasource plugin can bu used for several datasources, so for each datasource needed, you have to declare a subsection with your desired datasource name (that will be used in datamodel), containing two mandatories entries :
 
 - `type` (*string*) : the datasource plugin to use for this datasource.
-- `settings` (*subsection*) : the datasource plugin settings for this datasource according to the [plugin's documentation](../plugins/datasources).
+- `settings` (*subsection*) : the datasource plugin settings for this datasource according to the [plugin documentation](../plugins/datasources).
 
 Example :
 
@@ -238,7 +238,7 @@ Mandatory section to declare the messagebus plugin to load, and its settings. Ob
 - On `hermes-server`, it will look up for *Message bus producer plugin* in `plugins/messagebus_producers/` directory.
 - On `hermes-client`, it will look up for *Message bus consumer plugin* in `plugins/messagebus_consumers/` directory.
 
- It must contains a subsection named with the plugin's name containing a facultative `settings` subsection with the plugin's settings to fill according to the [messagebus producers](../plugins/messagebus_producers) or [messagebus consumers](../plugins/messagebus_consumers) plugin's documentation.
+ It must contains a subsection named with the plugin name containing a facultative `settings` subsection with the plugin settings to fill according to the [messagebus producers](../plugins/messagebus_producers) or [messagebus consumers](../plugins/messagebus_consumers) plugin documentation.
 
 Example with the `sqlite` producer plugin :
 

@@ -44,7 +44,7 @@ When an exception is raised during an event processing on [client plugin](#clien
 
 ### Auto remediation
 
-Sometimes, an event may be stored on [error queue](#error-queue) due to a data problem (ie. a group name with a trailing dot will raise an error on Active Directory). If the trailing dot is then removed from the group name on [datasource](#datasource), the `modified` event will be stored on [error queue](#error-queue), and won't be processed until previous one is processed, which cannot happen without manually editing [client](#client)'s cache file.
+Sometimes, an event may be stored on [error queue](#error-queue) due to a data problem (ie. a group name with a trailing dot will raise an error on Active Directory). If the trailing dot is then removed from the group name on [datasource](#datasource), the `modified` event will be stored on [error queue](#error-queue), and won't be processed until previous one is processed, which cannot happen without manually editing [client](#client) cache file.
 
 The autoremediation solves this type of problems by merging data of `added` and `modified` events of a same object in [error queue](#error-queue).
 It is not enabled by default, as it break the "*all events are processed in the order they were generated*" rule.
@@ -59,11 +59,11 @@ An Hermes plugin ran by [server](#server) or [client](#client) that will be offe
 
 ## Initsync
 
-A [client](#client) is unable to start processing new events safely without disposing of the previous complete data set. So the [server](#server) is able to send a specific event sequence called `initsync` that will contains the [server's datamodel](#servers-datamodel) and the whole data set. The already initialized client will silently ignore it, but the uninitialized will process it to initialize their target by adding all entries provided by initsync, and will then process subsequent events normally.
+A [client](#client) is unable to start processing new events safely without disposing of the previous complete data set. So the [server](#server) is able to send a specific event sequence called `initsync` that will contains the [server datamodel](#server-datamodel) and the whole data set. The already initialized client will silently ignore it, but the uninitialized will process it to initialize their target by adding all entries provided by initsync, and will then process subsequent events normally.
 
 ## Datamodel
 
-As they're some differences between them, please see [server's datamodel](#servers-datamodel) and [client's datamodel](#clients-datamodel).
+As they're some differences between them, please see [server datamodel](#server-datamodel) and [client datamodel](#client-datamodel).
 
 ### Data type
 
@@ -71,13 +71,13 @@ Also named "*object type*". A type of data with its [attributes mapping](#attrib
 
 #### Primary key
 
-The [data types](#data-type)'s attribute that is used to distinguish an entry from the others. It must obviously be unique.
+The [data types](#data-type) attribute that is used to distinguish an entry from the others. It must obviously be unique.
 
-### Server's datamodel
+### Server datamodel
 
 Configuration of [data types](#data-type) that [server](#server) must handle, with their respective [attributes mapping](#attributes-mapping). The remote attribute name is the attribute name used on [datasource](#datasource).
 
-The server's datamodel is built by specifying the following items :
+The server datamodel is built by specifying the following items :
 
 - Each [data types](#data-type) with :
   - its [primary key](#primary-key)
@@ -102,33 +102,33 @@ Allow to declare some constraints between several [data types](#data-type) to en
 
 ##### Cache only attributes
 
-[Datamodel](#servers-datamodel)'s attributes that will only be stored in cache, but won't be sent in events, nor used to diff with cache.
+[Datamodel](#server-datamodel) attributes that will only be stored in cache, but won't be sent in events, nor used to diff with cache.
 
 ##### Secrets attributes
 
-[Datamodel](#servers-datamodel)'s attributes that will contain sensitive data, like passwords, and must never be stored in cache nor printed in logs.  They'll be sent to clients unless they're defined as [local attributes](#local-attributes) too.
+[Datamodel](#server-datamodel) attributes that will contain sensitive data, like passwords, and must never be stored in cache nor printed in logs.  They'll be sent to clients unless they're defined as [local attributes](#local-attributes) too.
 
 {{% notice style="note" %}}
-As those attributes are not cached, they'll be seen as added at EACH [server](#server)'s polling.
+As those attributes are not cached, they'll be seen as added at EACH [server](#server) polling.
 {{% /notice %}}
 
 ##### Local attributes
 
-[Datamodel](#servers-datamodel)'s attributes that won't be sent in events, cached or used to diff with cache but may be used in Jinja templates.
+[Datamodel](#server-datamodel) attributes that won't be sent in events, cached or used to diff with cache but may be used in Jinja templates.
 
-### Client's datamodel
+### Client datamodel
 
-Configuration of [data types](#data-type) that [client](#client) must handle, with their [attributes mapping](#attributes-mapping). The remote attribute name is the attribute name used on the [server's datamodel](#servers-datamodel).
+Configuration of [data types](#data-type) that [client](#client) must handle, with their [attributes mapping](#attributes-mapping). The remote attribute name is the attribute name used on the [server datamodel](#server-datamodel).
 
 {{% notice style="info" %}}
 If you're asking yourself why this mapping is necessary, here's why :
 
 1. it allow local data transformation via [Jinja filter](https://jinja.palletsprojects.com/en/3.1.x/templates/#filters) and [Attribute plugin](#attribute-plugin) on [client](#client).
-2. it allow re-using (and sharing) [client plugins](#client-plugin) without requiring any change to your [server's datamodel](#servers-datamodel) nor plugin code, but simply by changing [client](#client)'s configuration file.
+2. it allow re-using (and sharing) [client plugins](#client-plugin) without requiring any change to your [server datamodel](#server-datamodel) nor plugin code, but simply by changing [client](#client) configuration file.
 
 {{% /notice %}}
 
-The client's datamodel is built by specifying the following items :
+The client datamodel is built by specifying the following items :
 
 - Each [data types](#data-type) with :
   - its corresponding remote [data type](#data-type) name called `hermesType`

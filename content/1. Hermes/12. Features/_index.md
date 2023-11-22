@@ -52,7 +52,7 @@ classDiagram
 
 ### Aggregating data
 
-Another use case, where Hermes should manage user accounts. Main data and wifi profile's name are stored on two separate data sources. Hermes will be able to aggregate the two datasources in one virtual `Users`, but must ensure that primary keys of second exists in first.
+Another use case, where Hermes should manage user accounts. Main data and wifi profile name are stored on two separate data sources. Hermes will be able to aggregate the two datasources in one virtual `Users`, but must ensure that primary keys of second exists in first.
 
 Here we got two distinct data sources for a same entry.
 

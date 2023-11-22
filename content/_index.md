@@ -3,6 +3,6 @@ title: Hermes
 archetype: home
 ---
 
-## Welcome to Hermes's documentation
+## Welcome to Hermes documentation
 
 {{% children  %}}

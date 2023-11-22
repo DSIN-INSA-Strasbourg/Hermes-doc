@@ -69,9 +69,9 @@ Main subsections :
 
 ## hermes-client.datamodel {#hermes-client.datamodel}
 
-Mandatory subsection used to configure [client's datamodel](/en/hermes/key-concepts/#clients-datamodel).
+Mandatory subsection used to configure [client datamodel](/en/hermes/key-concepts/#client-datamodel).
 
-For each [data types](/en/hermes/key-concepts/#data-type) needed, a subsection with the desired data type's name must be created, and configured. The data type's name MUST start with an alphanumerical character.
+For each [data types](/en/hermes/key-concepts/#data-type) needed, a subsection with the desired data type name must be created, and configured. The data type name MUST start with an alphanumerical character.
 
 Obviously, at least one data type must be set up.
 
@@ -89,9 +89,9 @@ Obviously, at least one data type must be set up.
 
 ### hermes-client.datamodel.data-type-name.attrsmapping {#hermes-client.datamodel.data-type-name.attrsmapping}
 
-Mandatory subsection to set up attribute's mapping. *CLIENT* attributes as keys, *REMOTE* attributes (identified as *HERMES* attributes on hermes-server) as values.
+Mandatory subsection to set up attribute mapping. *CLIENT* attributes as keys, *REMOTE* attributes (identified as *HERMES* attributes on hermes-server) as values.
 
-A Jinja template could be set as value. If you do so, the value outside the templates will be used as raw string, and not as remote attribute's name.
+A Jinja template could be set as value. If you do so, the value outside the templates will be used as raw string, and not as remote attribute name.
 
 Jinja vars available are :
 

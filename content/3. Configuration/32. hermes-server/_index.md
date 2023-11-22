@@ -4,7 +4,7 @@ url: configuration/hermes-server
 weight: 32
 ---
 
-Server's settings.
+Server settings.
 
 Main subsections :
 
@@ -34,9 +34,9 @@ Main subsections :
 
 ### hermes-server.datamodel {#hermes-server.datamodel}
 
-Mandatory subsection used to configure [server's datamodel](/en/hermes/key-concepts/#servers-datamodel).
+Mandatory subsection used to configure [server datamodel](/en/hermes/key-concepts/#server-datamodel).
 
-For each [data types](/en/hermes/key-concepts/#data-type) needed, a subsection with the desired data type's name must be created, and configured. The data type's name MUST start with an alphanumerical character.
+For each [data types](/en/hermes/key-concepts/#data-type) needed, a subsection with the desired data type name must be created, and configured. The data type name MUST start with an alphanumerical character.
 
 Obviously, at least one data type must be set up.
 
@@ -49,7 +49,7 @@ The declaration order of data types is important to enforce data integrity :
 
 #### hermes-server.datamodel.data-type-name.primarykeyattr {#hermes-server.datamodel.data-type-name.primarykeyattr}
 
-- *Description* : The name of the datamodel's attribute used as [primary key](/en/hermes/key-concepts/#primary-key). If the primary key is a tuple, you may declare a list of names.
+- *Description* : The name of the datamodel attribute used as [primary key](/en/hermes/key-concepts/#primary-key). If the primary key is a tuple, you may declare a list of names.
 - *Mandatory* : **Yes**
 - *Type* : string | string[]
 
@@ -71,7 +71,7 @@ The declaration order of data types is important to enforce data integrity :
 
 #### hermes-server.datamodel.data-type-name.integrity_constraints {#hermes-server.datamodel.data-type-name.integrity_constraints}
 
-- *Description* : Integrity constraints between datamodel's type, in Jinja.  
+- *Description* : Integrity constraints between datamodel type, in Jinja.  
   WARNING : could be very slow, so you should keep it as simple as possible, and focused upon primary keys.
 
   Jinja vars available are :
@@ -92,7 +92,7 @@ The declaration order of data types is important to enforce data integrity :
 
 #### hermes-server.datamodel.data-type-name.sources {#hermes-server.datamodel.data-type-name.sources}
 
-Mandatory subsection listing the datasource(s) used to fetch current data type's data.
+Mandatory subsection listing the datasource(s) used to fetch current data type data.
 
 For each datasource used, a subsection with its name must be defined and configured.
 
@@ -106,7 +106,7 @@ The declaration order of datasources is important to for data merging if [hermes
 
 Mandatory subsection to set up the query used to fetch data.
 
-According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.vars) may be facultative : configure them according to your [datasource plugin's documentation](../plugins/datasources).
+According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.vars) may be facultative : configure them according to your [datasource plugin documentation](../plugins/datasources).
 
 ###### hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.type {#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.type}
 
@@ -124,7 +124,7 @@ According to datasource plugin used, [query](#hermes-server.datamodel.data-type-
 - *Description* : The query to send to datasource. May be a Jinja template.
 
   Jinja vars available are :
-  - **REMOTE_ATTRIBUTES** : The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute's list.
+  - **REMOTE_ATTRIBUTES** : The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
   - **CACHED_VALUES** : The cache of previous query. A list of dictionnaries, each dictionnary is an entry with attrname as key, and corresponding value as value. May be useful to filter the query using a cached value.
 - *Mandatory* : No
 - *Type* : string
@@ -137,14 +137,14 @@ The var name as key, and its value as value. Each value may be a Jinja template.
 
 Jinja vars available are :
 
-- **REMOTE_ATTRIBUTES** : The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute's list.
+- **REMOTE_ATTRIBUTES** : The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
 - **CACHED_VALUES** : The cache of previous query. A list of dictionnaries, each dictionnary is an entry with attrname as key, and corresponding value as value.
 
 ##### hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one {#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one}
 
 Facultative subsection to set up a query to run each time an item of current data have been processed without errors.
 
-According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.vars) may be facultative : configure them according to your [datasource plugin's documentation](../plugins/datasources).
+According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.vars) may be facultative : configure them according to your [datasource plugin documentation](../plugins/datasources).
 
 {{% notice warning %}}
 [commit_one](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one) and [commit_all](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all) are mutually exclusive : you can set none or one of them, but not both at the same time.
@@ -166,7 +166,7 @@ According to datasource plugin used, [query](#hermes-server.datamodel.data-type-
 - *Description* : The query to send to datasource. May be a Jinja template.
 
   Jinja vars available are :
-  - **REMOTE_ATTRIBUTES** : The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute's list.
+  - **REMOTE_ATTRIBUTES** : The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
   - **ITEM_CACHED_VALUES** : The cache values of current item. A dictionnary with attrname as key, and corresponding value as value.
   - **ITEM_FETCHED_VALUES** : The fetched values of current item. A dictionnary with attrname as key, and corresponding value as value.
 - *Mandatory* : No
@@ -180,7 +180,7 @@ The var name as key, and its value as value. Each value may be a Jinja template.
 
 Jinja vars available are :
 
-- **REMOTE_ATTRIBUTES** : The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute's list.
+- **REMOTE_ATTRIBUTES** : The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
 - **ITEM_CACHED_VALUES** : The cache values of current item. A dictionnary with attrname as key, and corresponding value as value.
 - **ITEM_FETCHED_VALUES** : The fetched values of current item. A dictionnary with attrname as key, and corresponding value as value.
 
@@ -188,7 +188,7 @@ Jinja vars available are :
 
 Facultative subsection to set up a query to run once all data have been processed with no errors.
 
-According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.vars) may be facultative : configure them according to your [datasource plugin's documentation](../plugins/datasources).
+According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.vars) may be facultative : configure them according to your [datasource plugin documentation](../plugins/datasources).
 
 {{% notice warning %}}
 [commit_all](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all) and [commit_one](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one) are mutually exclusive : you can set none or one of them, but not both at the same time.
@@ -210,7 +210,7 @@ According to datasource plugin used, [query](#hermes-server.datamodel.data-type-
 - *Description* : The query to send to datasource. May be a Jinja template.
 
   Jinja vars available are :
-  - **REMOTE_ATTRIBUTES** : The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute's list.
+  - **REMOTE_ATTRIBUTES** : The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
   - **CACHED_VALUES** : The cache of previous polling. A list of dictionnaries, each dictionnary is an entry with attrname as key, and corresponding value as value.
   - **FETCHED_VALUES** : The fetched entries of current polling. A list of dictionnaries, each dictionnary is an entry with attrname as key, and corresponding value as value.
 - *Mandatory* : No
@@ -224,13 +224,13 @@ The var name as key, and its value as value. Each value may be a Jinja template.
 
 Jinja vars available are :
 
-- **REMOTE_ATTRIBUTES** : The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute's list.
+- **REMOTE_ATTRIBUTES** : The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
 - **CACHED_VALUES** : The cache of previous polling. A list of dictionnaries, each dictionnary is an entry with attrname as key, and corresponding value as value.
 - **FETCHED_VALUES** : The fetched entries of current polling. A list of dictionnaries, each dictionnary is an entry with attrname as key, and corresponding value as value.
 
 ##### hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping {#hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping}
 
-Mandatory subsection to set up attribute's mapping. *HERMES* attributes as keys, *REMOTE* attributes (on datasource) as values.
+Mandatory subsection to set up attribute mapping. *HERMES* attributes as keys, *REMOTE* attributes (on datasource) as values.
 A list of several remote attributes can be defined as a convenience, their non-`NULL` values will be combined in a list.
 The `NULL` values and empty lists won't be loaded.
 
@@ -268,8 +268,8 @@ Jinja vars available are :
 ##### hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint {#hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint}
 
 - *Description* : Constraints on primary keys during merge : will be applied during datasources merge.  
-  As merging will be processed in the datamodel's source declaration order in config file, the first source constraint will be ignored (because it will be created and not merged).
-  Then the first source's data will be merged with second source's according to second's `pkey_merge_constraint`. Then the resulting data will be merged with third source's data according to third's `pkey_merge_constraint`, etc.
+  As merging will be processed in the datamodel source declaration order in config file, the first source constraint will be ignored (because it will be created and not merged).
+  Then the first source data will be merged with second source according to second `pkey_merge_constraint`. Then the resulting data will be merged with third source data according to third `pkey_merge_constraint`, etc.
 - *Mandatory* : No
 - *Type* : string
 - *Default value* : `noConstraint`
@@ -287,9 +287,9 @@ Jinja vars available are :
   Very slow, avoid using them as possible.
   {{% /notice %}}
   Jinja vars available are :
-  - **_SELF** : the data type's item in current datasource being currently merged.
+  - **_SELF** : the data type item in current datasource being currently merged.
   - For each datasource declared in current data type :
-    - ***datasource-name*_pkeys** : A set with every primary keys of data type's item in current datasource.
+    - ***datasource-name*_pkeys** : A set with every primary keys of data type item in current datasource.
     - ***datasource-name*** : The fetched entries of current polling. A list of dictionnaries, each dictionnary is an entry with attrname as key, and corresponding value as value.
   {{% notice note %}}
   if [pkey_merge_constraint](#hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint) is defined, it will be enforced **before** `merge_constraints`, and Jinja vars will contains the resulting values.
