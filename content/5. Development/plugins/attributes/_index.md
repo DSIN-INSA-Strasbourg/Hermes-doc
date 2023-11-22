@@ -9,7 +9,7 @@ An attribute plugin is simply an `AbstractAttributePlugin` subclass designed to 
 
 ## Requirements
 
-Here is a commented minimal plugin implementation that won't do anything, as it doesnt implement any filter yet.
+Here is a commented minimal plugin implementation that won't do anything.
 
 ```py
 #!/usr/bin/env python3
@@ -36,6 +36,10 @@ class MyPluginClassName(AbstractAttributePlugin):
         # Instanciate new plugin and store a copy of its settings dict in self._settings
         super().__init__(settings)
         # ... plugin init code
+
+    def filter(self, value: Any | None | Undefined) -> Any:
+        # Filter that does nothing
+        return value
 ```
 
 ## *filter* method
