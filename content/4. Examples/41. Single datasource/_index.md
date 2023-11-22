@@ -1,6 +1,6 @@
 ---
 title: 01. Single datasource
-url: single-datasource
+url: examples/single-datasource
 weight: 41
 ---
 
