@@ -17,7 +17,7 @@ Here is a commented minimal plugin implementation that won't do anything.
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Required to subclass GenericClient
+# Required to subclass AbstractDataSourcePlugin
 from lib.plugins import AbstractDataSourcePlugin
 
 # Required for type hints
