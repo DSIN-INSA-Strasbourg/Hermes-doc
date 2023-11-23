@@ -16,6 +16,8 @@ For details about plugin API, please consult the following sections :
 - [Attributes](attributes)
 - [Clients](clients)
 - [Datasources](datasources)
+- [Messagebus consumers](messagebus_consumers)
+- [Messagebus producers](messagebus_producers)
 
 ## Plugin configuration schema
 
