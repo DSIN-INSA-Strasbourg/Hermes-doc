@@ -44,7 +44,7 @@ When an exception is raised during an event processing on [client plugin](#clien
 
 ### Auto remediation
 
-Sometimes, an event may be stored on [error queue](#error-queue) due to a data problem (ie. a group name with a trailing dot will raise an error on Active Directory). If the trailing dot is then removed from the group name on [datasource](#datasource), the `modified` event will be stored on [error queue](#error-queue), and won't be processed until previous one is processed, which cannot happen without manually editing [client](#client) cache file.
+Sometimes, an event may be stored on [error queue](#error-queue) due to a data problem (ie. a group name with a trailing dot will raise an error on Active Directory). If the trailing dot is then removed from the group name on [datasource](#datasource), the `modified` event will be stored on [error queue](#error-queue), and won't be processed until previous one is processed, which cannot happen without proceeding to a risky and undesirable operation : manually editing [client](#client) cache file.
 
 The autoremediation solves this type of problems by merging data of `added` and `modified` events of a same object in [error queue](#error-queue).
 It is not enabled by default, as it break the "*all events are processed in the order they were generated*" rule.
