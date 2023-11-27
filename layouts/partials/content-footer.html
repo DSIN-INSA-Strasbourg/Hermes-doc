@@ -1,9 +1,9 @@
 
 {{- with .GitInfo }}
               <p>
-                <i class='fas fa-user' title="Latest commit's author"></i> {{ .AuthorName }}
-                <i class='fas fa-calendar' title="Latest commit's date"></i> {{ .AuthorDate.Format "2006-01-02" }}
-                <i class='fas fa-clone'  title="Latest commit's hash"></i> {{ .Hash }}
+                <i class='fas fa-user' title="Author of latest commit"></i> {{ .AuthorName }}
+                <i class='fas fa-calendar' title="Date of latest commit"></i> {{ .AuthorDate.Format "2006-01-02" }}
+                <i class='fas fa-clone'  title="Hash of latest commit"></i> {{ .Hash }}
               </p>
 {{- end }}
               <p>
