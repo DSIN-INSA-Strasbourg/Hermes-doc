@@ -14,7 +14,7 @@ params:
   # Prefix URL to edit current page. Will display an "Edit" button on top right hand corner of every page.
   # Useful to give opportunity to people to create merge request for your doc.
   # See the config.toml file from this documentation site to have an example.
-  editURL: "https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/"
+  editURL: "https://github.com/DSIN-INSA-Strasbourg/Hermes-doc/edit/main/content/"
   # Author of the site, will be used in meta information
   author:
     name: INSA Strasbourg
