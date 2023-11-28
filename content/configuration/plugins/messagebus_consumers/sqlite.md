@@ -1,6 +1,5 @@
 ---
 title: sqlite
-url: configuration/plugins/messagebus_consumers/sqlite
 ---
 
 ## Description

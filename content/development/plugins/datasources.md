@@ -1,6 +1,5 @@
 ---
 title: Datasources
-url: development/plugins/datasources
 ---
 
 ## Description

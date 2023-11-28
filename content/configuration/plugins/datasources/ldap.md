@@ -1,6 +1,5 @@
 ---
 title: ldap
-url: configuration/plugins/datasources/ldap
 ---
 
 ## Description

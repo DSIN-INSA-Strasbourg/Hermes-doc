@@ -1,6 +1,5 @@
 ---
 title: Development
-url: development
 weight: 5
 ---
 

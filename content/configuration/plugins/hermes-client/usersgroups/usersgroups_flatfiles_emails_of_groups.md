@@ -1,6 +1,5 @@
 ---
 title: flatfiles_emails_of_groups
-url: configuration/plugins/hermes-client/usergroups/flatfiles_emails_of_groups
 ---
 
 ## Description

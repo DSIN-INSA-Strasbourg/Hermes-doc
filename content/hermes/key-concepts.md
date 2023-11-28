@@ -1,7 +1,6 @@
 ---
 title: Key concepts
-url: hermes/key-concepts
-weight: 13
+weight: 3
 ---
 
 ## Datasource

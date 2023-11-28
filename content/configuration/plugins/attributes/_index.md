@@ -1,7 +1,6 @@
 ---
 title: attributes plugins
-url: configuration/plugins/attributes
-weight: 341
+weight: 1
 ordersectionsby: title
 ---
 

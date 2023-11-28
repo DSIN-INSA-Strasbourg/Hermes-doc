@@ -1,6 +1,5 @@
 ---
 title: Messagebus producers
-url: development/plugins/messagebus_producers
 ---
 
 ## Description

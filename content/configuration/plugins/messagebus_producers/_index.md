@@ -1,7 +1,6 @@
 ---
 title: messagebus producers plugins
-url: configuration/plugins/messagebus_producers
-weight: 343
+weight: 3
 ordersectionsby: title
 ---
 

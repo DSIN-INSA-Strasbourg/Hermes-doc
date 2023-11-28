@@ -1,7 +1,6 @@
 ---
 title: 01. Single datasource
-url: examples/single-datasource
-weight: 41
+weight: 1
 ---
 
 ## Context

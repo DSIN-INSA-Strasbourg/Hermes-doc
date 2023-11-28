@@ -1,6 +1,5 @@
 ---
 title: "null"
-url: configuration/plugins/hermes-client/usergroups/null
 ---
 
 ## Description

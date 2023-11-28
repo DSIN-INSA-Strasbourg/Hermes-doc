@@ -1,7 +1,6 @@
 ---
 title: Presentation
-url: hermes/presentation
-weight: 11
+weight: 1
 ---
 
 ## What is Hermes

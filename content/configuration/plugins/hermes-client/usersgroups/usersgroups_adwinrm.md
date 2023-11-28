@@ -1,6 +1,5 @@
 ---
 title: adwinrm
-url: configuration/plugins/hermes-client/usergroups/adwinrm
 ---
 
 {{% notice style="warning" title="pywinrm is very slow" %}}

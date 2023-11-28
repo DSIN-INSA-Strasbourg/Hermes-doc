@@ -1,6 +1,5 @@
 ---
 title: Event processing
-url: how-it-works/hermes-client/event-processing
 weight: 2
 ---
 

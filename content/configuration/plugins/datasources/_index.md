@@ -1,7 +1,6 @@
 ---
 title: datasources plugins
-url: configuration/plugins/datasources
-weight: 342
+weight: 2
 ordersectionsby: title
 ---
 

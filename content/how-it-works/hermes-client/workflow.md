@@ -1,6 +1,5 @@
 ---
 title: Workflow
-url: how-it-works/hermes-client/workflow
 weight: 1
 ---
 

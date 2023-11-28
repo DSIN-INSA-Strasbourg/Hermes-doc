@@ -1,6 +1,5 @@
 ---
 title: kafka
-url: configuration/plugins/messagebus_consumers/kafka
 ---
 
 ## Description

@@ -1,6 +1,5 @@
 ---
 title: Cache files
-url: how-it-works/hermes-server/cache-files
 weight: 3
 ---
 

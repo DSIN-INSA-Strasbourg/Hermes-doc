@@ -1,6 +1,5 @@
 ---
 title: Installation
-url: installation
 weight: 2
 ---
 

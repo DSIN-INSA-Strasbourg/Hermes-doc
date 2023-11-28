@@ -1,7 +1,6 @@
 ---
 title: Features
-url: hermes/features
-weight: 12
+weight: 2
 ---
 
 - Doesn't require any change to sources data model (ie. no need to add a `last_updated` column)

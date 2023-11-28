@@ -1,6 +1,5 @@
 ---
 title: Clients
-url: development/plugins/clients
 ---
 
 ## Description

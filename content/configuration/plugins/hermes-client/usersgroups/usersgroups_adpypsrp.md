@@ -1,6 +1,5 @@
 ---
 title: adpypsrp
-url: configuration/plugins/hermes-client/usergroups/adpypsrp
 ---
 
 ## Description

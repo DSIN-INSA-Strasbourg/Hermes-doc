@@ -1,7 +1,6 @@
 ---
 title: hermes-client
-url: configuration/hermes-client
-weight: 33
+weight: 3
 ---
 
 Settings shared by all clients.

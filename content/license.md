@@ -1,7 +1,5 @@
 ---
 title: License
-url: license
-weight: 100
 _build:
   render: always
   list: never

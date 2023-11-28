@@ -1,7 +1,6 @@
 ---
 title: hermes-client plugins
-url: configuration/plugins/hermes-client
-weight: 344
+weight: 4
 ordersectionsby: title
 ---
 

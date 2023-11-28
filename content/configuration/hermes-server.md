@@ -1,7 +1,6 @@
 ---
 title: hermes-server
-url: configuration/hermes-server
-weight: 32
+weight: 2
 ---
 
 Server settings.

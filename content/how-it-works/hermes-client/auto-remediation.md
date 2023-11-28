@@ -1,6 +1,5 @@
 ---
 title: Auto remediation
-url: how-it-works/hermes-client/auto-remediation
 weight: 3
 ---
 

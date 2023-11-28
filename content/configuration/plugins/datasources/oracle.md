@@ -1,6 +1,5 @@
 ---
 title: oracle
-url: configuration/plugins/datasources/oracle
 ---
 
 ## Description

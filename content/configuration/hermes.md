@@ -1,7 +1,6 @@
 ---
 title: hermes
-url: configuration/hermes
-weight: 31
+weight: 1
 ---
 
 Settings shared by server and all clients.

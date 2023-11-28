@@ -1,6 +1,5 @@
 ---
 title: hermes-client
-url: how-it-works/hermes-client
 weight: 2
 ---
 

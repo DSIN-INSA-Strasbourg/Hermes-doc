@@ -1,6 +1,5 @@
 ---
 title: Configuration
-url: configuration
 weight: 3
 ---
 

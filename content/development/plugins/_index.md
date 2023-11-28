@@ -1,7 +1,6 @@
 ---
 title: Plugins
-url: development/plugins
-weight: 51
+weight: 1
 ordersectionsby: title
 ---
 

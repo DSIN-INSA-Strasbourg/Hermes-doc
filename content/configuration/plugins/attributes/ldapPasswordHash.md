@@ -1,6 +1,5 @@
 ---
 title: ldapPasswordHash
-url: configuration/plugins/attributes/ldapPasswordHash
 ---
 
 ## Description

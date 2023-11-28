@@ -1,6 +1,5 @@
 ---
 title: Attributes
-url: development/plugins/attributes
 ---
 
 ## Description

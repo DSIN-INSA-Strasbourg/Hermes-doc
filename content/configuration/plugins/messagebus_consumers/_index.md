@@ -1,7 +1,6 @@
 ---
 title: messagebus consumers plugins
-url: configuration/plugins/messagebus_consumers
-weight: 345
+weight: 5
 ordersectionsby: title
 ---
 

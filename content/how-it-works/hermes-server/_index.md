@@ -1,6 +1,5 @@
 ---
 title: hermes-server
-url: how-it-works/hermes-server
 weight: 1
 ---
 

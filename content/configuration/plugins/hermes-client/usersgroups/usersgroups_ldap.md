@@ -1,6 +1,5 @@
 ---
 title: ldap
-url: configuration/plugins/hermes-client/usergroups/ldap
 ---
 
 ## Description

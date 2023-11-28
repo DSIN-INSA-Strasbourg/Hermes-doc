@@ -1,7 +1,5 @@
 ---
 title: Credits
-url: credits
-weight: 100
 _build:
   render: always
   list: never

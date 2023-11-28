@@ -1,6 +1,5 @@
 ---
 title: usergroups
-url: configuration/plugins/hermes-client/usergroups
 ordersectionsby: title
 ---
 

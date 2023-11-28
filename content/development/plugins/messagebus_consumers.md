@@ -1,6 +1,5 @@
 ---
 title: Messagebus consumers
-url: development/plugins/messagebus_consumers
 ---
 
 ## Description

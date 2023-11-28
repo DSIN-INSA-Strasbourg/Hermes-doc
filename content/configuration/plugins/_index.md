@@ -1,7 +1,6 @@
 ---
 title: Plugins
-url: configuration/plugins
-weight: 34
+weight: 4
 ---
 
 ## Server and clients plugins

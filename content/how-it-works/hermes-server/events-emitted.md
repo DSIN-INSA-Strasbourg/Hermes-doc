@@ -1,6 +1,5 @@
 ---
 title: Events emitted
-url: how-it-works/hermes-server/events-emitted
 weight: 2
 ---
 
