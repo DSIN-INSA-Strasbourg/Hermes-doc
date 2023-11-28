@@ -1,6 +1,6 @@
 ---
 title: Events emitted
-weight: 2
+weight: 5
 ---
 
 ### Event categories
