@@ -1,11 +1,10 @@
 ---
 title: Development
-weight: 5
+weight: 4
+archetype: chapter
 ---
 
-Development may be required to implement a [plugin](plugins) or even to contribute to Hermes core.
-
-This section contains the documentation to get started.
+This section contains the documentation to get started with [plugin](plugins) development and Hermes "core" contribution.
 
 ## Coding style
 

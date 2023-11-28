@@ -1,6 +1,7 @@
 ---
 title: Examples
-weight: 4
+weight: 3
+archetype: chapter
 ---
 
-{{% children %}}
+This section contains some examples of different use cases, and their config files.
