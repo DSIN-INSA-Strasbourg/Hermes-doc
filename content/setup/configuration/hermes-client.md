@@ -20,7 +20,7 @@ Main subsections :
   {{% notice warning %}}
   Enabling this feature will break the processing order of events : if your data types are only linked by primary keys, it shouldn't be problematic, but if the links between them are more complex, you really should consider what could go wrong before enabling it.  
 
-  See [how works autoremediation](../../../hermes/how-it-works/hermes-client/auto-remediation) for more details.
+  See [how works autoremediation](../../../hermes/how-it-works/hermes-client/auto-remediation/) for more details.
   {{% /notice%}}
 - *Mandatory* : No
 - *Type* : boolean

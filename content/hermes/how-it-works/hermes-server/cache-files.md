@@ -27,7 +27,7 @@ Contains state of the server :
 
 ## _dataschema.json
 
-Contains the Dataschema, built upon the Datamodel. This cache file permit to server to process to the step `2.` from [Workflow](../workflow).
+Contains the Dataschema, built upon the Datamodel. This cache file permit to server to process to the step `2.` from [Workflow](../workflow/).
 
 ## *DataType*.json
 

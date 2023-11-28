@@ -14,7 +14,7 @@ weight: 2
 For testing, Hermes provides a simple SQLite message bus implementation, but it shouldn't be used for production
 {{% /notice %}}
 
-## Installation
+## Install guide
 
 1. Download and extract the [hermes latest](https://github.com/DSIN-INSA-Strasbourg/Hermes/archive/refs/heads/main.zip) archive
 

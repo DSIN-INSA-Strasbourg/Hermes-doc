@@ -5,6 +5,6 @@ ordersectionsby: title
 ---
 
 
-- [kafka](./kafka) : Send produced events over an Apache Kafka server
+- [kafka](./kafka/) : Send produced events over an Apache Kafka server
 
-- [sqlite](./sqlite) : Send produced events over a SQLite database
+- [sqlite](./sqlite/) : Send produced events over a SQLite database

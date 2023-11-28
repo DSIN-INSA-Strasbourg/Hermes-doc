@@ -167,7 +167,7 @@ It is divided in a subsection by plugin type.
 
 Facultative section to declare the attributes plugins to load, and their settings.
 
-It must contains a subsection named with the plugin name containing a facultative `settings` subsection with the plugin settings to fill according to the [plugin documentation](../plugins/attributes).
+It must contains a subsection named with the plugin name containing a facultative `settings` subsection with the plugin settings to fill according to the [plugin documentation](../plugins/attributes/).
 
 Example with the `ldapPasswordHash` plugin :
 
@@ -193,7 +193,7 @@ Mandatory section on `hermes-server` to declare the datasource(s), and their set
 A same datasource plugin can bu used for several datasources, so for each datasource needed, you have to declare a subsection with your desired datasource name (that will be used in datamodel), containing two mandatories entries :
 
 - `type` (*string*) : the datasource plugin to use for this datasource.
-- `settings` (*subsection*) : the datasource plugin settings for this datasource according to the [plugin documentation](../plugins/datasources).
+- `settings` (*subsection*) : the datasource plugin settings for this datasource according to the [plugin documentation](../plugins/datasources/).
 
 Example :
 
@@ -237,7 +237,7 @@ Mandatory section to declare the messagebus plugin to load, and its settings. Ob
 - On `hermes-server`, it will look up for *Message bus producer plugin* in `plugins/messagebus_producers/` directory.
 - On `hermes-client`, it will look up for *Message bus consumer plugin* in `plugins/messagebus_consumers/` directory.
 
- It must contains a subsection named with the plugin name containing a facultative `settings` subsection with the plugin settings to fill according to the [messagebus producers](../plugins/messagebus_producers) or [messagebus consumers](../plugins/messagebus_consumers) plugin documentation.
+ It must contains a subsection named with the plugin name containing a facultative `settings` subsection with the plugin settings to fill according to the [messagebus producers](../plugins/messagebus_producers/) or [messagebus consumers](../plugins/messagebus_consumers/) plugin documentation.
 
 Example with the `sqlite` producer plugin :
 
