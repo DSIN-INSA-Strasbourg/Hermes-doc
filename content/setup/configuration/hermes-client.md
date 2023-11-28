@@ -20,7 +20,7 @@ Main subsections :
   {{% notice warning %}}
   Enabling this feature will break the processing order of events : if your data types are only linked by primary keys, it shouldn't be problematic, but if the links between them are more complex, you really should consider what could go wrong before enabling it.  
 
-  See [how works autoremediation](../../how-it-works/hermes-client/#auto-remediation) for more details.
+  See [how works autoremediation](../../../hermes/how-it-works/hermes-client/auto-remediation) for more details.
   {{% /notice%}}
 - *Mandatory* : No
 - *Type* : boolean
@@ -69,9 +69,9 @@ Main subsections :
 
 ## hermes-client.datamodel {#hermes-client.datamodel}
 
-Mandatory subsection used to configure [client datamodel](/en/hermes/key-concepts/#client-datamodel).
+Mandatory subsection used to configure [client datamodel](../../../hermes/key-concepts/#client-datamodel).
 
-For each [data types](/en/hermes/key-concepts/#data-type) needed, a subsection with the desired data type name must be created, and configured. The data type name MUST start with an alphanumerical character.
+For each [data types](../../../hermes/key-concepts/#data-type) needed, a subsection with the desired data type name must be created, and configured. The data type name MUST start with an alphanumerical character.
 
 Obviously, at least one data type must be set up.
 

@@ -4,7 +4,7 @@ weight: 4
 archetype: chapter
 ---
 
-This section contains the documentation to get started with [plugin](plugins) development and Hermes "core" contribution.
+This section contains the documentation to get started with [plugin](./plugins) development and Hermes "core" contribution.
 
 ## Coding style
 

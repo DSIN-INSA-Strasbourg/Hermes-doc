@@ -33,9 +33,9 @@ Main subsections :
 
 ### hermes-server.datamodel {#hermes-server.datamodel}
 
-Mandatory subsection used to configure [server datamodel](/en/hermes/key-concepts/#server-datamodel).
+Mandatory subsection used to configure [server datamodel](../../../hermes/key-concepts/#server-datamodel).
 
-For each [data types](/en/hermes/key-concepts/#data-type) needed, a subsection with the desired data type name must be created, and configured. The data type name MUST start with an alphanumerical character.
+For each [data types](../../../hermes/key-concepts/#data-type) needed, a subsection with the desired data type name must be created, and configured. The data type name MUST start with an alphanumerical character.
 
 Obviously, at least one data type must be set up.
 
@@ -48,7 +48,7 @@ The declaration order of data types is important to enforce data integrity :
 
 #### hermes-server.datamodel.data-type-name.primarykeyattr {#hermes-server.datamodel.data-type-name.primarykeyattr}
 
-- *Description* : The name of the datamodel attribute used as [primary key](/en/hermes/key-concepts/#primary-key). If the primary key is a tuple, you may declare a list of names.
+- *Description* : The name of the datamodel attribute used as [primary key](../../../hermes/key-concepts/#primary-key). If the primary key is a tuple, you may declare a list of names.
 - *Mandatory* : **Yes**
 - *Type* : string | string[]
 
