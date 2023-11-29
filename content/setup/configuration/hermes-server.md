@@ -44,6 +44,9 @@ The declaration order of data types is important to enforce data integrity :
 
 - add/modify events will be processed in the declaration order
 - remove events will be processed in the reversed declaration order
+
+So you really should first declare data types that do not depend on any other types, and then types that have dependencies (foreign keys) to those declared above.
+
 {{% /notice %}}
 
 #### hermes-server.datamodel.data-type-name.primarykeyattr {#hermes-server.datamodel.data-type-name.primarykeyattr}
