@@ -57,7 +57,7 @@ For server :
 
 ```bash
 $ ./hermes.py server-cli -h
-usage: hermes.py [-h] {initsync,update,quit,pause,resume,status} ...
+usage: hermes-server-cli [-h] {initsync,update,quit,pause,resume,status} ...
 
 Hermes Server CLI
 
@@ -79,7 +79,7 @@ For a client :
 
 ```bash
 $ ./hermes.py client-usersgroups_null-cli -h
-usage: hermes.py [-h] {quit,pause,resume,status} ...
+usage: hermes-client-usersgroups_null-cli [-h] {quit,pause,resume,status} ...
 
 Hermes client hermes-client-usersgroups_null CLI
 
