@@ -15,3 +15,4 @@ weight: 2
   - Attribute filters (data filters)
   - Clients (targets)
   - Messagebus
+- Changes to the datamodel are easy and safe to integrate and propagate, whether on the [server](../maintenance/server-datamodel-update/) or on the [clients](../maintenance/client-datamodel-update/)
