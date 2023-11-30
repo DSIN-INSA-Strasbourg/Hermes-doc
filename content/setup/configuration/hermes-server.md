@@ -249,7 +249,7 @@ Jinja vars available are :
 
 - *Description* : Define attributes that will contain sensitive data, like passwords.  
   It will indicates Hermes to not cache them. The attribute names set here must exists as keys in [attrsmapping](#hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping). They'll be sent to clients unless they're
-  defined in [local_attrs](#hermes-server.datamodel.data-type-name.sources.datasource-name.local_attrs) too. As they're not cached, they'll be seen as added EACH TIME in diff.
+  defined in [local_attrs](#hermes-server.datamodel.data-type-name.sources.datasource-name.local_attrs) too. As they're not cached, they'll be seen as added EACH TIME the server will be restarted, and the consecutive events will be sent.
 - *Mandatory* : No
 - *Type* : string[]
 
