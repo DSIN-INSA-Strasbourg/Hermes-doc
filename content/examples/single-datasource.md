@@ -137,7 +137,7 @@ hermes-server:
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
           # See documentation for details :
-          # https://hermes.insa-strasbourg.fr/en/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch
+          # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch
           fetch:
             type: fetch
             query: >-
@@ -166,7 +166,7 @@ hermes-server:
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
           # See documentation for details :
-          # https://hermes.insa-strasbourg.fr/en/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch
+          # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch
           fetch:
             type: fetch
             query: >-
@@ -191,7 +191,7 @@ hermes-server:
       # For each "typename" declared, two vars are available :
       # - typename_pkeys : a set with every primary keys
       # - typename : a list of dict containing each entries
-      # https://hermes.insa-strasbourg.fr/en/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
+      # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
       integrity_constraints:
         - "{{ _SELF.srv_user_id in SRVUsers_pkeys }}"
       
@@ -209,7 +209,7 @@ hermes-server:
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
           # See documentation for details :
-          # https://hermes.insa-strasbourg.fr/en/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch
+          # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch
           fetch:
             type: fetch
             query: >-
@@ -232,7 +232,7 @@ hermes-server:
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, ITEM_CACHED_VALUES, ITEM_FETCHED_VALUES].
           # See documentation for details :
-          # https://hermes.insa-strasbourg.fr/en/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one
+          # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one
           commit_one:
             type: modify
             query: >-
@@ -269,7 +269,7 @@ hermes-server:
       # For each "typename" declared, two vars are available :
       # - typename_pkeys : a set with every primary keys
       # - typename : a list of dict containing each entries
-      # https://hermes.insa-strasbourg.fr/en/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
+      # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
       integrity_constraints:
         - "{{ _SELF.srv_user_id in SRVUsers_pkeys and _SELF.srv_group_id in SRVGroups_pkeys }}"
       sources: # datasource(s) to use to fetch data. Usually one, but several could be used
@@ -286,7 +286,7 @@ hermes-server:
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
           # See documentation for details :
-          # https://hermes.insa-strasbourg.fr/en/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch
+          # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch
           fetch:
             type: fetch
             query: >-
@@ -402,7 +402,7 @@ hermes-server:
       primarykeyattr: srv_user_id
 
       # Integrity constraints between datamodel type, in Jinja.
-      # https://hermes.insa-strasbourg.fr/en/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
+      # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
       integrity_constraints:
         - "{{ _SELF.srv_user_id in SRVUsers_pkeys }}"
       
@@ -416,7 +416,7 @@ hermes-server:
 
           # For each entry successfully processed, we'll remove PASSWORD_ENCRYPTED
           # and store the freshly computed LDAP_HASHES.
-          # https://hermes.insa-strasbourg.fr/en/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one
+          # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one
           commit_one:
             type: modify
             query: >-
@@ -447,7 +447,7 @@ hermes-server:
       # The primary key is a tuple
       primarykeyattr: [srv_group_id, srv_user_id]
       # Integrity constraints between datamodel type, in Jinja.
-      # https://hermes.insa-strasbourg.fr/en/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
+      # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
       integrity_constraints:
         - "{{ _SELF.srv_user_id in SRVUsers_pkeys and _SELF.srv_group_id in SRVGroups_pkeys }}"
       sources:
