@@ -17,13 +17,13 @@ Contains state of the server :
   errors: dict[str, dict[str, dict[str, Any]]]
   ```
 
-  Dictionnary containing current errors, for notifications.
+  Dictionary containing current errors, for notifications.
 
 - ```py
   exception: str | None
   ```
 
-  String containg latest exception trace.
+  String containing latest exception trace.
 
 ## _dataschema.json
 

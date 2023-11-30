@@ -27,12 +27,12 @@ from typing import Any
 import logging
 logger = logging.getLogger("hermes")
 
-# Required to indicate to hermes which class it has to instanciate
+# Required to indicate to hermes which class it has to instantiate
 HERMES_PLUGIN_CLASSNAME = "MyPluginClassName"
 
 class MyPluginClassName(AbstractAttributePlugin):
     def __init__(self, settings: dict[str, any]):
-        # Instanciate new plugin and store a copy of its settings dict in self._settings
+        # Instantiate new plugin and store a copy of its settings dict in self._settings
         super().__init__(settings)
         # ... plugin init code
 
@@ -80,7 +80,7 @@ from typing import Any
 
 from datetime import datetime
 
-# Required to indicate to hermes which class it has to instanciate
+# Required to indicate to hermes which class it has to instantiate
 HERMES_PLUGIN_CLASSNAME = "DatetimeFormatPlugin"
 
 class DatetimeFormatPlugin(AbstractAttributePlugin):

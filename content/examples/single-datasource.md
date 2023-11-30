@@ -132,7 +132,7 @@ hermes-server:
           # 'vars' is a dict with vars to use (and sanitize !) in query
           #
           # According to source type, 'query' and 'vars' may be facultative.
-          # A Jinja template can be inserted in 'query' and 'vars' values to avoid wilcards
+          # A Jinja template can be inserted in 'query' and 'vars' values to avoid wildcards
           # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
@@ -161,7 +161,7 @@ hermes-server:
           # 'vars' is a dict with vars to use (and sanitize !) in query
           #
           # According to source type, 'query' and 'vars' may be facultative.
-          # A Jinja template can be inserted in 'query' and 'vars' values to avoid wilcards
+          # A Jinja template can be inserted in 'query' and 'vars' values to avoid wildcards
           # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
@@ -204,7 +204,7 @@ hermes-server:
           # 'vars' is a dict with vars to use (and sanitize !) in query
           #
           # According to source type, 'query' and 'vars' may be facultative.
-          # A Jinja template can be inserted in 'query' and 'vars' values to avoid wilcards
+          # A Jinja template can be inserted in 'query' and 'vars' values to avoid wildcards
           # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
@@ -227,7 +227,7 @@ hermes-server:
           # 'vars' is a dict with vars to use (and sanitize !) in query
           #
           # According to source type, 'query' and 'vars' may be facultative.
-          # A Jinja template can be inserted in 'query' and 'vars' values to avoid wilcards
+          # A Jinja template can be inserted in 'query' and 'vars' values to avoid wildcards
           # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, ITEM_CACHED_VALUES, ITEM_FETCHED_VALUES].
@@ -281,7 +281,7 @@ hermes-server:
           # 'vars' is a dict with vars to use (and sanitize !) in query
           #
           # According to source type, 'query' and 'vars' may be facultative.
-          # A Jinja template can be inserted in 'query' and 'vars' values to avoid wilcards
+          # A Jinja template can be inserted in 'query' and 'vars' values to avoid wildcards
           # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].

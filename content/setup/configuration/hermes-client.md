@@ -46,7 +46,7 @@ Main subsections :
 ## hermes-client.trashbin_retention {#hermes-client.trashbin_retention}
 
 - *Description* : Number of days to keep removed data in trashbin before permanently deleting it.  
-  `0`/`unset` disable the trashbin : data will be immediatly deleted.
+  `0`/`unset` disable the trashbin : data will be immediately deleted.
 - *Mandatory* : No
 - *Type* : integer
 - *Default value* : 0 *(no trashbin)*
@@ -96,3 +96,16 @@ A Jinja template could be set as value. If you do so, the value outside the temp
 Jinja vars available are :
 
 - each remote attribute for current data type, only if its value is not `NULL` and not an empty list.
+
+{{% notice note %}}
+The primary key of the data type on server must always be declared once and only once as a raw attribute (not a Jinja template). Otherwise the client will immediately terminate because it won't be able to do an exact mapping between the remote primary key and its corresponding local attribute.
+
+If for some reason its value is needed in more than one attribute, you may set it up with a Jinja template, like this :
+
+```yaml
+      attrsmapping:
+        pkey: remote_pkey
+        other_attr_with_pkey_value: "{{ remote_pkey }}"
+```
+
+{{% /notice %}}

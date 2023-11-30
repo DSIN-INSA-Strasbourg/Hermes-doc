@@ -4,11 +4,11 @@ title: Clients
 
 ## Description
 
-A client plugin is simply a `GenericClient` subclass designed to implement simple events handlers, and to split their tasks in atomic substasks to ensure consistent error reprocessing.
+A client plugin is simply a `GenericClient` subclass designed to implement simple events handlers, and to split their tasks in atomic subtasks to ensure consistent error reprocessing.
 
 ## Requirements
 
-Here is a commented minimal plugin implementation that won't do anything, as it doesnt implement any event handlers yet.
+Here is a commented minimal plugin implementation that won't do anything, as it doesn't implement any event handlers yet.
 
 ```py
 #!/usr/bin/env python3
@@ -26,7 +26,7 @@ from typing import Any
 import logging
 logger = logging.getLogger("hermes")
 
-# Required to indicate to hermes which class it has to instanciate
+# Required to indicate to hermes which class it has to instantiate
 HERMES_PLUGIN_CLASSNAME = "MyPluginClassName"
 
 class MyPluginClassName(GenericClient):
@@ -101,7 +101,7 @@ Example for a `Mydatatype` data type :
 
 - `objkey` : the primary key of the object affected by the event
 
-- `eventattrs` : a dictionnary containing the new object attributes. Its content depends upon the event type :
+- `eventattrs` : a dictionary containing the new object attributes. Its content depends upon the event type :
   - `added` / `recycled` events : contains all object attributes names as key, and their respective values as value
   - `modified` event : always contains three keys :
     - `added` : attributes that were previously unset, but now have a value. Attribute names as key, and their respective values as value
@@ -220,7 +220,7 @@ A special handler may be implemented when hermes just have saved its cache files
 {{% notice warning %}}
 As this handler isn't an standard event handler, `GenericClient` can't handle exceptions for it, and process to a retry later.
 
-**Any unhandled exception raised in this handler will immediatly terminate the client.**
+**Any unhandled exception raised in this handler will immediately terminate the client.**
 
 It's up to the implementation to avoid errors.
 {{% /notice %}}

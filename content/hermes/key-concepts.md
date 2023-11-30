@@ -35,18 +35,18 @@ hermes-client application : will consume events from [message bus](#message-bus)
 
 If configured to, the client won't immediately remove data, but store it in trashbin for a configured number of days. If the data is added again before this delay, the client will restore it from trashbin. Otherwise, once the trashbin retention limit will be reached, the data will be removed.
 
-Depending on the chosen implementation on [client plugin](#client-plugin), it may allow a lot of scenarii, ie. disabling an account, or keeping it active for a grace period.
+Depending on the chosen implementation on [client plugin](#client-plugin), it may allow a lot of scenarios, ie. disabling an account, or keeping it active for a grace period.
 
 ### Error queue
 
-When an exception is raised during an event processing on [client plugin](#client-plugin), the event is stored on an error queue. All subsequent events conerning same data objects won't be processed but stored on error queue until the first is successfully processed. The processing of events in error queue is retried periodically.
+When an exception is raised during an event processing on [client plugin](#client-plugin), the event is stored on an error queue. All subsequent events concerning same data objects won't be processed but stored in error queue until the first is successfully processed. The processing of events in error queue is retried periodically.
 
 ### Auto remediation
 
-Sometimes, an event may be stored on [error queue](#error-queue) due to a data problem (ie. a group name with a trailing dot will raise an error on Active Directory). If the trailing dot is then removed from the group name on [datasource](#datasource), the `modified` event will be stored on [error queue](#error-queue), and won't be processed until previous one is processed, which cannot happen without proceeding to a risky and undesirable operation : manually editing [client](#client) cache file.
+Sometimes, an event may be stored on [error queue](#error-queue) due to a data problem (ie. a group name with a trailing dot will raise an error on Active Directory). If the trailing dot is then removed from the group name on [datasource](#datasource), the `modified` event will be stored on [error queue](#error-queue), and won't be processed until previous one is processed, which cannot happen without proceeding to a risky and undesirable operation : manually editing [client](#client) cache files.
 
 The autoremediation solves this type of problems by merging data of `added` and `modified` events of a same object in [error queue](#error-queue).
-It is not enabled by default, as it break the "*all events are processed in the order they were generated*" rule.
+It is not enabled by default, as it breaks the "*all events are processed in the order they were generated*" rule.
 
 ## Client plugin
 
@@ -58,7 +58,7 @@ An Hermes plugin ran by [server](#server) or [client](#client) that will be offe
 
 ## Initsync
 
-A [client](#client) is unable to start processing new events safely without disposing of the previous complete data set. So the [server](#server) is able to send a specific event sequence called `initsync` that will contains the [server datamodel](#server-datamodel) and the whole data set. The already initialized client will silently ignore it, but the uninitialized will process it to initialize their target by adding all entries provided by initsync, and will then process subsequent events normally.
+A [client](#client) is unable to start processing new events safely without disposing of the previous complete data set. So the [server](#server) is able to send a specific event sequence called `initsync` that will contain the [server datamodel](#server-datamodel) and the whole data set. The already initialized client will silently ignore it, but the uninitialized will process it to initialize their target by adding all entries provided by initsync, and will then process subsequent events normally.
 
 ## Datamodel
 
@@ -78,7 +78,7 @@ Configuration of [data types](#data-type) that [server](#server) must handle, wi
 
 The server datamodel is built by specifying the following items :
 
-- Each [data types](#data-type) with :
+- Each [data type](#data-type) with :
   - its [primary key](#primary-key)
   - its [integrity-constraints](#integrity-constraints)
   - its [merge conflict policy](#merge-conflict-policy)

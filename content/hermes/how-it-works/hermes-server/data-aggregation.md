@@ -3,7 +3,7 @@ title: Multi source data aggregation
 weight: 3
 ---
 
-In a multi-source scenario, Hermes is able to aggregate entries providing of multiple sources as if they were providing of one, and optionnaly setting aggregation constraints to ensure data consistency.
+In a multi-source scenario, Hermes is able to aggregate entries providing of multiple sources as if they were providing of one, and optionally setting aggregation constraints to ensure data consistency.
 
 Let's take a use case, with a university data set where Hermes should manage user accounts. Employees and students data are stored on two separate data sources. Hermes will be able to merge the two datasources in one virtual `Users`, but must ensure that primary keys doesn't collide.
 

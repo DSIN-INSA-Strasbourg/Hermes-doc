@@ -4,7 +4,7 @@ title: Messagebus producers
 
 ## Description
 
-A datsource plugin is simply a `AbstractMessageBusProducerPlugin` subclass designed to link hermes-server with any message bus.
+A datasource plugin is simply a `AbstractMessageBusProducerPlugin` subclass designed to link hermes-server with any message bus.
 
 It requires methods to connect and disconnect to message bus, and to produce (send) events over it.
 
@@ -37,12 +37,12 @@ from typing import Any
 import logging
 logger = logging.getLogger("hermes")
 
-# Required to indicate to hermes which class it has to instanciate
+# Required to indicate to hermes which class it has to instantiate
 HERMES_PLUGIN_CLASSNAME = "MyMessagebusProducerPluginClassName"
 
 class MyMessagebusProducerPluginClassName(AbstractMessageBusProducerPlugin):
     def __init__(self, settings: dict[str, Any]):
-        # Instanciate new plugin and store a copy of its settings dict in self._settings
+        # Instantiate new plugin and store a copy of its settings dict in self._settings
         super().__init__(settings)
         # ... plugin init code
 

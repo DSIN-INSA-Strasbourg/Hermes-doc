@@ -36,7 +36,7 @@ flowchart TB
 
 As the error as been notified, someone corrects the group name in the datasource. This change will conduce to an according "modified" event. This modified event won't be processed, but added to the error queue as its object has already an event in error queue.
 
-- without autoremediation, until the first event has been sucessfully processed, the second one won't even be tried. The fix is stuck.
+- without autoremediation, until the first event has been successfully processed, the second one won't even be tried. The fix is stuck.
 - with autoremediation, the error queue will merge the two events, and then on the next processing of error queue, the updated event will be successfully processed.
 
 ``` mermaid

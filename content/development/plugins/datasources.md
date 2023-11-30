@@ -4,7 +4,7 @@ title: Datasources
 
 ## Description
 
-A datsource plugin is simply a `AbstractDataSourcePlugin` subclass designed to link hermes-server with any datasource.
+A datasource plugin is simply a `AbstractDataSourcePlugin` subclass designed to link hermes-server with any datasource.
 
 It requires methods to connect and disconnect to datasource, and to fetch, add, modify and delete data.
 
@@ -26,12 +26,12 @@ from typing import Any
 import logging
 logger = logging.getLogger("hermes")
 
-# Required to indicate to hermes which class it has to instanciate
+# Required to indicate to hermes which class it has to instantiate
 HERMES_PLUGIN_CLASSNAME = "MyDatasourcePluginClassName"
 
 class MyDatasourcePluginClassName(AbstractDataSourcePlugin):
     def __init__(self, settings: dict[str, Any]):
-        # Instanciate new plugin and store a copy of its settings dict in self._settings
+        # Instantiate new plugin and store a copy of its settings dict in self._settings
         super().__init__(settings)
         # ... plugin init code
 
@@ -46,18 +46,18 @@ class MyDatasourcePluginClassName(AbstractDataSourcePlugin):
         query: str | None,
         vars: dict[str, Any],
     ) -> list[dict[str, Any]]:
-        """Fetch data from datasource with specified query and optionnal queryvars.
-        Returns a list of dict containg each entry fetched, with REMOTE_ATTRIBUTES
+        """Fetch data from datasource with specified query and optional queryvars.
+        Returns a list of dict containing each entry fetched, with REMOTE_ATTRIBUTES
         as keys, and corresponding fetched values as values"""
 
     def add(self, query: str | None, vars: dict[str, Any]):
-        """Add data to datasource with specified query and optionnal queryvars"""
+        """Add data to datasource with specified query and optional queryvars"""
 
     def delete(self, query: str | None, vars: dict[str, Any]):
-        """Delete data from datasource with specified query and optionnal queryvars"""
+        """Delete data from datasource with specified query and optional queryvars"""
 
     def modify(self, query: str | None, vars: dict[str, Any]):
-        """Modify data on datasource with specified query and optionnal queryvars"""
+        """Modify data on datasource with specified query and optional queryvars"""
 ```
 
 ## Methods

@@ -10,7 +10,7 @@ hermes-server
 - 3\. fetches all data required by its datamodel from datasource(s)
   - 3.1. enforces merge constraints
   - 3.2. merges data
-  - 3.3. replaces inconsitencies and merge conflict by cached values
+  - 3.3. replaces inconsistencies and merge conflict by cached values
   - 3.4. enforce integrity constraints
 - 4\. generate a diff between its cache and the fetched remote data
 - 5\. loop over each diff type : added, modified, removed
@@ -18,10 +18,10 @@ hermes-server
     - 5.1.1. loop over each diff item of current data type
       - 5.1.1.1. generate the corresponding event
       - 5.1.1.2. emit the event on message bus
-      - 5.1.1.3. if event was successfully emited :
+      - 5.1.1.3. if event was successfully emitted :
         - 5.1.1.3.1. run datamodel `commit_one` action if any
         - 5.1.1.3.2. update the cache to reflect the new value of the item affected by event
-- 6\. once all events have been emited
+- 6\. once all events have been emitted
   - 6.1. run datamodel `commit_all` action if any
   - 6.2. save cache on disk
 - 7\. wait for `updateInterval` and restart from step `3.` if app hasn't been requested to stop

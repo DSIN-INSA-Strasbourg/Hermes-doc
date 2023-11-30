@@ -127,7 +127,7 @@ hermes-server:
 
 ### modify
 
-Modyfy entries on LDAP server.
+Modify entries on LDAP server.
 
 ```yaml
 hermes-server:

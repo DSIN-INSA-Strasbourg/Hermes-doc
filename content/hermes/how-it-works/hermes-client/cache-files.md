@@ -11,19 +11,19 @@ Contains state of the client :
   queueErrors: dict[str, dict[str, dict[str, Any]]]
   ```
 
-  Dictionnary containing current objects in error queue, for notifications.
+  Dictionary containing current objects in error queue, for notifications.
 
 - ```py
   datamodelWarnings: dict[str, dict[str, dict[str, Any]]]
   ```
 
-  Dictionnary containing current datamodel warnings, for notifications.
+  Dictionary containing current datamodel warnings, for notifications.
 
 - ```py
   exception: str | None
   ```
 
-  String containg latest exception trace.
+  String containing latest exception trace.
 
 - ```py
   initstartoffset: Any | None

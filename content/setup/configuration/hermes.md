@@ -130,7 +130,7 @@ The email will contains 3 attachments when possible : `previous.txt`, `current.t
 
 ### hermes.mail.to {#hermes.mail.to}
 
-- *Description* : Recipient adress or list of adresses.
+- *Description* : Recipient address or list of addresses.
 - *Mandatory* : **Yes**
 - *Type* : string | string[]
 
@@ -151,7 +151,7 @@ The email will contains 3 attachments when possible : `previous.txt`, `current.t
 
 ### hermes.mail.attachment_maxsize {#hermes.mail.attachment_maxsize}
 
-- *Description* : Max size in bytes for a single mail attachment. If content size is greater than *mailtext_maxsize*, then the attachment won't be joined to emain, and a fallback message will be added to mail content instead.
+- *Description* : Max size in bytes for a single mail attachment. If content size is greater than *mailtext_maxsize*, then the attachment won't be joined to email, and a fallback message will be added to mail content instead.
 - *Mandatory* : No
 - *Type* : integer
 - *Default value* : 5242880 *(5 MB)*
@@ -190,7 +190,7 @@ hermes:
 
 Mandatory section on `hermes-server` to declare the datasource(s), and their settings. If set on `hermes-clients`, it will be silently ignored.
 
-A same datasource plugin can bu used for several datasources, so for each datasource needed, you have to declare a subsection with your desired datasource name (that will be used in datamodel), containing two mandatories entries :
+A same datasource plugin can bu used for several datasources, so for each datasource needed, you have to declare a subsection with your desired datasource name (that will be used in datamodel), containing two mandatory entries :
 
 - `type` (*string*) : the datasource plugin to use for this datasource.
 - `settings` (*subsection*) : the datasource plugin settings for this datasource according to the [plugin documentation](../plugins/datasources/).
