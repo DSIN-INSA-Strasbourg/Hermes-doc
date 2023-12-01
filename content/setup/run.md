@@ -5,7 +5,7 @@ weight: 4
 
 You may start any hermes app (server, server-cli, client, client-cli) directly with the `hermes.py` launcher, specifying the app name as first argument, or by a symlink.
 
-In either cases, the configuration will be searched in current working directory.
+In either case, the configuration will be searched in the current working directory.
 
 ## Running from launcher
 
@@ -23,7 +23,7 @@ In either cases, the configuration will be searched in current working directory
 
 ## Running using symlinks
 
-If you prefer to avoid using hermes app name as first argument, you may symlink `hermes.py` to `hermes-`*appname*, ie
+If you prefer to avoid using hermes app name as first argument, you may symlink `hermes.py` to `hermes-`*appname*, *e.g.*:
 
 ```bash
 ln -s hermes.py hermes-server
@@ -33,7 +33,7 @@ ln -s hermes.py hermes-client-usersgroups_null-cli
 # ...
 ```
 
-and running them with :
+and running them with:
 
 ```bash
 # Server
@@ -49,11 +49,11 @@ and running them with :
 
 ## Commands arguments
 
-The server and clients doesn't take any arguments, as they're designed to be controlled over the CLI.
+The server and clients don't take any arguments, as they're designed to be controlled over the CLI.
 
 Once the server or client is started, you may ask for available CLI commands with `-h` or `--help` option.
 
-For server :
+For server:
 
 ```bash
 $ ./hermes.py server-cli -h
@@ -75,7 +75,7 @@ options:
   -h, --help            show this help message and exit
 ```
 
-For a client :
+For a client:
 
 ```bash
 $ ./hermes.py client-usersgroups_null-cli -h

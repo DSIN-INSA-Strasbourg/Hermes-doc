@@ -7,7 +7,7 @@ weight: 2
 
 - [Python](https://www.python.org/) >= 3.10 with [pip](https://pip.pypa.io/en/stable/)
 - Run on Linux (required for CLI that uses Unix socket)
-- A message bus server, ie. [Apache Kafka](https://kafka.apache.org/).
+- A message bus server, *e.g.* [Apache Kafka](https://kafka.apache.org/).
 - [direnv](https://direnv.net/) - only if you wish to use the `reset_venv` helper script
 
 {{% notice tip %}}
@@ -18,7 +18,7 @@ For testing, Hermes provides a simple SQLite message bus implementation, but it 
 
 1. Download and extract the [hermes latest](https://github.com/DSIN-INSA-Strasbourg/Hermes/archive/refs/heads/main.zip) archive
 
-2. (*Optional*) If you want to minimize install footprint, you may remove `tests` directory, tests launcher `run_tests.sh` and all unnecessary plugins by deleting their directory in :
+2. (*Optional*) If you want to minimize install footprint, you may remove `tests` directory, tests launcher `run_tests.sh` and all unnecessary plugins by deleting their directory in:
 
     - `plugins/attributes/`
     - `plugins/clients/`
@@ -26,12 +26,12 @@ For testing, Hermes provides a simple SQLite message bus implementation, but it 
     - `plugins/messagebus_consumers/`
     - `plugins/messagebus_producers/`
 
-    If your installation is for running **hermes-server** only (without clients), you may remove the following directories :
+    If your installation is for running **hermes-server** only (without clients), you may remove the following directories:
     - `clients`
     - `plugins/clients/`
     - `plugins/messagebus_consumers`
 
-    If your installation is for running one or more **hermes-client** only (without server), you may remove the following directories :
+    If your installation is for running one or more **hermes-client** only (without server), you may remove the following directories:
     - `server`
     - `plugins/datasources`
     - `plugins/messagebus_producers`
@@ -39,7 +39,7 @@ For testing, Hermes provides a simple SQLite message bus implementation, but it 
 3. Set up a venv and install all requirements
 
     - Automatically with the provided script `./reset_venv`
-    - Manually. You can generate and install python requirements with the following commands :
+    - Manually. You can generate and install python requirements with the following commands:
 
       ```bash
       cat "requirements.txt" "plugins/"*/*"/requirements.txt" > all_requirements.txt 2>/dev/null

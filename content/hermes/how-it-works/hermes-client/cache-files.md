@@ -5,7 +5,7 @@ weight: 4
 
 ## _hermes-client-*name*.json
 
-Contains state of the client :
+Contains state of the client:
 
 - ```py
   queueErrors: dict[str, dict[str, dict[str, Any]]]
@@ -29,13 +29,13 @@ Contains state of the client :
   initstartoffset: Any | None
   ```
 
-  Contains the offset of first message of initSync sequence on message bus.
+  Contains the offset of the first message of initSync sequence on message bus.
 
 - ```py
   initstopoffset: Any | None
   ```
 
-  Contains the offset of last message of initSync sequence on message bus.
+  Contains the offset of the last message of initSync sequence on message bus.
 
 - ```py
   nextoffset: Any | None

@@ -4,7 +4,7 @@ title: ldap
 
 ## Description
 
-This plugin allow using a LDAP server as datasource.
+This plugin allows the use of an LDAP server as datasource.
 
 ## Configuration
 
@@ -18,12 +18,12 @@ hermes:
       your_source_name:
         type: ldap
         settings:
-          # MANDATORY : LDAP server URI
+          # MANDATORY: LDAP server URI
           uri: ldaps://ldap.example.com:636
-          # MANDATORY : LDAP server credentials to use
+          # MANDATORY: LDAP server credentials to use
           binddn: cn=account,dc=example,dc=com
           bindpassword: s3cReT_p4s5w0rD
-          # MANDATORY : LDAP base DN
+          # MANDATORY: LDAP base DN
           basedn: dc=example,dc=com
 
           ssl: # Facultative
@@ -62,20 +62,20 @@ hermes-server:
           fetch:
             type: fetch
             vars:
-              # Facultative : the basedn to use for 'fetch' operation.
+              # Facultative: the basedn to use for 'fetch' operation.
               # If unset, setting basedn will be used
               base: "ou=exampleOU,dc=example,dc=com"
-              # Facultative : the operation scope for 'fetch' operation
-              # Valid values are :
-              # - base : to search the "base" object itself
-              # - one, onelevel : to search the "base" object’s immediate children
-              # - sub, subtree : to search the "base" object and all its descendants
+              # Facultative: the operation scope for 'fetch' operation
+              # Valid values are:
+              # - base: to search the "base" object itself
+              # - one, onelevel: to search the "base" object’s immediate children
+              # - sub, subtree: to search the "base" object and all its descendants
               # If unset, "subtree" will be used
               scope: subtree
-              # Facultative : the LDAP filter to use for 'fetch' operation
+              # Facultative: the LDAP filter to use for 'fetch' operation
               # If unset, "(objectClass=*)" will be used
               filter: "(objectClass=*)"
-              # Facultative : the attributes to fetch, as a list of strings
+              # Facultative: the attributes to fetch, as a list of strings
               # If unset, all the attributes of each entry are returned
               attrlist: "{{ REMOTE_ATTRIBUTES }}"
 ```
@@ -93,13 +93,13 @@ hermes-server:
           fetch:
             type: add
             vars:
-              # Facultative : a list of entries to add.
+              # Facultative: a list of entries to add.
               # If unset, an empty list will be used (and nothing will be added)
               addlist:
-                  # MANDATORY : the DN of the entry. If not specified, the entry will
+                  # MANDATORY: the DN of the entry. If not specified, the entry will
                   # be silently ignored
                 - dn: uid=newentry1,ou=exampleOU,dc=example,dc=com
-                  # Facultative : the attributes to add to the entry
+                  # Facultative: the attributes to add to the entry
                   add:
                     # Create attribute if it doesn't exist, and add "value" to it
                     "attrnameToAdd": "value",
@@ -123,10 +123,10 @@ hermes-server:
           fetch:
             type: delete
             vars:
-              # Facultative : a list of entries to delete.
+              # Facultative: a list of entries to delete.
               # If unset, an empty list will be used (and nothing will be deleted)
               dellist:
-                  # MANDATORY : the DN of the entry. If not specified, the entry will
+                  # MANDATORY: the DN of the entry. If not specified, the entry will
                   # be silently ignored
                 - dn: uid=entryToDelete1,ou=exampleOU,dc=example,dc=com
                 - dn: uid=entryToDelete2,ou=exampleOU,dc=example,dc=com
@@ -146,14 +146,14 @@ hermes-server:
           fetch:
             type: modify
             vars:
-              # Facultative : a list of entries to modify.
+              # Facultative: a list of entries to modify.
               # If unset, an empty list will be used (and nothing will be modified)
               modlist:
-                  # MANDATORY : the DN of the entry. If not specified, the entry will
+                  # MANDATORY: the DN of the entry. If not specified, the entry will
                   # be silently ignored
                 - dn: uid=entryToModify1,ou=exampleOU,dc=example,dc=com
 
-                  # Facultative : the attributes to add to the entry
+                  # Facultative: the attributes to add to the entry
                   add:
                     # Create attribute if it doesn't exist, and add "value" to it
                     attrnameToAdd: value
@@ -161,7 +161,7 @@ hermes-server:
                     # "value2" to it
                     attrnameToAddList: [value1, value2]
 
-                  # Facultative : the attributes to modify in the entry
+                  # Facultative: the attributes to modify in the entry
                   modify:
                     # Create attribute if it doesn't exist, and replace all its
                     # value by "value"
@@ -170,7 +170,7 @@ hermes-server:
                     # value by "newvalue1" and "newvalue2"
                     attrnameToModifyList: [newvalue1, newvalue2]
 
-                  # Facultative : the attributes to delete from the entry
+                  # Facultative: the attributes to delete from the entry
                   delete:
                     # Delete specified attribute and all of its values
                     attrnameToDelete: null

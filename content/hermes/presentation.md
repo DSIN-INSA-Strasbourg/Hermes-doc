@@ -8,12 +8,12 @@ weight: 1
 Hermes is a [Change Data Capture (CDC)](https://medium.com/event-driven-utopia/a-gentle-introduction-to-event-driven-change-data-capture-683297625f9b) tool from any source(s) to any target(s).
 
 {{% notice warning %}}
-**This project is still under development and is not ready for production use yet**
+**This project is still under development and is not ready for production use yet.**
 {{% /notice %}}
 
 ### Simplified process flow
 
-Hermes-server will regularly poll data from data source(s), and generate a diff between the fresh dataset and the previous one stored in cache. Each difference will be converted into an Event message, and sent to a message bus (ie. [Kafka](https://kafka.apache.org/), [RabbitMQ](https://www.rabbitmq.com/)...).
+Hermes-server will regularly poll data from data source(s) and generate a diff between the fresh dataset and the previous one stored in cache. Each difference will be converted into an Event message, and sent to a message bus (*e.g.* [Kafka](https://kafka.apache.org/), [RabbitMQ](https://www.rabbitmq.com/)...).
 
 The clients will receive and process each Event message to propagate data on their respective targets.
 

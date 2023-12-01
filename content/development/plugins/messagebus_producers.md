@@ -12,7 +12,7 @@ It requires methods to connect and disconnect to message bus, and to produce (se
 
 - Allow to specify a message key/category (*producers*) and to filter message of a specified key/category (*consumers*)
 - Allow to consume a same message more than once
-- Implementing a message offset, allowing consumers to seek at next required message. As it will be stored in clients cache, this offset must be of one of the Python types below :
+- Implementing a message offset, allowing consumers to seek the next required message. As it will be stored in clients cache, this offset must be of one of the Python types below:
   - int
   - float
   - str
@@ -67,16 +67,16 @@ As they don't take any arguments, the `open` and `close` methods should rely on 
 {{% notice note %}}
 Be careful to overload the `_send()` method and not the `send()` one.
 
-The `send()` method is a wrapper that handle exceptions while calling `_send()`.
+The `send()` method is a wrapper that handles exceptions while calling `_send()`.
 {{% /notice %}}
 
 Send a message containing the specified event.
 
-The consumer will require the following properties :
+The consumer will require the following properties:
 
-- `evcategory` (*str*) : Key/category of the event (*stored in the Event*)
-- `timestamp` (*dattime.datetime*) : timestamp of the event
-- `offset` (*int* | *float* | *str* | *bytes*) : offset of the event in message bus
+- `evcategory` (*str*): Key/category of the event (*stored in the Event*)
+- `timestamp` (*dattime.datetime*): timestamp of the event
+- `offset` (*int* | *float* | *str* | *bytes*): offset of the event in message bus
 
 See [Event properties and methods](#event-properties-and-methods) below.
 

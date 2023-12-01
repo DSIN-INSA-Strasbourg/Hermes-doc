@@ -8,7 +8,7 @@ This section contains the documentation to get started with [plugin](./plugins/)
 
 ## Coding style
 
-Before submitting a pull request to merge some code in Hermes, you should ensure that :
+Before submitting a pull request to merge some code in Hermes, you should ensure that:
 
 - it has been formatted with [black](https://github.com/psf/black)
 - it provides [docstrings](https://peps.python.org/pep-0257/) and [type hints](https://peps.python.org/pep-0484/)

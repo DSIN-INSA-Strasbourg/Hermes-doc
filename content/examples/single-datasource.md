@@ -5,7 +5,7 @@ weight: 1
 
 ## Context
 
-In this example, we have an unique Datasource (an Oracle database) that we'll use to convert typical users, password, groups and group membership data to fill a LDAP server.
+In this example, we have a unique Datasource (an Oracle database) that we'll use to convert typical users, password, groups and group membership data to fill an LDAP server.
 
 ### Oracle schema
 
@@ -115,7 +115,7 @@ hermes:
 hermes-server:
   updateInterval: 60 # Interval between two data update, in seconds
 
-  # The declaration order of data types is important :
+  # The declaration order of data types is important:
   # - add/modify events will be processed in the declaration order
   # - remove events will be processed in the reversed declaration order
   datamodel:
@@ -126,7 +126,7 @@ hermes-server:
       sources: # datasource(s) to use to fetch data. Usually one, but several could be used
         datasource_of_example1: # The source name set in hermes.plugins.datasources
           # The query to fetch data.
-          # 'type' is mandatory and indicate to plugin which flavour of query to proceed
+          # 'type' is mandatory and indicate to plugin which flavor of query to proceed
           #   Possible 'type' values are 'add', 'delete', 'fetch' and 'modify'
           # 'query' is the query to send
           # 'vars' is a dict with vars to use (and sanitize !) in query
@@ -136,7 +136,7 @@ hermes-server:
           # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
-          # See documentation for details :
+          # See documentation for details:
           # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch
           fetch:
             type: fetch
@@ -155,7 +155,7 @@ hermes-server:
       sources: # datasource(s) to use to fetch data. Usually one, but several could be used
         datasource_of_example1: # The source name set in hermes.plugins.datasources
           # The query to fetch data.
-          # 'type' is mandatory and indicate to plugin which flavour of query to proceed
+          # 'type' is mandatory and indicate to plugin which flavor of query to proceed
           #   Possible 'type' values are 'add', 'delete', 'fetch' and 'modify'
           # 'query' is the query to send
           # 'vars' is a dict with vars to use (and sanitize !) in query
@@ -165,7 +165,7 @@ hermes-server:
           # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
-          # See documentation for details :
+          # See documentation for details:
           # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch
           fetch:
             type: fetch
@@ -185,12 +185,12 @@ hermes-server:
       primarykeyattr: srv_user_id # Attribute name that will be used as primary key
 
       # Integrity constraints between datamodel type, in Jinja.
-      # WARNING : could be very slow, keep it as simple as possible, and focused upon
+      # WARNING: could be very slow, keep it as simple as possible, and focused upon
       # primary keys
-      # Jinja vars available are '_SELF' : the current object, and every types declared
-      # For each "typename" declared, two vars are available :
-      # - typename_pkeys : a set with every primary keys
-      # - typename : a list of dict containing each entries
+      # Jinja vars available are '_SELF': the current object, and every types declared
+      # For each "typename" declared, two vars are available:
+      # - typename_pkeys: a set with every primary keys
+      # - typename: a list of dict containing each entries
       # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
       integrity_constraints:
         - "{{ _SELF.srv_user_id in SRVUsers_pkeys }}"
@@ -198,7 +198,7 @@ hermes-server:
       sources: # datasource(s) to use to fetch data. Usually one, but several could be used
         datasource_of_example1: # The source name set in hermes.plugins.datasources
           # The query to fetch data.
-          # 'type' is mandatory and indicate to plugin which flavour of query to proceed
+          # 'type' is mandatory and indicate to plugin which flavor of query to proceed
           #   Possible 'type' values are 'add', 'delete', 'fetch' and 'modify'
           # 'query' is the query to send
           # 'vars' is a dict with vars to use (and sanitize !) in query
@@ -208,7 +208,7 @@ hermes-server:
           # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
-          # See documentation for details :
+          # See documentation for details:
           # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch
           fetch:
             type: fetch
@@ -221,7 +221,7 @@ hermes-server:
           #
           # Facultative. The query to run each time an item of current data have been processed
           # without errors.
-          # 'type' is mandatory and indicate to plugin which flavour of query to proceed
+          # 'type' is mandatory and indicate to plugin which flavor of query to proceed
           #   Possible 'type' values are 'add', 'delete', 'fetch' and 'modify'
           # 'query' is the query to send
           # 'vars' is a dict with vars to use (and sanitize !) in query
@@ -231,7 +231,7 @@ hermes-server:
           # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, ITEM_CACHED_VALUES, ITEM_FETCHED_VALUES].
-          # See documentation for details :
+          # See documentation for details:
           # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one
           commit_one:
             type: modify
@@ -260,22 +260,22 @@ hermes-server:
               }}
 
     SRVGroupsMembers:
-      # Attribute names that will be used as primary key : here is is a tuple
+      # Attribute names that will be used as primary key: here is is a tuple
       primarykeyattr: [srv_group_id, srv_user_id]
       # Integrity constraints between datamodel type, in Jinja.
-      # WARNING : could be very slow, keep it as simple as possible, and focused upon
+      # WARNING: could be very slow, keep it as simple as possible, and focused upon
       # primary keys
-      # Jinja vars available are '_SELF' : the current object, and every types declared
-      # For each "typename" declared, two vars are available :
-      # - typename_pkeys : a set with every primary keys
-      # - typename : a list of dict containing each entries
+      # Jinja vars available are '_SELF': the current object, and every types declared
+      # For each "typename" declared, two vars are available:
+      # - typename_pkeys: a set with every primary keys
+      # - typename: a list of dict containing each entries
       # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
       integrity_constraints:
         - "{{ _SELF.srv_user_id in SRVUsers_pkeys and _SELF.srv_group_id in SRVGroups_pkeys }}"
       sources: # datasource(s) to use to fetch data. Usually one, but several could be used
         datasource_of_example1: # The source name set in hermes.plugins.datasources
           # The query to fetch data.
-          # 'type' is mandatory and indicate to plugin which flavour of query to proceed
+          # 'type' is mandatory and indicate to plugin which flavor of query to proceed
           #   Possible 'type' values are 'add', 'delete', 'fetch' and 'modify'
           # 'query' is the query to send
           # 'vars' is a dict with vars to use (and sanitize !) in query
@@ -285,7 +285,7 @@ hermes-server:
           # and manually typing the attribute list, or to filter the query using a cached value.
           #
           # Jinja vars available are [REMOTE_ATTRIBUTES, CACHED_VALUES].
-          # See documentation for details :
+          # See documentation for details:
           # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch
           fetch:
             type: fetch
@@ -360,7 +360,7 @@ hermes:
           topic: hermes
 
 hermes-server:
-  # The declaration order of data types is important :
+  # The declaration order of data types is important:
   # - add/modify events will be processed in the declaration order
   # - remove events will be processed in the reversed declaration order
   datamodel:
@@ -503,7 +503,7 @@ hermes-client-usersgroups_ldap:
     users_ou: ou=users,dc=example,dc=com
     groups_ou: ou=groups,dc=example,dc=com
     
-    # MANDATORY : Name of DN attribute for Users, UserPasswords and Groups
+    # MANDATORY: Name of DN attribute for Users, UserPasswords and Groups
     # You have to set up values for the three, even if you don't use some of the types
     dnAttributes:
       Users: uid

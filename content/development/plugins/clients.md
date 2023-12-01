@@ -40,19 +40,19 @@ class MyPluginClassName(GenericClient):
 
 ### Event handlers
 
-For each data type set up in the client datamodel, the plugin may implement an handler for the 5 possible event types :
+For each data type set up in the client datamodel, the plugin may implement a handler for the 5 possible event types:
 
-- `added` : when an object is added
-- `recycled` : when an object is restored from trashbin (will never be called if trashbin is disabled)
-- `modified` : when an object is modified
-- `trashed` : when an object is put in trashbin (will never be called if trashbin is disabled)
-- `removed` : when an object is deleted
+- `added`: when an object is added
+- `recycled`: when an object is restored from trashbin (will never be called if trashbin is disabled)
+- `modified`: when an object is modified
+- `trashed`: when an object is put in trashbin (will never be called if trashbin is disabled)
+- `removed`: when an object is deleted
 
-If an event is received on client, but its handler isn't implemented, it will silently be ignored.
+If an event is received by a client, but its handler isn't implemented, it will silently be ignored.
 
 Each handler must be named **on_*datatypename*_*eventtypename***.
 
-Example for a `Mydatatype` data type :
+Example for a `Mydatatype` data type:
 
 ```py
     def on_Mydatatype_added(
@@ -99,24 +99,24 @@ Example for a `Mydatatype` data type :
 
 #### Event handlers arguments
 
-- `objkey` : the primary key of the object affected by the event
+- `objkey`: the primary key of the object affected by the event
 
-- `eventattrs` : a dictionary containing the new object attributes. Its content depends upon the event type :
-  - `added` / `recycled` events : contains all object attributes names as key, and their respective values as value
-  - `modified` event : always contains three keys :
-    - `added` : attributes that were previously unset, but now have a value. Attribute names as key, and their respective values as value
-    - `modified` : attributes that were previously set, but whose value has changed. Attribute names as key, and their respective new values as value.
-    - `removed` : attributes that were previously set, but now doesn't have a value anymore. Attribute names as key, and `None` as value
-  - `trashed` / `removed` events : always an empty dict `{}`
+- `eventattrs`: a dictionary containing the new object attributes. Its content depends upon the event type:
+  - `added` / `recycled` events: contains all object attributes names as key, and their respective values as value
+  - `modified` event: always contains three keys:
+    - `added`: attributes that were previously unset, but now have a value. Attribute names as key, and their respective values as value
+    - `modified`: attributes that were previously set, but whose value has changed. Attribute names as key, and their respective new values as value.
+    - `removed`: attributes that were previously set, but now don't have a value anymore. Attribute names as key, and `None` as value
+  - `trashed` / `removed` events: always an empty dict `{}`
 
-- `newobj` : a `DataObject` instance containing all the updated values of the object affected by the event (*see [DataObject instances](#dataobject-instances) below*)
+- `newobj`: a `DataObject` instance containing all the updated values of the object affected by the event (*see [DataObject instances](#dataobject-instances) below*)
 
-- `cachedobj` : a `DataObject` instance containing all the previous (cached) values of the object affected by the event (*see [DataObject instances](#dataobject-instances) below*)
+- `cachedobj`: a `DataObject` instance containing all the previous (cached) values of the object affected by the event (*see [DataObject instances](#dataobject-instances) below*)
 
 #### DataObject instances
 
 Each data type object can be used intuitively through a `DataObject` instance.
-Let's use a simple example with this `User` object values (without a mail) from datamodel below :
+Let's use a simple example with this `User` object values (without a mail) from datamodel below:
 
 ```json
 {
@@ -140,7 +140,7 @@ hermes-client:
         mail: srv_mail
 ```
 
-Now, if this object is stored in a `newobj` DataObject instance :
+Now, if this object is stored in a `newobj` DataObject instance:
 
 ```py
 >>> newobj.getPKey()
@@ -173,7 +173,7 @@ False
 Any unhandled exception raised in an event handler will be managed by `GenericClient`, that will append the event to its error queue.
 `GenericClient` will then try to process the event regularly until it succeeds, and therefore call the event handler.
 
-But sometimes, an handler have to process to several operations. Imagine an handler like this :
+But sometimes, a handler must process several operations. Imagine a handler like this:
 
 ```py
     def on_Mydatatype_added(
@@ -183,12 +183,12 @@ But sometimes, an handler have to process to several operations. Imagine an hand
         newobj: DataObject,
     ):
         operation1() # no error occurs
-        operation2() # this one raise an exception
+        operation2() # this one raises an exception
 ```
 
 At each retry the `operation1()` function will be called again, but this is not necessarily desirable.
 
-It is possible to divide an handler in steps by using the `currentStep` `GenericClient` attribute, to resume the retries on the failed one.
+It is possible to divide a handler in steps by using the `currentStep` `GenericClient` attribute, to resume the retries on the failed one.
 
 `currentStep` always starts at 0 on normal event processing. Its new values are then up to plugin implementations.
 
@@ -209,16 +209,16 @@ So by implementing it like below, `operation1()` will only be called once.
             self.currentStep += 1
 
         if self.currentStep == 1:
-            operation2() # this one raise an exception
+            operation2() # this one raises an exception
             self.currentStep += 1
 ```
 
 ### *on_save* handler
 
-A special handler may be implemented when hermes just have saved its cache files : once some events have been processed and no event is waiting on the message bus, or before ending.
+A special handler may be implemented when hermes just have saved its cache files: once some events have been processed and no event is waiting on the message bus, or before ending.
 
 {{% notice warning %}}
-As this handler isn't an standard event handler, `GenericClient` can't handle exceptions for it, and process to a retry later.
+As this handler isn't a standard event handler, `GenericClient` can't handle exceptions for it, and process to a retry later.
 
 **Any unhandled exception raised in this handler will immediately terminate the client.**
 
@@ -254,7 +254,7 @@ It's up to the implementation to avoid errors.
 
   Returns cache of specified objtype, by reference. Raise `IndexError` if objtype is invalid
   {{% notice warning %}}
-  Any modification of the cache content will mess up your client !!!
+  Any modification of the cache content will mess up your client!!!
   {{% /notice %}}
 
 - ```py

@@ -65,15 +65,15 @@ class MyDatasourcePluginClassName(AbstractDataSourcePlugin):
 ### Connection methods
 
 As they don't take any arguments, the `open` and `close` methods should rely on plugin settings.
-For stateless datasources, they may doing nothing.
+For stateless datasources, they may do nothing.
 
 ### *fetch* method
 
-This method is called to fetch some data, and provide it to hermes-server.
+This method is called to fetch some data and provide it to hermes-server.
 
 Depending on the plugin implementation, it may rely on the `query` argument or the `vars` argument, or both.
 
-The result must be returned as a list of dict. Each list item is a fetched entry stored in a dict, with attribute name as key, and its corresponding value. The value must be of one of the following Python types :
+The result must be returned as a list of dict. Each list item is a fetched entry stored in a dict, with attribute name as key, and its corresponding value. The value must be of one of the following Python types:
 
 - `None`
 - int
@@ -82,9 +82,9 @@ The result must be returned as a list of dict. Each list item is a fetched entry
 - datetime.datetime
 - bytes
 
-A list of values of above types is also permitted. All other types are invalid.
+A list of values of the above types is also permitted. All other types are invalid.
 
-### *add*, *delete* and *modify* methods
+### *add*, *delete*, and *modify* methods
 
 These methods are used to modify the datasource, when possible.
 
@@ -94,4 +94,4 @@ Depending on the plugin implementation, they may rely on the `query` argument or
 
 ## Error handling
 
-No exception should be caught, in order to allow Hermes error handling to function properly.
+No exception should be caught, to allow Hermes error handling to function properly.

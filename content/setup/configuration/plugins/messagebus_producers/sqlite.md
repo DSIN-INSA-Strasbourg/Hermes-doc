@@ -4,10 +4,10 @@ title: sqlite
 
 ## Description
 
-This plugin allow hermes-server to send produced events over a SQLite database.
+This plugin allows hermes-server to send produced events over an SQLite database.
 
 {{% notice warning %}}
-This plugin is provided for testing, but shouldn’t be used for production.
+This plugin is provided for testing but shouldn’t be used for production.
 {{% /notice %}}
 
 ## Configuration
@@ -20,7 +20,7 @@ hermes:
     messagebus:
       sqlite:
         settings:
-          # MANDATORY :
+          # MANDATORY:
           uri: /path/to/.hermes/bus.sqlite
           retention_in_days: 1
 ```

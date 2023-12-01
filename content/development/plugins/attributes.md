@@ -45,15 +45,15 @@ class MyPluginClassName(AbstractAttributePlugin):
 
 You should consider reading the official [Jinja documentation](https://jinja.palletsprojects.com/en/3.1.x/api/#writing-filters) about custom filters.
 
-The `filter()` method always take at least one `value` parameter, and may have some other.
+The `filter()` method always takes at least one `value` parameter, and may have some other.
 
-Its generic prototype is :
+Its generic prototype is:
 
 ```py
 def filter(self, value: Any | None | Undefined, *args: Any, **kwds: Any) -> Any:
 ```
 
-In Jinja, it is called with :
+In Jinja, it is called with:
 
 ```jinja
 "{{ value | filter }}"
@@ -61,9 +61,9 @@ In Jinja, it is called with :
 "{{ value | filter(otherarg1=otherarg1_value, otherarg2=otherarg2_value) }}"
 ```
 
-The above expression are replaced by the filter return value.
+The above expressions are replaced by the filter return value.
 
-### Example : the *datetime_format* attribute plugin
+### Example: the *datetime_format* attribute plugin
 
 ```py
 #!/usr/bin/env python3
@@ -89,12 +89,12 @@ class DatetimeFormatPlugin(AbstractAttributePlugin):
             return value
 
         if not isinstance(value, datetime):
-            raise TypeError(f"""Invalid type '{type(value)}' for datetime_format value : must be a datetime""")
+            raise TypeError(f"""Invalid type '{type(value)}' for datetime_format value: must be a datetime""")
 
         return value.strftime(format)
 ```
 
-This filter can now be called with :
+This filter can now be called with:
 
 ```jinja
 "{{ a_datetime_attribute | datetime_format }}"

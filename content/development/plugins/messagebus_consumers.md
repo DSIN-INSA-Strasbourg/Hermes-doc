@@ -12,7 +12,7 @@ It requires methods to connect and disconnect to message bus, and to consume ava
 
 - Allow to specify a message key/category (*producers*) and to filter message of a specified key/category (*consumers*)
 - Allow to consume a same message more than once
-- Implementing a message offset, allowing consumers to seek at next required message. As it will be stored in clients cache, this offset must be of one of the Python types below :
+- Implementing a message offset, allowing consumers to seek the next required message. As it will be stored in clients cache, this offset must be of one of the Python types below:
   - int
   - float
   - str
@@ -101,10 +101,10 @@ As this method will browse the message bus, the current offset will be modified.
 
 Returns an Iterable that will yield all events available on message bus, starting from current offset.
 
-Those unserializable attributes of `Event` instance must be defined before yielding it :
+Those unserializable attributes of `Event` instance must be defined before yielding it:
 
-- `offset` (*int* | *float* | *str* | *bytes*) : offset of the event in message bus
-- `timestamp` (*dattime.datetime*) : timestamp of the event
+- `offset` (*int* | *float* | *str* | *bytes*): offset of the event in message bus
+- `timestamp` (*dattime.datetime*): timestamp of the event
 
 ## Event properties and methods
 
