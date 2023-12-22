@@ -6,6 +6,10 @@ _build:
   publishResources: true
 ---
 
+## Contributors
+
+- Thanks to [INSA Rouen](https://www.insa-rouen.fr/) and especially to Julien Houchard for the extensive tests and bug reports
+
 ## Hermes dependencies
 
 - [Python](https://www.python.org/)
