@@ -15,6 +15,7 @@ _build:
   - [kafka-python](https://kafka-python.readthedocs.io/) - Client for the Apache Kafka distributed stream processing system
   - [python-ldap](https://www.python-ldap.org/) - Provides an object-oriented API to access LDAP directory servers
   - [python-oracledb](https://python-oracledb.readthedocs.io/) - Enables Python programs to access Oracle Database
+  - [psycopg](https://www.psycopg.org/) - PostgreSQL adapter for the Python programming language
   - [pypsrp](https://github.com/jborean93/pypsrp) - Python PowerShell Remoting Protocol Client library
   - [pywinrm](https://github.com/diyan/pywinrm/) - Library for Windows Remote Management (WinRM)
   - [Cryptography](https://cryptography.io/en/latest/) - Includes both high level recipes and low level interfaces to common cryptographic algorithms
