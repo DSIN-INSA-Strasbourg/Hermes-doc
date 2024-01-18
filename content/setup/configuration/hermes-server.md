@@ -68,8 +68,8 @@ So you really should first declare data types that do not depend on any other ty
 - *Type*: string
 - *Default value*: use_cached_entry
 - *Valid values*:
-  - `keep_first_value`: ignore data fetched and keep using cached entry until conflict is solved.
-  - `use_cached_entry`: use the first value met in source order.
+  - `keep_first_value`: use the first value met in source order.
+  - `use_cached_entry`: ignore data fetched and keep using cached entry until conflict is solved.
 
 #### hermes-server.datamodel.data-type-name.integrity_constraints {#hermes-server.datamodel.data-type-name.integrity_constraints}
 
