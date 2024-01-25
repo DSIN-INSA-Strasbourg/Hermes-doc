@@ -22,10 +22,6 @@ from lib.config import HermesConfig # only if the plugin implement an __init__()
 from lib.datamodel.dataobject import DataObject
 from typing import Any
 
-# Only needed if the plugin use logging features
-import logging
-logger = logging.getLogger("hermes")
-
 # Required to indicate to hermes which class it has to instantiate
 HERMES_PLUGIN_CLASSNAME = "MyPluginClassName"
 

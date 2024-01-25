@@ -23,10 +23,6 @@ from jinja2 import Undefined
 # Required for type hints
 from typing import Any
 
-# Only needed if the plugin use logging features
-import logging
-logger = logging.getLogger("hermes")
-
 # Required to indicate to hermes which class it has to instantiate
 HERMES_PLUGIN_CLASSNAME = "MyPluginClassName"
 

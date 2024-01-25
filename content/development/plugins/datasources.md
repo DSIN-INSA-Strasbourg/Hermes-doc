@@ -22,10 +22,6 @@ from lib.plugins import AbstractDataSourcePlugin
 # Required for type hints
 from typing import Any
 
-# Only needed if the plugin use logging features
-import logging
-logger = logging.getLogger("hermes")
-
 # Required to indicate to hermes which class it has to instantiate
 HERMES_PLUGIN_CLASSNAME = "MyDatasourcePluginClassName"
 
