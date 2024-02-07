@@ -8,7 +8,7 @@ _build:
 
 The source code in Hermes is released under the [GPLv3 license](https://choosealicense.com/licenses/gpl-3.0/).
 
-© Copyright 2023, [INSA Strasbourg](https://www.insa-strasbourg.fr)
+© Copyright 2023-2024, [INSA Strasbourg](https://www.insa-strasbourg.fr)
 
 ## GPLv3 License
 
