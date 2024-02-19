@@ -27,6 +27,7 @@ _build:
   - [PyCryptodome](https://www.pycryptodome.org/) - Self-contained Python package of low-level cryptographic primitives
   - [Black](https://black.readthedocs.io/) - The uncompromising code formatter
   - [Coverage.py](https://coverage.readthedocs.io/) - Tool for measuring code coverage of Python programs
+  - [Faker](https://github.com/joke2k/faker) - Python package that generates fake data for you
 - [direnv](https://direnv.net/)
 
 ## Hermes-doc dependencies
