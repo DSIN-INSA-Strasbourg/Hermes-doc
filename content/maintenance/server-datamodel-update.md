@@ -112,19 +112,19 @@ or
 This is the riskiest datamodel update, as there may be links between data types, using the primary key as a foreign key.  
 This means that you'll need to update every data type at once, without missing anything.
 
-The new primary key values must exist in every entry on every client beforehand.
-
 **You should really consider doing this update on a test environment before doing it in production**, because if something fails, your clients could be permanently broken.
 {{% /notice %}}
 
 ### Prerequisites
 
-The attribute(s) to use as new primary key must already exist in your [server datamodel](../../hermes/key-concepts/#server-datamodel), and in all [clients datamodel](../../hermes/key-concepts/#client-datamodel) as a **raw value** (without Jinja template), and their value must already have been propagated and exists in clients cache.
+The attribute(s) to use as new primary key must already exist in your [server datamodel](../../hermes/key-concepts/#server-datamodel), and their value must already have been propagated and exists in clients cache.
 
 {{% notice style="tip" title="Trashbin retention may delay the Datamodel update" %}}
 The new primary key **MUST** exist in every entry of its data type before updating the datamodel. If trashbin is enabled on some of your clients, the new primary key attribute might be missing from trashed entries.
 
 The safest way to handle this is to add the attribute to your [server datamodel](../../hermes/key-concepts/#server-datamodel) and delay the primary key change at least to one day + as many days as the highest [trashbin_retention](../../setup/configuration/hermes-client/#hermes-client.trashbin_retention) value of all your clients.
+
+If you don't handle this this way, the client will purge all trashed entries that doesn't contains the value of the new primary key attribute(s) as if the [trashbin_retention](../../setup/configuration/hermes-client/#hermes-client.trashbin_retention) delay was expired.
 {{% /notice %}}
 
 ### Updating
@@ -132,4 +132,4 @@ The safest way to handle this is to add the attribute to your [server datamodel]
 1. 👱 Update all data types in [server datamodel](../../hermes/key-concepts/#server-datamodel), reload server
     - 💻 Updating changed primary keys in cache files on the server
     - 💻 Emission of a [dataschema event](../../hermes/how-it-works/hermes-server/events-emitted/) by the server
-    - 💻 Processing of [dataschema event](../../hermes/how-it-works/hermes-server/events-emitted/) by clients: updating their schema, updating changed primary keys in error queue and cache files
+    - 💻 Processing of [dataschema event](../../hermes/how-it-works/hermes-server/events-emitted/) by clients: purging trashed entries that are missing the new primary key, updating their schema, updating changed primary keys in cache files and error queue

@@ -89,7 +89,7 @@ Obviously, at least one data type must be set up.
 
 ### hermes-client.datamodel.data-type-name.attrsmapping {#hermes-client.datamodel.data-type-name.attrsmapping}
 
-Mandatory subsection to set up attribute mapping. *CLIENT* attributes as keys, *REMOTE* attributes (identified as *HERMES* attributes on hermes-server) as values.
+Subsection to set up attribute mapping. *CLIENT* attributes as keys, *REMOTE* attributes (identified as *HERMES* attributes on hermes-server) as values.
 
 A Jinja template could be set as value. If you do so, the value outside the templates will be used as raw string, and not as remote attribute name.
 
@@ -98,14 +98,5 @@ Jinja vars available are:
 - each remote attribute for current data type, only if its value is not `NULL` and not an empty list.
 
 {{% notice note %}}
-The primary key of the data type on server must always be declared once and only once as a raw attribute (not a Jinja template). Otherwise, the client will immediately terminate because it won't be able to do an exact mapping between the remote primary key and its corresponding local attribute.
-
-If for some reason its value is needed in more than one attribute, you may set it up with a Jinja template, like this:
-
-```yaml
-      attrsmapping:
-        pkey: remote_pkey
-        other_attr_with_pkey_value: "{{ remote_pkey }}"
-```
-
+If you won't use their value, it is not necessary to declare a mapping for primary key(s). For some data types, you may omit the attrsmapping, which is equivalent to defining an empty one : therefore it will only contain its primary key(s).
 {{% /notice %}}
