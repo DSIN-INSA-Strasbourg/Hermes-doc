@@ -532,9 +532,18 @@ hermes-client-usersgroups_ldap:
         - group_pkey
 
 hermes-client:
-  # If true, will try to remediate errors by merging added and modified events data
-  # in error queue when possible
-  enableAutoremediation: true
+  # Autoremediation policy to use in error queue for events concerning a same object
+  # - "disabled" : no autoremediation, events are stacked as is (default)
+  # - "conservative" :
+  #   - merge an added event with a following modified event
+  #   - merge two successive modified events
+  # - "maximum" :
+  #   - merge an added event with a following modified event
+  #   - merge two successive modified events
+  #   - delete both events when an added event is followed by a removed event
+  #   - merge a removed event followed by an added event in a modified event
+  #   - delete a modified event when it is followed by a removed event
+  autoremediation: conservative
 
   datamodel:
     Users:

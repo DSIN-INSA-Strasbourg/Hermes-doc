@@ -14,17 +14,30 @@ Main subsections:
 
 ---
 
-## hermes-client.enableAutoremediation {#hermes-client.enableAutoremediation}
+## hermes-client.autoremediation {#hermes-client.autoremediation}
 
-- *Description*: If `true`, will try to remediate errors by merging `added` and `modified` events data in error queue when possible.
+- *Description*: Autoremediation policy to use in error queue for events concerning a same object.
   {{% notice warning %}}
-  Enabling this feature will break the processing order of events: if your data types are only linked by primary keys, it shouldn't be problematic, but if the links between them are more complex, you really should consider what could go wrong before enabling it.  
+  Enabling this feature may break the regular processing order of events: if your data types are only linked by primary keys, it shouldn't be problematic, but if the links between them are more complex, you really should consider what could go wrong before enabling it.  
 
-  See [how works autoremediation](../../../hermes/how-it-works/hermes-client/auto-remediation/) for more details.
+  *e.g.* with `maximum` policy, and [trashbin](../../../hermes/key-concepts/#trashbin) enabled, the autoremediation will delete both events when an `added` event is followed by a `removed` event. Without error, the object would have been created and stored in trashbin, but in this case it won't even be created.
+
+  See [how autoremediation works](../../../hermes/how-it-works/hermes-client/auto-remediation/) for more details.
   {{% /notice%}}
 - *Mandatory*: No
-- *Type*: boolean
-- *Default value*: `false`
+- *Type*: string
+- *Default value*: `disabled`
+- *Valid values*:
+  - `disabled`: no autoremediation, events are stacked as is (*default*).
+  - `conservative`: only merge `added` and `modified` events between them.
+    - merge an `added` event with a following `modified` event.
+    - merge two successive `modified` events.
+  - `maximum`: merge every events that can be merged.
+    - merge an `added` event with a following `modified` event.
+    - merge two successive `modified` events.
+    - delete both events when an `added` event is followed by a `removed` event.
+    - merge a `removed` event followed by an `added` event in a `modified` event.
+    - delete a `modified` event when it is followed by a `removed` event.
 
 ## hermes-client.errorQueue_retryInterval {#hermes-client.errorQueue_retryInterval}
 
