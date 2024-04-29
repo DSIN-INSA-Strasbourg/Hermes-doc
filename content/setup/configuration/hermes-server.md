@@ -128,6 +128,8 @@ According to datasource plugin used, [query](#hermes-server.datamodel.data-type-
   Jinja vars available are:
   - **REMOTE_ATTRIBUTES**: The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
   - **CACHED_VALUES**: The cache of previous query. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value. May be useful to filter the query using a cached value.
+  - ***data-type-name*_pkeys**: a set with every primary key of specified data type. The var's datatype must be declared before the current one in the datamodel, otherwise the content of the var will always be empty as its content will be fetched after that of the current datatype.
+  - ***data-type-name***: a list of dict containing each entry of specified data type. The var's datatype must be declared before the current one in the datamodel, otherwise the content of the var will always be empty as its content will be fetched after that of the current datatype.
 - *Mandatory*: No
 - *Type*: string
 
@@ -141,6 +143,8 @@ Jinja vars available are:
 
 - **REMOTE_ATTRIBUTES**: The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
 - **CACHED_VALUES**: The cache of previous query. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
+- ***data-type-name*_pkeys**: a set with every primary key of specified data type. The var's datatype must be declared before the current one in the datamodel, otherwise the content of the var will always be empty as its content will be fetched after that of the current datatype.
+- ***data-type-name***: a list of dict containing each entry of specified data type. The var's datatype must be declared before the current one in the datamodel, otherwise the content of the var will always be empty as its content will be fetched after that of the current datatype.
 
 ##### hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one {#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one}
 
