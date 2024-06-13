@@ -49,12 +49,12 @@ Main subsections:
 
 ## hermes-client.trashbin_purgeInterval {#hermes-client.trashbin_purgeInterval}
 
-- *Description*: Number of minutes between two trashbin purge attempts.  
-  *Ignored if [trashbin_retention](#hermes-client.trashbin_retention) is `0`/`unset`*.
+- *Description*: Number of minutes between two trashbin purge attempts.
 - *Mandatory*: No
 - *Type*: integer
 - *Default value*: 60 *(1 hour)*
 - *Valid values*: 1 - 65535
+- *Ignored when*: [trashbin_retention](#hermes-client.trashbin_retention) is `0`/`unset`
 
 ## hermes-client.trashbin_retention {#hermes-client.trashbin_retention}
 
