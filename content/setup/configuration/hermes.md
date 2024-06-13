@@ -60,6 +60,7 @@ Enable CLI socket that will allow communication between app and its CLI.
     When left unspecified, it uses the current hermes-server running user.
 - *Mandatory*: No
 - *Type*: string
+- *Ignored when*: [dont_manage_sockfile](#hermes.cli_socket.dont_manage_sockfile) is `true`
 
 ### hermes.cli_socket.group {#hermes.cli_socket.group}
 
@@ -67,6 +68,7 @@ Enable CLI socket that will allow communication between app and its CLI.
     When left unspecified, it uses the current group of hermes-server running user.
 - *Mandatory*: No
 - *Type*: string
+- *Ignored when*: [dont_manage_sockfile](#hermes.cli_socket.dont_manage_sockfile) is `true`
 
 ### hermes.cli_socket.mode {#hermes.cli_socket.mode}
 
@@ -78,6 +80,16 @@ Enable CLI socket that will allow communication between app and its CLI.
 - *Type*: integer
 - *Default value*: 00600
 - *Valid values*: 0 - 07777
+- *Ignored when*: [dont_manage_sockfile](#hermes.cli_socket.dont_manage_sockfile) is `true`
+
+### hermes.cli_socket.dont_manage_sockfile {#hermes.cli_socket.dont_manage_sockfile}
+
+- *Description*: Indicates that Hermes shouldn't handle the socket file creation, and use the socket file descriptor provided by its parent process (typically SystemD).  
+    The created socket must be a listening AF_UNIX stream socket.
+    One and only one socket must be provided : Hermes will ensure this by checking that the SystemD env var `LISTEN_FDS` is set to `1`, and will fail otherwise.
+- *Mandatory*: No
+- *Type*: boolean
+- *Default value*: `false`
 
 ## hermes.logs {#hermes.logs}
 
