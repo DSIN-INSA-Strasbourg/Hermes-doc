@@ -18,6 +18,13 @@ Main subsections:
     - [messagebus](#hermes.plugins.messagebus)
 
 ---
+## hermes.umask {#hermes.umask}
+
+- *Description*: Set up the default umask for each file or directory created by the application : cache dirs, cache files and log files. **Warning** as it is an octal value, it must be prefixed by a `0`.
+- *Mandatory*: No
+- *Type*: integer
+- *Valid values*: 0000 - 0777
+- *Default value*: 0027
 
 ## hermes.cache {#hermes.cache}
 
