@@ -7,12 +7,8 @@ weight: 2
 
 - [Python](https://www.python.org/) >= 3.10 with [pip](https://pip.pypa.io/en/stable/)
 - Run on Linux (required for CLI that uses Unix socket)
-- A message bus server, *e.g.* [Apache Kafka](https://kafka.apache.org/).
+- A message bus server, *e.g.* [Apache Kafka](https://kafka.apache.org/) - recommended but an [sqlite](../configuration/plugins/messagebus_producers/sqlite/) implementation is provided
 - [direnv](https://direnv.net/) - only if you wish to use the `reset_venv` helper script
-
-{{% notice tip %}}
-For testing, Hermes provides a simple SQLite message bus implementation, but it shouldn't be used for production
-{{% /notice %}}
 
 ## Install guide
 
