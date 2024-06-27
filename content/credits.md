@@ -49,6 +49,7 @@ _build:
 - [GitHub](https://github.com) - Continuous deployment, testing and hosting of this project's sources and its documentation
 - Various GitHub Actions
   - [checkout](https://github.com/actions/checkout)
+  - [setup-python](https://github.com/actions/setup-python)
   - [configure-pages](https://github.com/actions/configure-pages)
   - [upload-pages-artifact](https://github.com/actions/upload-pages-artifact)
   - [deploy-pages](https://github.com/actions/deploy-pages)
