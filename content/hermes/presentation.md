@@ -8,7 +8,7 @@ weight: 1
 Hermes is a [Change Data Capture (CDC)](https://medium.com/event-driven-utopia/a-gentle-introduction-to-event-driven-change-data-capture-683297625f9b) tool from any source(s) to any target(s).
 
 {{% notice warning %}}
-**This project is still under development and is not ready for production use yet.**
+**⚠️ The code is considered stable enough to be evaluated but needs more testing to ensure its stability ⚠️**
 {{% /notice %}}
 
 ### Simplified process flow
