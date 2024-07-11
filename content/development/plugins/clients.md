@@ -169,7 +169,7 @@ False
 Any unhandled exception raised in an event handler will be managed by `GenericClient`, that will append the event to its error queue.
 `GenericClient` will then try to process the event regularly until it succeeds, and therefore call the event handler.
 
-But sometimes, a handler must process several operations. Imagine a handler like this:
+But sometimes, a handler must process several operations on target. Imagine a handler like this:
 
 ```py
     def on_Mydatatype_added(
@@ -178,20 +178,22 @@ But sometimes, a handler must process several operations. Imagine a handler like
         eventattrs: "dict[str, Any]",
         newobj: DataObject,
     ):
-        operation1() # no error occurs
-        operation2() # this one raises an exception
+        if condition:
+            operation1()  # condition is False, operation1() is not called
+        operation2()  # no error occurs
+        operation3()  # this one raises an exception
 ```
 
-At each retry the `operation1()` function will be called again, but this is not necessarily desirable.
+At each retry the `operation2()` function will be called again, but this is not necessarily desirable.
 
-It is possible to divide a handler in steps by using the `currentStep` `GenericClient` attribute, to resume the retries on the failed one.
+It is possible to divide a handler in steps by using the `currentStep` attribute inherited from `GenericClient`, to resume the retries at the failed step.
 
 `currentStep` always starts at 0 on normal event processing. Its new values are then up to plugin implementations.
 
 When an error occurs, the `currentStep` value is stored in the error queue with the event.  
 The error queue retries will always restore the `currentStep` value before calling the event handler.
 
-So by implementing it like below, `operation1()` will only be called once.
+So by implementing it like below, `operation2()` will only be called once.
 
 ```py
     def on_Mydatatype_added(
@@ -201,13 +203,35 @@ So by implementing it like below, `operation1()` will only be called once.
         newobj: DataObject,
     ):
         if self.currentStep == 0:
-            operation1() # no error occurs
+            if condition:
+                operation1()  # condition is False, operation1() is not called
+                # Declare that changes have been propagated on target
+                self.isPartiallyProcessed = True
+            self.currentStep += 1
+        
+        if self.currentStep == 1:
+            operation2()  # no error occurs
+            # Declare that changes have been propagated on target
+            self.isPartiallyProcessed = True
             self.currentStep += 1
 
-        if self.currentStep == 1:
-            operation2() # this one raises an exception
+        if self.currentStep == 2:
+            operation3()  # this one raises an exception
+            # Declare that changes have been propagated on target
+            self.isPartiallyProcessed = True
             self.currentStep += 1
 ```
+
+##### Understanding `isPartiallyProcessed` attribute
+
+The `isPartiallyProcessed` attribute inherited from `GenericClient` indicates if the current event processing has already propagated some changes on target. Therefore, it must be set to `True` as soon as the slightest modification has been propagated to the target.  
+It allows autoremediation to merge events whose `currentStep` is different from 0 but whose previous steps have not modified anything on the target.
+
+`isPartiallyProcessed` is always `False` on normal event processing. Its value change is up to plugin implementations.
+
+With the implementation example above, and an exception raised by `operation3()`, the autoremediation would not try to merge this partially processed event with possible subsequent events, as `isPartiallyProcessed` is `True`.
+
+With the implementation example above, but an exception raised by `operation2()`, the autoremediation would try to merge this unprocessed event with possible subsequent events, as `isPartiallyProcessed` is still `False`.
 
 ### *on_save* handler
 
@@ -235,6 +259,14 @@ It's up to the implementation to avoid errors.
   ```
 
   Step number of current event processed. Allow clients to resume an event where it has failed
+
+- ```py
+  isPartiallyProcessed: bool
+  ```
+
+  Indicates if the current event processing has already propagated some changes on target. Required to allow clients to resume an event where it has failed.  
+  Must be set to `True` as soon as the slightest modification has been propagated to the target.  
+  It allows autoremediation to merge events whose `currentStep` is different from 0 but whose previous steps have not modified anything on the target.
 
 - ```py
   config: dict[str, Any]
