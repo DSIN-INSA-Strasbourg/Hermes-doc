@@ -129,6 +129,16 @@ Mandatory section to define log settings.
   - info
   - debug
 
+### hermes.logs.long_string_limit {#hermes.logs.long_string_limit}
+
+- *Description*: Define the limit (max size) of string attributes content to show in logs.  
+   If a string attribute content is greater than this limit, it will be truncated to this limit and marked as a LONG_STRING in logs.  
+  Can be set to `null` to disable this feature and always show full string content in logs.
+- *Mandatory*: No
+- *Type*: integer
+- *Default value*: 512
+- *Valid values*: [1 - 999999] or `null`
+
 ## hermes.mail {#hermes.mail}
 
 Mandatory section to define mail settings to allow Hermes to notify errors to admins.
