@@ -16,7 +16,7 @@ _build:
   - [Cerberus](https://docs.python-cerberus.org/) - Data validation
   - [Jinja2](https://jinja.palletsprojects.com/) - Fast, expressive, extensible templating engine
   - [PyYAML](https://pyyaml.org/) - Full-featured YAML framework
-  - [kafka-python](https://kafka-python.readthedocs.io/) - Client for the Apache Kafka distributed stream processing system
+  - [kafka-python-ng](https://github.com/wbarnha/kafka-python-ng/) - Client for the Apache Kafka distributed stream processing system
   - [python-ldap](https://www.python-ldap.org/) - Provides an object-oriented API to access LDAP directory servers
   - [python-oracledb](https://python-oracledb.readthedocs.io/) - Enables Python programs to access Oracle Database
   - [psycopg](https://www.psycopg.org/) - PostgreSQL adapter for the Python programming language
