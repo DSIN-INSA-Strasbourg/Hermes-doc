@@ -39,6 +39,20 @@ Main subsections:
     - merge a `removed` event followed by an `added` event in a `modified` event.
     - delete a `modified` event when it is followed by a `removed` event.
 
+## hermes-client.foreignkeys_policy {#hermes-client.foreignkeys_policy}
+
+- *Description*: Set up which event types that will be placed in the error queue if the
+    object concerning them is the parent (by foreign key) of an object already present
+    in the error queue.  
+    See [Foreign keys](../../hermes/how-it-works/hermes-client/foreign-keys/) for more details.
+- *Mandatory*: No
+- *Type*: string
+- *Default value*: on_remove_event
+- *Valid values*:
+  - `disabled`: No event, policy is disabled.
+  - `on_remove_event`: Only on *removed* events.
+  - `on_every_event`: On every events types (*added*, *modified*, *removed*)
+
 ## hermes-client.errorQueue_retryInterval {#hermes-client.errorQueue_retryInterval}
 
 - *Description*: Number of minutes between two attempts of re-processing events in error.

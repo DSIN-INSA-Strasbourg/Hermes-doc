@@ -262,6 +262,15 @@ hermes-server:
     SRVGroupsMembers:
       # Attribute names that will be used as primary key: here is is a tuple
       primarykeyattr: [srv_group_id, srv_user_id]
+      # Foreign keys declaration between data types
+      # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.foreignkeys
+      foreignkeys:
+        srv_group_id:
+          from_objtype: SRVGroups
+          from_attr: srv_group_id
+        srv_user_id:
+          from_objtype: SRVUsers
+          from_attr: srv_user_id
       # Integrity constraints between datamodel type, in Jinja.
       # WARNING: could be very slow, keep it as simple as possible, and focused upon
       # primary keys
@@ -446,6 +455,13 @@ hermes-server:
     SRVGroupsMembers:
       # The primary key is a tuple
       primarykeyattr: [srv_group_id, srv_user_id]
+      foreignkeys:
+        srv_group_id:
+          from_objtype: SRVGroups
+          from_attr: srv_group_id
+        srv_user_id:
+          from_objtype: SRVUsers
+          from_attr: srv_user_id
       # Integrity constraints between datamodel type, in Jinja.
       # https://hermes.insa-strasbourg.fr/en/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.integrity_constraints
       integrity_constraints:

@@ -80,6 +80,7 @@ The server datamodel is built by specifying the following items:
 
 - Each [data type](#data-type) with:
   - its [primary key](#primary-key)
+  - its [foreign-keys](#foreign-keys)
   - its [integrity-constraints](#integrity-constraints)
   - its [merge conflict policy](#merge-conflict-policy)
   - each of its [datasources](#datasource) name and operations with:
@@ -94,6 +95,10 @@ Define the behavior if a same attribute is set with different values on differen
 #### Merge constraints
 
 Allow to declare some constraints to ensure data consistency during data merge, when [server](#server) is polling data from multiple [datasources](#datasource).
+
+#### Foreign keys
+
+Allow to declare foreign keys in a [data type](#data-type), that clients will use to enforce their foreign keys policy. See [Foreign keys](../hermes/how-it-works/hermes-client/foreign-keys/) for details.
 
 #### Integrity constraints
 

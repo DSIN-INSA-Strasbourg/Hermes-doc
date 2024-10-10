@@ -1,6 +1,6 @@
 ---
 title: Cache files
-weight: 4
+weight: 5
 ---
 
 ## _hermes-client-*name*.json

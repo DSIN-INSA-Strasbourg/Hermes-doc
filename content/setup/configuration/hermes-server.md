@@ -71,6 +71,34 @@ So you really should first declare data types that do not depend on any other ty
   - `keep_first_value`: use the first value met in source order.
   - `use_cached_entry`: ignore data fetched and keep using cached entry until conflict is solved.
 
+#### hermes-server.datamodel.data-type-name.foreignkeys {#hermes-server.datamodel.data-type-name.foreignkeys}
+
+- *Description*: Allow to declare foreign keys in a data type, that clients will use to enforce their foreign keys policy. See [Foreign keys](../../hermes/how-it-works/hermes-client/foreign-keys/) for details.  
+The setting is a dict with current data type primary key as key, a dict with two entries as value, refering to the parent data type `from_objtype` and its primary key `from_attr`.  
+Although it might seem intuitive, **declaring foreign keys will not create any integrity constraint rules automatically.**
+{{% notice warning %}}
+Whether for the current data type or for the parent, attributes must be primary keys of their respective types.  
+In addition, the primary key of the parent cannot be multivalued (a tuple).
+
+These constraints could eventually be relaxed one day, but for now no relevant use case has justified the need.
+{{% /notice %}}
+
+  Example:
+
+  ```yaml
+  foreignkeys:
+    group_id:
+      from_objtype: SRVGroups
+      from_attr: gid
+    user_id:
+      from_objtype: SRVUsers
+      from_attr: uid
+  ```
+
+- *Mandatory*: No
+- *Type*: dict[string, dict[string, string]]
+- *Default value*: {}
+
 #### hermes-server.datamodel.data-type-name.integrity_constraints {#hermes-server.datamodel.data-type-name.integrity_constraints}
 
 - *Description*: Integrity constraints between datamodel type, in Jinja.  

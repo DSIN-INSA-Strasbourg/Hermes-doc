@@ -1,6 +1,6 @@
 ---
 title: Auto remediation
-weight: 3
+weight: 4
 ---
 
 Sometimes, an event may be stored in error queue due to a data problem (*e.g.* a group name with a trailing dot will raise an error on Active Directory). If the trailing dot is then removed from the group name on datasource, the *modified* event will be stored on error queue, and won’t be processed until previous one is processed, which cannot happen without proceeding to a risky and undesirable operation: manually editing client cache file.

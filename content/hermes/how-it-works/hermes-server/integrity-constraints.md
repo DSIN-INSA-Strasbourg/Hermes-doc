@@ -3,7 +3,7 @@ title: Integrity constraints
 weight: 2
 ---
 
-Hermes-server can handle several data types, with link (*foreign keys*) between them, and to enforce integrity constraints.
+Hermes-server can handle several data types, with link (*[foreign keys](../../how-it-works/hermes-client/foreign-keys/)*) between them, and to enforce integrity constraints.
 
 Let's use a typical Users / Groups / GroupsMember use case to illustrate this.
 
