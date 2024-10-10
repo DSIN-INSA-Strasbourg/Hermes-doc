@@ -28,4 +28,4 @@ hermes-client
 
 If any exception is raised in step `6.1.1`, it will be considered as a fatal error, notified, and the client will stop.
 
-If any exception is raised in steps `5.` to `6.`, it is notified and the client restarts from step `7.`.
+If any exception is raised in steps `5.` to `6.`, it is notified, its event is added to error queue and the client restarts from step `7.`.
