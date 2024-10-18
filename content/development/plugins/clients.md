@@ -276,6 +276,12 @@ It's up to the implementation to avoid errors.
   It allows autoremediation to merge events whose `currentStep` is different from 0 but whose previous steps have not modified anything on the target.
 
 - ```py
+  isAnErrorRetry: bool
+  ```
+
+  Read-only attribute that can let client plugin handler know if the current event is being processed as part of an error retry. This can be useful for example to perform additional checks when a library happens to throw exceptions even though it has correctly processed the requested changes, as python-ldap sometimes does.
+
+- ```py
   config: dict[str, Any]
   ```
 
