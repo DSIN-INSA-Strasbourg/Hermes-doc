@@ -5,6 +5,10 @@ defaultContentLanguageInSubdir: true
 title: Hermes
 theme: hugo-theme-relearn
 enableGitInfo: true
+# Set those values for building a documentation browseable from filesystem
+# uglyURLs: false
+# relativeURLs: true
+# params.disableExplicitIndexURLs: false
 
 params:
   # This controls whether submenus will be expanded (true), or collapsed (false) in the
@@ -18,8 +22,6 @@ params:
   # Author of the site, will be used in meta information
   author:
     name: INSA Strasbourg
-  # Description of the site, will be used in meta information
-  description: Documentation for Hermes
   # Shows a checkmark for visited pages on the menu
   showVisitedLinks: false
   # Disable search function. It will hide search bar
@@ -55,22 +57,6 @@ params:
   disableRootBreadcrumb: true
   # If set to true, hide table of contents menu in the header of all pages
   disableToc: false
-  # If set to false, load the MathJax module on every page regardless if a MathJax shortcode is present
-  disableMathJax: true
-  # Specifies the remote location of the MathJax js
-  # customMathJaxURL: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-  # Initialization parameter for MathJax, see MathJax documentation
-  mathJaxInitialize: "{}"
-  # If set to false, load the Mermaid module on every page regardless if a Mermaid shortcode or Mermaid codefence is present
-  disableMermaid: false
-  # Specifies the remote location of the Mermaid js
-  # customMermaidURL: "https://unpkg.com/mermaid@10.6.0/dist/mermaid.min.js"
-  # Initialization parameter for Mermaid, see Mermaid documentation
-  mermaidInitialize: '{ "theme": "default" }'
-  # If set to false, load the OpenAPI module on every page regardless if a OpenAPI shortcode is present
-  disableOpenapi: true
-  # Specifies the remote location of the swagger-ui js
-  # customOpenapiURL: "https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"
   # Hide Next and Previous page buttons displayed in topbar
   disableNextPrev: false
   # Order menu sections by "weight", "title", "linktitle", "modifieddate", "expirydate", "publishdate", "date", "length" or "default" (adhering to Hugo's default sort order). Default to "weight";
@@ -100,9 +86,9 @@ params:
 
 # For search functionality
 outputs:
-  home: ["HTML", "RSS", "PRINT", "SEARCH", "SEARCHPAGE"]
-  section: ["HTML", "RSS", "PRINT"]
-  page: ["HTML", "RSS", "PRINT"]
+  home: ["html", "rss", "print"]
+  section: ["html", "rss", "print"]
+  page: ["html", "rss", "print"]
 
 languages:
   en:
