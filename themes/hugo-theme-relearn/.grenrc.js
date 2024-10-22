@@ -1,5 +1,5 @@
 module.exports = {
-  changelogFilename: "exampleSite/content/basics/CHANGELOG.md",
+  changelogFilename: "CHANGELOG.md",
   dataSource: "milestones",
   groupBy: {
     "Enhancements": [
@@ -16,11 +16,13 @@ module.exports = {
     ],
   },
   ignoreLabels: [
+    "asciidoc",
     "blocked",
     "browser",
     "device",
     "helpwanted",
     "hugo",
+    "idea",
     "mermaid",
     "needsfeedback",
     "undecided",
@@ -30,9 +32,10 @@ module.exports = {
     "documentation",
     "duplicate",
     "invalid",
-    "update",
+    "support",
     "unresolved",
-    "wontfix",
+    "update",
+    "wontchange",
   ],
   ignoreTagsWith: [
     "Relearn",
@@ -41,6 +44,7 @@ module.exports = {
   milestoneMatch: "{{tag_name}}",
   onlyMilestones: true,
   template: {
+    changelogTitle: "",
     group: "\n### {{heading}}\n",
     release: ({ body, date, release }) => `## ${release} (` + date.replace( /(\d+)\/(\d+)\/(\d+)/, '$3-$2-$1' ) + `)\n${body}`,
   },

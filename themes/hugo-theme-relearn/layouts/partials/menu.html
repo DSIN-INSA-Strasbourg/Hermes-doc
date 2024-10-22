@@ -1,29 +1,20 @@
 
     {{- $showvisitedlinks := .Site.Params.showVisitedLinks }}
-    {{- $format := partial "get-format.hugo" . }}
-    {{- $outputFormat := partial "output-format.hugo" (dict "page" . "format" $format) }}
-    {{- $basename := "index" }}
-    {{- if ne $outputFormat "html" }}
-      {{- $basename = partial "BaseName.hugo" $format.RelPermalink }}
-    {{- end }}
     <aside id="R-sidebar" class="default-animation{{ if $showvisitedlinks }} showVisitedLinks{{ end }}">
       {{- $currentNode := . }}
       <div id="R-header-topbar" class="default-animation"></div>
       <div id="R-header-wrapper" class="default-animation">
         <div id="R-header" class="default-animation">
 {{ partial "logo.html" . }}
-        </div>
-        {{- if not .Site.Params.disableSearch }}
-{{ partial "search.html" . }}
-        {{- end }}
+        </div>{{ partial "search.html" . }}
       </div>
       <div id="R-homelinks" class="default-animation{{ if not .Site.Params.disableLandingPageButton }} homelinks{{ end }}">
       {{- if not .Site.Params.disableLandingPageButton }}
         {{- if (ne .Site.Params.landingPageURL nil) }}
-          {{- warnf "%q: UNSUPPORTED usage of 'landingPageURL' config parameter found, remove it and optionally overwrite the `logo.html` partial to provide a link if it should not point to the project's home page; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration/#420" .File.Filename }}
+          {{- warnf "UNSUPPORTED usage of 'landingPageURL' config parameter found, remove it and optionally overwrite the `logo.html` partial to provide a link if it should not point to the project's home page; see https://mcshelby.github.io/hugo-theme-relearn/introduction/releasenotes/4/#4-2-0" }}
         {{- end }}
         <ul>
-          <li><a class="padding" href="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" .Site.Home) }}">{{ .Site.Params.landingPageName | default `<i class="fas fa-home"></i> Home` | safeHTML }}</a></li>
+          <li><a class="padding" href="{{ partial "permalink.gotmpl" (dict "to" .Site.Home) }}">{{ .Site.Params.landingPageName | default `<i class="fa-fw fas fa-home"></i> Home` | safeHTML }}</a></li>
         </ul>
       {{- end }}
         <hr class="padding">
@@ -31,10 +22,17 @@
       <div id="R-content-wrapper" class="highlightable">
         <div id="R-topics">
           <ul class="enlarge morespace collapsible-menu">
-            {{- $pages := partial "pageHelper/pagesBy.html" (dict "page" .Site.Home "hidden" true) }}
+            {{- $pages := partialCached "_relearn/pages.gotmpl" (dict "page" .Site.Home) .Site.Home.Path }}
             {{- $defaultAlwaysopen := .Site.Params.alwaysopen | default false }}
             {{- range $pages }}
-              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "alwaysopen" $defaultAlwaysopen }}
+              {{- $isSubSelf := eq . $currentNode }}
+              {{- $isSubAncestor := and (not $isSubSelf) (.IsAncestor $currentNode) }}
+              {{- $isSubHidden := or (.Params.hidden) (eq .Title "") }}
+              {{- if or $isSubSelf $isSubAncestor }}
+                {{- partial "partials/inline/menu-walker" (dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "alwaysopen" $defaultAlwaysopen "isSelf" $isSubSelf "isAncestor" $isSubAncestor "isHidden" $isSubHidden ) }}
+              {{- else if and (not $isSubHidden) (or .Params.collapsibleMenu .Site.Params.collapsibleMenu (not .Parent.RelPermalink) (eq .Parent $currentNode) (.Parent.IsAncestor $currentNode)) }}
+                {{- partialCached "partials/inline/menu-walker" (dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "alwaysopen" $defaultAlwaysopen "isSelf" $isSubSelf "isAncestor" $isSubAncestor "isHidden" $isSubHidden) .Path }}
+              {{- end }}
             {{- end }}
           </ul>
         </div>
@@ -48,7 +46,7 @@
               {{- $shortcut := . }}
               {{- with $page.Site.GetPage (printf "%s" $shortcut.URL ) }}
                 {{- $to := . }}
-            <li>{{ $shortcut.Pre }}<a class="padding" href="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" $to) }}">{{ safeHTML $shortcut.Name }}</a>{{ $shortcut.Post }}</li>
+            <li>{{ $shortcut.Pre }}<a class="padding" href="{{ partial "permalink.gotmpl" (dict "to" $to) }}">{{ safeHTML $shortcut.Name }}</a>{{ $shortcut.Post }}</li>
               {{- else }}
             <li>{{ $shortcut.Pre }}<a class="padding" href="{{ $shortcut.URL | relLangURL }}">{{ safeHTML $shortcut.Name }}</a>{{ $shortcut.Post }}</li>
               {{- end }}
@@ -57,8 +55,8 @@
         </div>
         {{- end }}
         {{- $siteLanguages := .Site.Languages }}
-        {{- $showlangswitch := and .Site.IsMultiLingual (not .Site.Params.disableLanguageSwitchingButton) (gt (int (len $siteLanguages)) 1) }}
-        {{- $themevariants := slice | append (.Site.Params.themeVariant | default "auto" ) }}
+        {{- $showlangswitch := and hugo.IsMultilingual (not .Site.Params.disableLanguageSwitchingButton) (gt (int (len $siteLanguages)) 1) }}
+        {{- $themevariants := partialCached "_relearn/themeVariants.gotmpl" . }}
         {{- $showvariantswitch := gt (int (len $themevariants)) 1 }}
         {{- $footer := partial "menu-footer.html" . }}
         {{- $showfooter := not (eq 0 (int (len ($footer | plainify)))) }}
@@ -69,24 +67,15 @@
             <ul>
               <li id="R-select-language-container" class="footerLangSwitch{{if $showlangswitch}} showLangSwitch{{end}}">
                 <div class="padding menu-control">
-                  <i class="fas fa-language fa-fw"></i>
+                  <i class="fa-fw fas fa-language"></i>
                   <span>&nbsp;</span>
                   <div class="control-style">
                     <label class="a11y-only" for="R-select-language">{{ T "Language" }}</label>
-                    <select id="R-select-language" onchange="location = baseUri + this.value;">
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
                       {{- $page := .Page }}
-                      {{- $pageLang := .Page.Lang }}
+                      {{- $pageLang := .Page.Language.Lang }}
                       {{- range .Page.AllTranslations }}
-                        {{- $translation := . }}
-                        {{- range $siteLanguages }}
-                          {{- if eq $translation.Lang .Lang }}
-                            {{- if eq $pageLang .Lang }}
-                      <option id="R-{{ $translation.Lang }}" value="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" $translation "basename" $basename) }}" lang="{{ $translation.Lang }}" selected>{{ .LanguageName }}</option>
-                            {{- else }}
-                      <option id="R-{{ $translation.Lang }}" value="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" $translation "basename" $basename) }}" lang="{{ $translation.Lang }}">{{ .LanguageName }}</option>
-                            {{- end }}
-                          {{- end }}
-                        {{- end }}
+                      <option id="R-select-language-{{ .Language.Lang }}" value="#R-select-language-{{ .Language.Lang }}" data-url="{{ partial "permalink.gotmpl" (dict "to" .) }}" lang="{{ .Language.LanguageCode }}"{{ if eq $pageLang .Language.Lang }} selected{{ end }}>{{ .Language.LanguageName }}</option>
                       {{- end }}
                     </select>
                   </div>
@@ -95,7 +84,7 @@
               </li>
               <li id="R-select-variant-container" class="footerVariantSwitch{{if $showvariantswitch}} showVariantSwitch{{end}}">
                 <div class="padding menu-control">
-                  <i class="fas fa-paint-brush fa-fw"></i>
+                  <i class="fa-fw fas fa-paint-brush"></i>
                   <span>&nbsp;</span>
                   <div class="control-style">
                     <label class="a11y-only" for="R-select-variant">{{ T "Theme" }}</label>
@@ -103,13 +92,8 @@
                       {{- $firstvariant := true }}
                       {{- range $themevariants }}
                         {{- $themevariant := . }}
-                        {{- $variantname := replaceRE "[-_]+" " " $themevariant }}
-                        {{- if $firstvariant }}
-                          {{- $firstvariant = false }}
-                      <option id="R-{{ $themevariant }}" value="{{ $themevariant }}" selected>{{ $variantname | title }}</option>
-                        {{- else }}
-                      <option id="R-{{ $themevariant }}" value="{{ $themevariant }}">{{ $variantname | title }}</option>
-                        {{- end }}
+                      <option id="R-select-variant-{{ $themevariant.identifier }}" value="{{ $themevariant.identifier }}"{{- if $firstvariant }} selected{{ end }}>{{ $themevariant.name }}</option>
+                        {{- $firstvariant = false }}
                       {{- end }}
                     </select>
                   </div>
@@ -119,7 +103,7 @@
               </li>
               <li class="footerVisitedLinks{{if $showvisitedlinks}} showVisitedLinks{{end}}">
                 <div class="padding menu-control">
-                  <i class="fas fa-history fa-fw"></i>
+                  <i class="fa-fw fas fa-history"></i>
                   <span>&nbsp;</span>
                   <div class="control-style">
                     <button onclick="clearHistory();">{{ T "Clear-History" }}</button>
@@ -135,50 +119,55 @@
         </div>
       </div>
     </aside>
-    {{- define "section-tree-nav" }}
-      {{- $currentNode := .currentnode }}
-      {{- $showvisitedlinks := .showvisitedlinks }}
-      {{- $alwaysopen := .alwaysopen }}
-      {{- $currentFileRelPermalink := .currentnode.RelPermalink }}
-      {{- with .sect }}
-        {{- $isSelf := eq .RelPermalink $currentFileRelPermalink }}
-        {{- $isAncestor := and (not $isSelf) (.IsAncestor $currentNode) }}
-        {{- $isActive := $isSelf }}
-        {{- $pages := partial "pageHelper/pagesBy.html" (dict "page" . "hidden" true) }}
-        {{- $relearnIsHiddenFrom := index ($currentNode.Scratch.Get "relearnIsHiddenFrom") .RelPermalink }}
-        {{- $hidden := and $relearnIsHiddenFrom (not $.showhidden) (not $isSelf) (not $isAncestor) }}
-        {{- if $hidden }}
-        {{- else }}
-          {{- $numberOfVisibleChildren := 0 }}
-          {{- range $pages }}
-            {{- $isSelfSub := eq .RelPermalink $currentFileRelPermalink }}
-            {{- $isAncestorSub := and (not $isSelf) (.IsAncestor $currentNode) }}
-            {{- $relearnIsSubHiddenFrom := index ($currentNode.Scratch.Get "relearnIsHiddenFrom") .RelPermalink }}
-            {{- $subHidden := and $relearnIsSubHiddenFrom (not $.showhidden) (not $isSelfSub) (not $isAncestorSub) }}
-            {{- $numberOfVisibleChildren = add $numberOfVisibleChildren (int (not $subHidden)) }}
-          {{- end }}
-          {{- safeHTML .Params.head }}
-          {{- if $numberOfVisibleChildren }}
-            {{- $title := or .Params.menuTitle .LinkTitle .Title }}
-            {{- $url := partial "relLangPrettyUglyURL.hugo" (dict "to" .) }}
-            {{- $isCollapsible := or (.Params.collapsibleMenu | default .Site.Params.collapsibleMenu) (not $url) }}
-            {{- $currentAlwaysopen := .Params.alwaysopen | default $alwaysopen }}
-            {{- $pageHash := md5 .Page }}
-            {{- $isOpen := or $currentAlwaysopen $isSelf $isAncestor }}
-          <li data-nav-id="{{ $url }}" class="{{if $isActive }}active {{end}}{{if (or $isSelf $isAncestor) }}parent {{end}}{{if $currentAlwaysopen}}alwaysopen{{end}}">{{ if $isCollapsible }}<input type="checkbox" id="R-section-{{ $pageHash }}" aria-controls="R-subsections-{{ $pageHash }}"{{ if $isOpen }} checked{{ end }}><label for="R-section-{{ $pageHash }}"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">{{ T "Submenu" $title }}</span></label>{{ end }}{{ if $url }}<a class="padding" href="{{ $url }}">{{ else }}<span class="padding">{{ end }}
-            {{- partial "menu-pre.html" . }}{{ $title }}{{ partial "menu-post.html" . }}
-            {{- if $url }}{{ if $showvisitedlinks }}<i class="fas fa-check read-icon"></i>{{ end }}</a>{{ else }}</span>{{ end }}<ul id="R-subsections-{{ $pageHash }}" class="morespace collapsible-menu">
-            {{- $defaultAlwaysopen := .Site.Params.alwaysopen | default true }}
-            {{- range $pages }}
-              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "alwaysopen" $defaultAlwaysopen }}
-            {{- end }}</ul></li>
-          {{- else }}
-            {{- $title := or .Params.menuTitle .LinkTitle .Title }}
-            {{- $url := partial "relLangPrettyUglyURL.hugo" (dict "to" .) }}
-          <li data-nav-id="{{ $url }}" class="{{if $isActive }}active{{end}}">{{ if $url }}<a class="padding" href="{{ $url }}">{{ else }}<span class="padding">{{ end }}
-              {{- partial "menu-pre.html" . }}{{ $title }}{{ partial "menu-post.html" . }}
-              {{- if $url }}{{ if $showvisitedlinks }}<i class="fas fa-check read-icon"></i>{{ end }}</a>{{ else }}</span>{{ end }}</li>
-          {{- end }}
-        {{- end }}
+{{- define "partials/inline/menu-walker" }}
+  {{- $currentNode := .currentnode }}
+  {{- $showvisitedlinks := .showvisitedlinks }}
+  {{- $alwaysopen := .alwaysopen }}
+  {{- $currentFileRelPermalink := .currentnode.RelPermalink }}
+  {{- $isSelf := .isSelf }}
+  {{- $isAncestor := .isAncestor }}
+  {{- $isHidden := .isHidden }}
+  {{- with .sect }}
+    {{- $isActive := $isSelf }}
+    {{- $pages := partialCached "_relearn/pages.gotmpl" (dict "page" .) .Path }}
+    {{- $hasVisibleChildren := false }}
+    {{- range $pages }}
+      {{- $isSubSelf := eq . $currentNode }}
+      {{- $isSubAncestor := and (not $isSubSelf) (.IsAncestor $currentNode) }}
+      {{- $isSubHidden := or (.Params.hidden) (eq .Title "") }}
+      {{- if or $isSubAncestor $isSubSelf (not $isSubHidden) }}
+        {{- $hasVisibleChildren = true }}
+        {{- break }}
       {{- end }}
     {{- end }}
+    {{- $title := partial "title.gotmpl" (dict "page" . "linkTitle" true) }}
+    {{- $url := partial "permalink.gotmpl" (dict "to" .) }}
+    {{- if $hasVisibleChildren }}
+      {{- $isCollapsible := or .Params.collapsibleMenu .Site.Params.collapsibleMenu }}
+      {{- $currentAlwaysopen := .Params.alwaysopen | default $alwaysopen }}
+      {{- $pageId := md5 .Page }}
+      {{- $isOpen := or $currentAlwaysopen $isSelf $isAncestor }}
+            <li class="{{if $isActive }}active {{end}}{{if (or $isSelf $isAncestor) }}parent {{end}}{{if $isHidden }}hidden {{end}}{{if not $url }}headless {{end}}{{if $currentAlwaysopen}}alwaysopen {{end}}" data-nav-id="{{ $url }}">
+      {{- if $isCollapsible }}<input type="checkbox" id="R-section-{{ $pageId }}" aria-controls="R-subsections-{{ $pageId }}"{{ if $isOpen }} checked{{ end }}><label for="R-section-{{ $pageId }}"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">{{ T "Submenu" $title }}</span></label>{{ end }}
+      {{- if $url }}<a class="padding" href="{{ $url }}">{{ else }}<span class="padding">{{ end }}
+      {{- partial "menu-pre.html" . }}{{ $title }}{{ partial "menu-post.html" . }}
+      {{- if $url }}{{ if $showvisitedlinks }}<i class="fa-fw fas fa-check read-icon"></i>{{ end }}</a>{{ else }}</span>{{ end }}<ul id="R-subsections-{{ $pageId }}" class="collapsible-menu">
+      {{- $defaultAlwaysopen := .Site.Params.alwaysopen | default true }}
+      {{- range $pages }}
+        {{- $isSubSelf := eq . $currentNode }}
+        {{- $isSubAncestor := and (not $isSubSelf) (.IsAncestor $currentNode) }}
+        {{- $isSubHidden := or (.Params.hidden) (eq .Title "") }}
+        {{- if or $isSubSelf $isSubAncestor }}
+          {{- partial "partials/inline/menu-walker" (dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "alwaysopen" $defaultAlwaysopen "isSelf" $isSubSelf "isAncestor" $isSubAncestor "isHidden" $isSubHidden) }}
+        {{- else if and (not $isSubHidden) (or .Params.collapsibleMenu .Site.Params.collapsibleMenu (not .Parent.RelPermalink) (eq .Parent $currentNode) (.Parent.IsAncestor $currentNode)) }}
+          {{- partialCached "partials/inline/menu-walker" (dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "alwaysopen" $defaultAlwaysopen "isSelf" $isSubSelf "isAncestor" $isSubAncestor "isHidden" $isSubHidden) .Path }}
+        {{- end }}
+      {{- end }}</ul></li>
+    {{- else }}
+            <li class="{{if $isActive }}active {{end}}{{if $isHidden }}hidden {{end}}{{if not $url }}headless {{end}}" data-nav-id="{{ $url }}">
+      {{- if $url }}<a class="padding" href="{{ $url }}">{{ else }}<span class="padding">{{ end }}
+      {{- partial "menu-pre.html" . }}{{ $title }}{{ partial "menu-post.html" . }}
+      {{- if $url }}{{ if $showvisitedlinks }}<i class="fa-fw fas fa-check read-icon"></i>{{ end }}</a>{{ else }}</span>{{ end }}</li>
+    {{- end }}
+  {{- end }}
+{{- end }}
