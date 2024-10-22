@@ -40,12 +40,12 @@ As the error has been notified, someone corrects the group name in the datasourc
 
 ``` mermaid
 flowchart TB
-  subgraph errorqueuebis [Error queue with autoremediation]
+  subgraph errorqueuebis [With autoremediation]
     direction TB
     ev1bis
   end
 
-  subgraph errorqueue [Error queue without autoremediation]
+  subgraph errorqueue [Without autoremediation]
     direction TB
     ev1
     ev2
