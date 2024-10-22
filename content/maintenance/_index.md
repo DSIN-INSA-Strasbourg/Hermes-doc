@@ -1,7 +1,7 @@
 ---
 title: Maintenance
 weight: 3
-archetype: chapter
+type: chapter
 ---
 
 This section details common operating procedures.

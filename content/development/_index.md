@@ -1,7 +1,7 @@
 ---
 title: Development
 weight: 5
-archetype: chapter
+type: chapter
 ---
 
 This section contains the documentation to get started with [plugin](./plugins/) development and Hermes "core" contribution.
