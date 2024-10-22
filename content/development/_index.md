@@ -19,7 +19,7 @@ Before submitting a pull request to merge some code in Hermes, you should ensure
 3. it is compliant with [Flake8](https://flake8.pycqa.org)
 4. your code doesn't break the test suite
 
-[tox](https://tox.wiki/) tox may be used to validate the last three conditions, by running one of the commands below :
+[tox](https://tox.wiki/) may be used to validate the last three conditions, by running one of the commands below :
 
 ```bash
 # Testing sequentially (slow but more verbose) only on default python version available on your system
@@ -34,5 +34,5 @@ tox run-parallel
 ```
 
 {{% notice tip %}}
-[tox](https://tox.wiki/) >= 4 tox must be installed but is probably available in your distribution's repositories
+[tox](https://tox.wiki/) >= 4 must be installed but is probably available in your distribution's repositories
 {{% /notice %}}
