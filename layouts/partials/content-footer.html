@@ -1,14 +1,14 @@
 
 {{- with .GitInfo }}
-              <p>
-                <i class='fas fa-user' title="Author of latest commit"></i> {{ .AuthorName }}
-                <i class='fas fa-calendar' title="Date of latest commit"></i> {{ .AuthorDate.Format "2006-01-02" }}
-                <i class='fas fa-clone'  title="Hash of latest commit"></i> {{ .Hash }}
-              </p>
+            <p id="hermes-page-gitinfo">
+              <i class='fa-fw fas fa-user' title="{{ T "commitAuthor" }}"></i> {{ .AuthorName }}
+              <i class='fa-fw fas fa-calendar' title="{{ T "commitDate" }}"></i> {{ .AuthorDate.Format "2006-01-02" }}
+              <i class='fa-fw fas fa-clone'  title="{{ T "commitHash" }}"></i> {{ .Hash }}
+            </p>
 {{- end }}
-              <p>
-                <i class='fas fa-copyright'></i> Copyright 2023-2024, <a href="https://www.insa-strasbourg.fr/" target="_blank">INSA Strasbourg</a>
-              </p>
+            <p id="hermes-page-copyright">
+              <i class='fa-fw fas fa-copyright'></i> Copyright 2023-2024, <a href="https://www.insa-strasbourg.fr/" target="_blank">INSA Strasbourg</a>
+            </p>
 {{- partial "term-list.html" (dict
   "page" .
   "taxonomy" "categories"
