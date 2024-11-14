@@ -4,7 +4,7 @@ title: bsspartage
 
 ## Description
 
-This client will handle Users, UserPasswords, Groups, GroupsMembers, GroupsSenders and Ressources events, and store data into the [Partage](https://www.renater.fr/services/collaborer-simplement/partage/) dashboard through its API, handled by [libPythonBssApi](https://github.com/dsi-univ-rennes1/libPythonBssApi).
+This client will handle Users, UserPasswords, Groups, GroupsMembers, GroupsSenders and Ressources events, and store data into the [PARTAGE](https://www.renater.fr/services/collaborer-simplement/partage/) dashboard through its API, handled by [libPythonBssApi](https://github.com/dsi-univ-rennes1/libPythonBssApi).
 
 To avoid security issues, if no hash is available at user creation, a complex random password will be set. This unknown password will be changed when a `userPassword` attribute will be set to the `User` or to the `UserPassword`. This avoids having an enabled account with no password.
 
@@ -52,7 +52,7 @@ hermes-client-usersgroups_bsspartage:
       zimbraMailQuota: 0
     Groups:
       # Values should be set to empty strings, but a bug in API is ignoring them.
-      # This bug has been notified to Partage's team.
+      # This bug has been notified to PARTAGE's team.
       description: "-" 
       displayName: "-"
       zimbraNotes: "-"
