@@ -38,7 +38,7 @@ Valid values for `default_hash_types` are:
 ldapPasswordHash(password: str, hashtypes: None | str | list[str] = None) → list[str]
 ```
 
-Once everything is set up, you can generate your hash list  `ldapPasswordHash` key like this  in a Jinja filter:
+Once everything is set up, you can generate your hash list like this in a Jinja filter:
 
 ```yaml
 # Will contain a list of hashes of PASSWORD_CLEAR according to

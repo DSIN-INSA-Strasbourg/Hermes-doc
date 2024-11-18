@@ -6,10 +6,6 @@ title: sqlite
 
 This plugin allows using an SQLite database as datasource.
 
-{{% notice warning %}}
-This plugin is provided for testing but shouldn’t be used for production.
-{{% /notice %}}
-
 ## Configuration
 
 Connection settings are required in plugin configuration.
