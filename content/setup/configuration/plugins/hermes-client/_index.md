@@ -6,4 +6,4 @@ ordersectionsby: title
 
 The client plugins are grouped by categories serving the same goal over several target types. There is currently only one plugin category:
 
-- [usersgroups](./usersgroups/): manage users, groups, userpasswords and groups membership
+- [usersgroups](/setup/configuration/plugins/hermes-client/usersgroups/): manage users, groups, userpasswords and groups membership

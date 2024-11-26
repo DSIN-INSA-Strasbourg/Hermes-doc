@@ -12,11 +12,11 @@ Hermes will try to import the ***plugin_name*.py** file. It is possible to split
 
 For details about plugin API, please consult the following sections:
 
-- [Attributes](./attributes/)
-- [Clients](./clients/)
-- [Datasources](./datasources/)
-- [Messagebus consumers](./messagebus_consumers/)
-- [Messagebus producers](./messagebus_producers/)
+- [Attributes](/development/plugins/attributes/)
+- [Clients](/development/plugins/clients/)
+- [Datasources](/development/plugins/datasources/)
+- [Messagebus consumers](/development/plugins/messagebus_consumers/)
+- [Messagebus producers](/development/plugins/messagebus_producers/)
 
 ## Plugin configuration schema
 

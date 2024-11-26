@@ -4,6 +4,6 @@ weight: 5
 ordersectionsby: title
 ---
 
-- [kafka](./kafka/): Receive events from an Apache Kafka server
+- [kafka](/setup/configuration/plugins/messagebus_consumers/kafka/): Receive events from an Apache Kafka server
 
-- [sqlite](./sqlite/): Receive events from an SQLite database
+- [sqlite](/setup/configuration/plugins/messagebus_consumers/sqlite/): Receive events from an SQLite database

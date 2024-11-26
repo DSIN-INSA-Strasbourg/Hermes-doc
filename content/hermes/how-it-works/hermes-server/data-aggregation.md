@@ -35,4 +35,4 @@ classDiagram
 In this scenario, entries in `Users_students` that have a `user_id` that exist in `Users_employee` will be silently ignored.  
 But entries in `Users_employee` that have a `user_id` that exist in `Users_students` will still be processed.
 
-For more details, please see [pkey_merge_constraint](../../../setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint) and [merge_constraints](../../../setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.merge_constraints) in hermes-server configuration.
+For more details, please see [pkey_merge_constraint](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint) and [merge_constraints](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.merge_constraints) in hermes-server configuration.

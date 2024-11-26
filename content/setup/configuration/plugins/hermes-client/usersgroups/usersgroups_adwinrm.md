@@ -4,7 +4,7 @@ title: adwinrm
 
 {{% notice style="warning" title="pywinrm is very slow" %}}
 As pywinrm spawn a new terminal and a new Powershell instance each time you run a command, it is really slow.  
-This plugin is kept just in case, but you **really** should consider using [usersgroups_adpypsrp](../usersgroups_adpypsrp/) client plugin instead when possible: it is more than 20 times faster (!).  
+This plugin is kept just in case, but you **really** should consider using [usersgroups_adpypsrp](/setup/configuration/plugins/hermes-client/usergroups/usersgroups_adpypsrp/) client plugin instead when possible: it is more than 20 times faster (!).  
 The configuration is similar on both plugins (except `hermes-client-usersgroups_adwinrm.WinRM`).
 {{% /notice %}}
 

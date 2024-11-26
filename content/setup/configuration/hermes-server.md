@@ -7,18 +7,18 @@ Server settings.
 
 Main subsections:
 
-- [hermes-server](#hermes-server)
-  - [datamodel](#hermes-server.datamodel)
+- [hermes-server](/setup/configuration/hermes-server/#hermes-server)
+  - [datamodel](/setup/configuration/hermes-server/#hermes-server.datamodel)
     - *data-type-name*
-      - [sources](#hermes-server.datamodel.data-type-name.sources)
+      - [sources](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources)
         - *datasource-name*
-          - [fetch](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch)
-            - [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.vars)
-          - [commit_one](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one)
-            - [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.vars)
-          - [commit_all](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all)
-            - [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.vars)
-          - [attrsmapping](#hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping)
+          - [fetch](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch)
+            - [vars](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.vars)
+          - [commit_one](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one)
+            - [vars](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.vars)
+          - [commit_all](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all)
+            - [vars](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.vars)
+          - [attrsmapping](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping)
 
 ---
 
@@ -33,9 +33,9 @@ Main subsections:
 
 ### hermes-server.datamodel {#hermes-server.datamodel}
 
-Mandatory subsection used to configure [server datamodel](../../../hermes/key-concepts/#server-datamodel).
+Mandatory subsection used to configure [server datamodel](/hermes/key-concepts/#server-datamodel).
 
-For each [data types](../../../hermes/key-concepts/#data-type) needed, a subsection with the desired data type name must be created and configured. The data type name MUST start with an alphanumerical character.
+For each [data types](/hermes/key-concepts/#data-type) needed, a subsection with the desired data type name must be created and configured. The data type name MUST start with an alphanumerical character.
 
 Obviously, at least one data type must be set up.
 
@@ -51,7 +51,7 @@ So you really should first declare data types that do not depend on any other ty
 
 #### hermes-server.datamodel.data-type-name.primarykeyattr {#hermes-server.datamodel.data-type-name.primarykeyattr}
 
-- *Description*: The name of the datamodel attribute used as [primary key](../../../hermes/key-concepts/#primary-key). If the primary key is a tuple, you may declare a list of names.
+- *Description*: The name of the datamodel attribute used as [primary key](/hermes/key-concepts/#primary-key). If the primary key is a tuple, you may declare a list of names.
 - *Mandatory*: **Yes**
 - *Type*: string | string[]
 
@@ -73,7 +73,7 @@ So you really should first declare data types that do not depend on any other ty
 
 #### hermes-server.datamodel.data-type-name.foreignkeys {#hermes-server.datamodel.data-type-name.foreignkeys}
 
-- *Description*: Allow to declare foreign keys in a data type, that clients will use to enforce their foreign keys policy. See [Foreign keys](../../hermes/how-it-works/hermes-client/foreign-keys/) for details.  
+- *Description*: Allow to declare foreign keys in a data type, that clients will use to enforce their foreign keys policy. See [Foreign keys](/hermes/hermes/how-it-works/hermes-client/foreign-keys/) for details.  
 The setting is a dict with current data type primary key as key, a dict with two entries as value, refering to the parent data type `from_objtype` and its primary key `from_attr`.  
 Although it might seem intuitive, **declaring foreign keys will not create any integrity constraint rules automatically.**
 {{% notice warning %}}
@@ -129,14 +129,14 @@ For each datasource used, a subsection with its name must be defined and configu
 Obviously, at least one datasource must be set up.
 
 {{% notice note %}}
-The declaration order of datasources is important to for data merging if [hermes-server.datamodel.data-type-name.on_merge_conflict](#hermes-server.datamodel.data-type-name.on_merge_conflict) is set to `keep_first_value`, or if [hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint](#hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint) is used.
+The declaration order of datasources is important to for data merging if [hermes-server.datamodel.data-type-name.on_merge_conflict](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.on_merge_conflict) is set to `keep_first_value`, or if [hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint) is used.
 {{% /notice %}}
 
 ##### hermes-server.datamodel.data-type-name.sources.datasource-name.fetch {#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch}
 
 Mandatory subsection to set up the query used to fetch data.
 
-According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.vars) may be facultative: configure them according to your [datasource plugin documentation](../plugins/datasources/).
+According to datasource plugin used, [query](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.query) and [vars](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.vars) may be facultative: configure them according to your [datasource plugin documentation](/setup/configuration/plugins/datasources/).
 
 ###### hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.type {#hermes-server.datamodel.data-type-name.sources.datasource-name.fetch.type}
 
@@ -178,10 +178,10 @@ Jinja vars available are:
 
 Facultative subsection to set up a query to run each time an item of current data has been processed without errors.
 
-According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.vars) may be facultative: configure them according to your [datasource plugin documentation](../plugins/datasources/).
+According to datasource plugin used, [query](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.query) and [vars](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.vars) may be facultative: configure them according to your [datasource plugin documentation](/setup/configuration/plugins/datasources/).
 
 {{% notice warning %}}
-[commit_one](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one) and [commit_all](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all) are mutually exclusive: you can set none or one of them, but not both at the same time.
+[commit_one](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one) and [commit_all](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all) are mutually exclusive: you can set none or one of them, but not both at the same time.
 {{% /notice %}}
 
 ###### hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.type {#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one.type}
@@ -222,10 +222,10 @@ Jinja vars available are:
 
 Facultative subsection to set up a query to run once all data have been processed with no errors.
 
-According to datasource plugin used, [query](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.query) and [vars](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.vars) may be facultative: configure them according to your [datasource plugin documentation](../plugins/datasources/).
+According to datasource plugin used, [query](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.query) and [vars](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.vars) may be facultative: configure them according to your [datasource plugin documentation](/setup/configuration/plugins/datasources/).
 
 {{% notice warning %}}
-[commit_all](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all) and [commit_one](#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one) are mutually exclusive: you can set none or one of them, but not both at the same time.
+[commit_all](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all) and [commit_one](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_one) are mutually exclusive: you can set none or one of them, but not both at the same time.
 {{% /notice %}}
 
 ###### hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.type {#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all.type}
@@ -280,22 +280,22 @@ Jinja vars available are:
 ##### hermes-server.datamodel.data-type-name.sources.datasource-name.secrets_attrs {#hermes-server.datamodel.data-type-name.sources.datasource-name.secrets_attrs}
 
 - *Description*: Define attributes that will contain sensitive data, like passwords.  
-  It will indicate Hermes to not cache them. The attribute names set here must exist as keys in [attrsmapping](#hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping). They'll be sent to clients unless they're
-  defined in [local_attrs](#hermes-server.datamodel.data-type-name.sources.datasource-name.local_attrs) too. As they're not cached, they'll be seen as added EACH TIME the server will be restarted, and the consecutive events will be sent.
+  It will indicate Hermes to not cache them. The attribute names set here must exist as keys in [attrsmapping](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping). They'll be sent to clients unless they're
+  defined in [local_attrs](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.local_attrs) too. As they're not cached, they'll be seen as added EACH TIME the server will be restarted, and the consecutive events will be sent.
 - *Mandatory*: No
 - *Type*: string[]
 
 ##### hermes-server.datamodel.data-type-name.sources.datasource-name.cacheonly_attrs {#hermes-server.datamodel.data-type-name.sources.datasource-name.cacheonly_attrs}
 
 - *Description*: Define attributes that will only be stored in cache.  
-  They won't be sent in events, nor used to diff with cache. The attribute names set here must exist as keys in [attrsmapping](#hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping).
+  They won't be sent in events, nor used to diff with cache. The attribute names set here must exist as keys in [attrsmapping](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping).
 - *Mandatory*: No
 - *Type*: string[]
 
 ##### hermes-server.datamodel.data-type-name.sources.datasource-name.local_attrs {#hermes-server.datamodel.data-type-name.sources.datasource-name.local_attrs}
 
 - *Description*: Define attributes that won't be sent to clients, cached or used to diff with cache.  
-  They won't be sent in events, nor used to diff with cache. The attribute names set here must exist as keys in [attrsmapping](#hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping).
+  They won't be sent in events, nor used to diff with cache. The attribute names set here must exist as keys in [attrsmapping](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping).
 - *Mandatory*: No
 - *Type*: string[]
 
@@ -325,7 +325,7 @@ Jinja vars available are:
     - ***datasource-name*_pkeys**: A set with every primary key of data type item in current datasource.
     - ***datasource-name***: The fetched entries of current polling. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
   {{% notice note %}}
-  if [pkey_merge_constraint](#hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint) is defined, it will be enforced **before** `merge_constraints`, and Jinja vars will contains the resulting values.
+  if [pkey_merge_constraint](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint) is defined, it will be enforced **before** `merge_constraints`, and Jinja vars will contains the resulting values.
   {{% /notice %}}
 - *Mandatory*: No
 - *Type*: string[]

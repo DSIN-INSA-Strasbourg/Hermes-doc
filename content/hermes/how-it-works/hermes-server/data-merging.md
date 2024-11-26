@@ -35,4 +35,4 @@ classDiagram
 In this scenario, entries in `Users_auxiliary` that have a `user_id` that doesn't exist in `Users_main` will be silently ignored.  
 But entries in `Users_main` that have a `user_id` that doesn't exist in `Users_auxiliary` will be processed, and therefore the resulting `Users` entry won't have a `wifi_profile` value.
 
-For more details, please see [pkey_merge_constraint](../../../setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint) and [merge_constraints](../../../setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.merge_constraints) in hermes-server configuration.
+For more details, please see [pkey_merge_constraint](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint) and [merge_constraints](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.merge_constraints) in hermes-server configuration.

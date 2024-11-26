@@ -98,7 +98,7 @@ Allow to declare some constraints to ensure data consistency during data merge, 
 
 #### Foreign keys
 
-Allow to declare foreign keys in a [data type](#data-type), that clients will use to enforce their foreign keys policy. See [Foreign keys](../hermes/how-it-works/hermes-client/foreign-keys/) for details.
+Allow to declare foreign keys in a [data type](#data-type), that clients will use to enforce their foreign keys policy. See [Foreign keys](/hermes/how-it-works/hermes-client/foreign-keys/) for details.
 
 #### Integrity constraints
 

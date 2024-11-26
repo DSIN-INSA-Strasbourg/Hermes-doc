@@ -8,9 +8,9 @@ Settings shared by all clients.
 Main subsections:
 
 - hermes-client
-  - [datamodel](#hermes-client.datamodel)
+  - [datamodel](/setup/configuration/hermes-client/#hermes-client.datamodel)
     - *data-type-name*
-      - [attrsmapping](#hermes-client.datamodel.data-type-name.attrsmapping)
+      - [attrsmapping](/setup/configuration/hermes-client/#hermes-client.datamodel.data-type-name.attrsmapping)
 
 ---
 
@@ -20,10 +20,10 @@ Main subsections:
   {{% notice warning %}}
   Enabling this feature may break the regular processing order of events: if your data types are only linked by primary keys, it shouldn't be problematic, but if the links between them are more complex, you really should consider what could go wrong before enabling it.  
 
-  *e.g.* with `maximum` policy, and [trashbin](../../../hermes/key-concepts/#trashbin) enabled, the autoremediation will delete both events when an `added` event is followed by a `removed` event. Without error, the object would have been created and stored in trashbin, but in this case it won't even be created.
+  *e.g.* with `maximum` policy, and [trashbin](/hermes/key-concepts/#trashbin) enabled, the autoremediation will delete both events when an `added` event is followed by a `removed` event. Without error, the object would have been created and stored in trashbin, but in this case it won't even be created.
 
-  See [how autoremediation works](../../../hermes/how-it-works/hermes-client/auto-remediation/) for more details.
-  {{% /notice%}}
+  See [how autoremediation works](/hermes/how-it-works/hermes-client/auto-remediation/) for more details.
+  {{% /notice %}}
 - *Mandatory*: No
 - *Type*: string
 - *Default value*: `disabled`
@@ -44,7 +44,7 @@ Main subsections:
 - *Description*: Set up which event types that will be placed in the error queue if the
     object concerning them is the parent (by foreign key) of an object already present
     in the error queue.  
-    See [Foreign keys](../../hermes/how-it-works/hermes-client/foreign-keys/) for more details.
+    See [Foreign keys](/hermes/how-it-works/hermes-client/foreign-keys/) for more details.
 - *Mandatory*: No
 - *Type*: string
 - *Default value*: on_remove_event
@@ -68,7 +68,7 @@ Main subsections:
 - *Type*: integer
 - *Default value*: 60 *(1 hour)*
 - *Valid values*: 1 - 65535
-- *Ignored when*: [trashbin_retention](#hermes-client.trashbin_retention) is `0`/`unset`
+- *Ignored when*: [trashbin_retention](/setup/configuration/hermes-client/#hermes-client.trashbin_retention) is `0`/`unset`
 
 ## hermes-client.trashbin_retention {#hermes-client.trashbin_retention}
 
@@ -96,9 +96,9 @@ Main subsections:
 
 ## hermes-client.datamodel {#hermes-client.datamodel}
 
-Mandatory subsection used to configure [client datamodel](../../../hermes/key-concepts/#client-datamodel).
+Mandatory subsection used to configure [client datamodel](/hermes/key-concepts/#client-datamodel).
 
-For each [data types](../../../hermes/key-concepts/#data-type) needed, a subsection with the desired data type name must be created and configured. The data type name MUST start with an alphanumerical character.
+For each [data types](/hermes/key-concepts/#data-type) needed, a subsection with the desired data type name must be created and configured. The data type name MUST start with an alphanumerical character.
 
 Obviously, at least one data type must be set up.
 

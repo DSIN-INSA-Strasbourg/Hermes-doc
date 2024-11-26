@@ -5,6 +5,6 @@ ordersectionsby: title
 ---
 
 
-- [kafka](./kafka/): Send produced events over an Apache Kafka server
+- [kafka](/setup/configuration/plugins/messagebus_producers/kafka/): Send produced events over an Apache Kafka server
 
-- [sqlite](./sqlite/): Send produced events over an SQLite database
+- [sqlite](/setup/configuration/plugins/messagebus_producers/sqlite/): Send produced events over an SQLite database

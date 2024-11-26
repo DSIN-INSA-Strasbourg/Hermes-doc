@@ -12,16 +12,16 @@ The configuration file must be named with ***APPNAME*-config.yml**, *e.g.*:
 
 Settings are separated in several YAML sections:
 
-- [hermes](./hermes/): settings shared by server and all clients
-- [hermes-server](./hermes-server/): server settings
-- [hermes-client](./hermes-client/): settings shared by all clients
-- [hermes-client-*clientName*](./plugins/hermes-client/): specific client plugin settings
+- [hermes](/setup/configuration/hermes/): settings shared by server and all clients
+- [hermes-server](/setup/configuration/hermes-server/): server settings
+- [hermes-client](/setup/configuration/hermes-client/): settings shared by all clients
+- [hermes-client-*clientName*](/setup/configuration/plugins/hermes-client/): specific client plugin settings
 - hermes
   - plugins
-    - [attributes](./plugins/attributes/): attributes plugins settings
-    - [datasources](./plugins/datasources/): datasources plugins settings
-    - [messagebus](./plugins/messagebus_producers/): server messagebus_producers plugins settings
-    - [messagebus](./plugins/messagebus_consumers/): client messagebus_consumers plugins settings
+    - [attributes](/setup/configuration/plugins/attributes/): attributes plugins settings
+    - [datasources](/setup/configuration/plugins/datasources/): datasources plugins settings
+    - [messagebus](/setup/configuration/plugins/messagebus_producers/): server messagebus_producers plugins settings
+    - [messagebus](/setup/configuration/plugins/messagebus_consumers/): client messagebus_consumers plugins settings
 
 For security reasons, it may be desirable to allow certain users to use the CLI without granting them read access to the configuration file. To do this, simply create an optional CLI configuration file named ***APPNAME*-cli-config.yml**, *e.g.*:
 

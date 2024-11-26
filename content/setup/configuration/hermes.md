@@ -8,14 +8,14 @@ Settings shared by server and all clients.
 Main subsections:
 
 - hermes
-  - [cache](#hermes.cache)
-  - [cli_socket](#hermes.cli_socket)
-  - [logs](#hermes.logs)
-  - [mail](#hermes.mail)
-  - [plugins](#hermes.plugins)
-    - [attributes](#hermes.plugins.attributes)
-    - [datasources](#hermes.plugins.datasources)
-    - [messagebus](#hermes.plugins.messagebus)
+  - [cache](/setup/configuration/hermes/#hermes.cache)
+  - [cli_socket](/setup/configuration/hermes/#hermes.cli_socket)
+  - [logs](/setup/configuration/hermes/#hermes.logs)
+  - [mail](/setup/configuration/hermes/#hermes.mail)
+  - [plugins](/setup/configuration/hermes/#hermes.plugins)
+    - [attributes](/setup/configuration/hermes/#hermes.plugins.attributes)
+    - [datasources](/setup/configuration/hermes/#hermes.plugins.datasources)
+    - [messagebus](/setup/configuration/hermes/#hermes.plugins.messagebus)
 
 ---
 ## hermes.umask {#hermes.umask}
@@ -67,7 +67,7 @@ Enable CLI socket that will allow communication between app and its CLI.
     When left unspecified, it uses the current hermes-server running user.
 - *Mandatory*: No
 - *Type*: string
-- *Ignored when*: [dont_manage_sockfile](#hermes.cli_socket.dont_manage_sockfile) is `true`
+- *Ignored when*: [dont_manage_sockfile](/setup/configuration/hermes/#hermes.cli_socket.dont_manage_sockfile) is `true`
 
 ### hermes.cli_socket.group {#hermes.cli_socket.group}
 
@@ -75,7 +75,7 @@ Enable CLI socket that will allow communication between app and its CLI.
     When left unspecified, it uses the current group of hermes-server running user.
 - *Mandatory*: No
 - *Type*: string
-- *Ignored when*: [dont_manage_sockfile](#hermes.cli_socket.dont_manage_sockfile) is `true`
+- *Ignored when*: [dont_manage_sockfile](/setup/configuration/hermes/#hermes.cli_socket.dont_manage_sockfile) is `true`
 
 ### hermes.cli_socket.mode {#hermes.cli_socket.mode}
 
@@ -87,7 +87,7 @@ Enable CLI socket that will allow communication between app and its CLI.
 - *Type*: integer
 - *Default value*: 00600
 - *Valid values*: 0 - 07777
-- *Ignored when*: [dont_manage_sockfile](#hermes.cli_socket.dont_manage_sockfile) is `true`
+- *Ignored when*: [dont_manage_sockfile](/setup/configuration/hermes/#hermes.cli_socket.dont_manage_sockfile) is `true`
 
 ### hermes.cli_socket.dont_manage_sockfile {#hermes.cli_socket.dont_manage_sockfile}
 
@@ -196,7 +196,7 @@ It is divided into subsections by plugin type.
 
 Facultative section to declare the attributes plugins to load, and their settings.
 
-It must contain a subsection named with the plugin name containing a facultative `settings` subsection with the plugin settings to fill according to the [plugin documentation](../plugins/attributes/).
+It must contain a subsection named with the plugin name containing a facultative `settings` subsection with the plugin settings to fill according to the [plugin documentation](/setup/configuration/plugins/attributes/).
 
 Example with the `ldapPasswordHash` plugin:
 
@@ -222,7 +222,7 @@ Mandatory section on `hermes-server` to declare the datasource(s), and their set
 A same datasource plugin can be used for several datasources, so for each datasource needed, you must declare a subsection with your desired datasource name (that will be used in datamodel), containing two mandatory entries:
 
 - `type` (*string*): the datasource plugin to use for this datasource.
-- `settings` (*subsection*): the datasource plugin settings for this datasource according to the [plugin documentation](../plugins/datasources/).
+- `settings` (*subsection*): the datasource plugin settings for this datasource according to the [plugin documentation](/setup/configuration/plugins/datasources/).
 
 Example:
 
@@ -266,7 +266,7 @@ Mandatory section to declare the messagebus plugin to load, and its settings. Ob
 - On `hermes-server`, it will look up for *Message bus producer plugin* in `plugins/messagebus_producers/` directory.
 - On `hermes-client`, it will look up for *Message bus consumer plugin* in `plugins/messagebus_consumers/` directory.
 
- It must contain a subsection named with the plugin name containing a facultative `settings` subsection with the plugin settings to fill according to the [messagebus producers](../plugins/messagebus_producers/) or [messagebus consumers](../plugins/messagebus_consumers/) plugin documentation.
+ It must contain a subsection named with the plugin name containing a facultative `settings` subsection with the plugin settings to fill according to the [messagebus producers](/setup/configuration/plugins/messagebus_producers/) or [messagebus consumers](/setup/configuration/plugins/messagebus_consumers/) plugin documentation.
 
 Example with the `sqlite` producer plugin:
 
