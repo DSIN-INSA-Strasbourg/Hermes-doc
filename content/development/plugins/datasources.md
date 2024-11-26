@@ -78,7 +78,12 @@ The result must be returned as a list of dict. Each list item is a fetched entry
 - datetime.datetime
 - bytes
 
-A list of values of the above types is also permitted. All other types are invalid.
+Allowed iterable types are:
+
+- list
+- dict
+
+Values ​​must be of one of the types mentioned above. All other types are invalid.
 
 ### *add*, *delete*, and *modify* methods
 

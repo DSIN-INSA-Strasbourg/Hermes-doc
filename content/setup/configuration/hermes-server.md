@@ -154,8 +154,8 @@ According to datasource plugin used, [query](/setup/configuration/hermes-server/
 - *Description*: The query to send to datasource. May be a Jinja template.
 
   Jinja vars available are:
-  - **REMOTE_ATTRIBUTES**: The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
-  - **CACHED_VALUES**: The cache of previous query. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value. May be useful to filter the query using a cached value.
+  - **REMOTE_ATTRIBUTES**: the list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
+  - **CACHED_VALUES**: the cache of previous query. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value. May be useful to filter the query using a cached value.
   - ***data-type-name*_pkeys**: a set with every primary key of specified data type. The var's datatype must be declared before the current one in the datamodel, otherwise the content of the var will always be empty as its content will be fetched after that of the current datatype.
   - ***data-type-name***: a list of dict containing each entry of specified data type. The var's datatype must be declared before the current one in the datamodel, otherwise the content of the var will always be empty as its content will be fetched after that of the current datatype.
 - *Mandatory*: No
@@ -169,8 +169,8 @@ The var name as key, and its value as value. Each value may be a Jinja template.
 
 Jinja vars available are:
 
-- **REMOTE_ATTRIBUTES**: The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
-- **CACHED_VALUES**: The cache of previous query. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
+- **REMOTE_ATTRIBUTES**: the list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
+- **CACHED_VALUES**: the cache of previous query. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
 - ***data-type-name*_pkeys**: a set with every primary key of specified data type. The var's datatype must be declared before the current one in the datamodel, otherwise the content of the var will always be empty as its content will be fetched after that of the current datatype.
 - ***data-type-name***: a list of dict containing each entry of specified data type. The var's datatype must be declared before the current one in the datamodel, otherwise the content of the var will always be empty as its content will be fetched after that of the current datatype.
 
@@ -200,9 +200,9 @@ According to datasource plugin used, [query](/setup/configuration/hermes-server/
 - *Description*: The query to send to datasource. May be a Jinja template.
 
   Jinja vars available are:
-  - **REMOTE_ATTRIBUTES**: The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
-  - **ITEM_CACHED_VALUES**: The cache values of current item. A dictionary with attrname as key, and corresponding value as value.
-  - **ITEM_FETCHED_VALUES**: The fetched values of current item. A dictionary with attrname as key, and corresponding value as value.
+  - **REMOTE_ATTRIBUTES**: the list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
+  - **ITEM_CACHED_VALUES**: the cache values of current item. A dictionary with attrname as key, and corresponding value as value.
+  - **ITEM_FETCHED_VALUES**: the fetched values of current item. A dictionary with attrname as key, and corresponding value as value.
 - *Mandatory*: No
 - *Type*: string
 
@@ -214,9 +214,9 @@ The var name as key, and its value as value. Each value may be a Jinja template.
 
 Jinja vars available are:
 
-- **REMOTE_ATTRIBUTES**: The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
-- **ITEM_CACHED_VALUES**: The cache values of current item. A dictionary with attrname as key, and corresponding value as value.
-- **ITEM_FETCHED_VALUES**: The fetched values of current item. A dictionary with attrname as key, and corresponding value as value.
+- **REMOTE_ATTRIBUTES**: the list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
+- **ITEM_CACHED_VALUES**: the cache values of current item. A dictionary with attrname as key, and corresponding value as value.
+- **ITEM_FETCHED_VALUES**: the fetched values of current item. A dictionary with attrname as key, and corresponding value as value.
 
 ##### hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all {#hermes-server.datamodel.data-type-name.sources.datasource-name.commit_all}
 
@@ -244,9 +244,9 @@ According to datasource plugin used, [query](/setup/configuration/hermes-server/
 - *Description*: The query to send to datasource. May be a Jinja template.
 
   Jinja vars available are:
-  - **REMOTE_ATTRIBUTES**: The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
-  - **CACHED_VALUES**: The cache of previous polling. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
-  - **FETCHED_VALUES**: The fetched entries of current polling. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
+  - **REMOTE_ATTRIBUTES**: the list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
+  - **CACHED_VALUES**: the cache of previous polling. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
+  - **FETCHED_VALUES**: the fetched entries of current polling. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
 - *Mandatory*: No
 - *Type*: string
 
@@ -258,9 +258,9 @@ The var name as key, and its value as value. Each value may be a Jinja template.
 
 Jinja vars available are:
 
-- **REMOTE_ATTRIBUTES**: The list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
-- **CACHED_VALUES**: The cache of previous polling. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
-- **FETCHED_VALUES**: The fetched entries of current polling. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
+- **REMOTE_ATTRIBUTES**: the list of remote attribute names used in `attrsmapping`. May be useful to generate SQL queries with required data without using wildcards or manually typing the attribute list.
+- **CACHED_VALUES**: the cache of previous polling. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
+- **FETCHED_VALUES**: the fetched entries of current polling. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
 
 ##### hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping {#hermes-server.datamodel.data-type-name.sources.datasource-name.attrsmapping}
 
@@ -275,7 +275,7 @@ This is required to allow the software to collect the *REMOTE_ATTRIBUTES*
 Jinja vars available are:
 
 - each remote attribute for current data type and datasource with its fetched value, only if its value is not `NULL` and not an empty list.
-- **ITEM_CACHED_VALUES**: The cache values of current item. A dictionary with attrname as key, and corresponding value as value.
+- **ITEM_CACHED_VALUES**: the cache values of current item. A dictionary with attrname as key, and corresponding value as value.
 
 ##### hermes-server.datamodel.data-type-name.sources.datasource-name.secrets_attrs {#hermes-server.datamodel.data-type-name.sources.datasource-name.secrets_attrs}
 
@@ -322,8 +322,8 @@ Jinja vars available are:
   Jinja vars available are:
   - **_SELF**: the data type item in current datasource being currently merged.
   - For each datasource declared in current data type:
-    - ***datasource-name*_pkeys**: A set with every primary key of data type item in current datasource.
-    - ***datasource-name***: The fetched entries of current polling. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
+    - ***datasource-name*_pkeys**: a set with every primary key of data type item in current datasource.
+    - ***datasource-name***: the fetched entries of current polling. A list of dictionaries, each dictionary is an entry with attrname as key, and corresponding value as value.
   {{% notice note %}}
   if [pkey_merge_constraint](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.pkey_merge_constraint) is defined, it will be enforced **before** `merge_constraints`, and Jinja vars will contains the resulting values.
   {{% /notice %}}

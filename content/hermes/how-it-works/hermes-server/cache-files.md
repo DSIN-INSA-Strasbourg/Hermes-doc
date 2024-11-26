@@ -17,7 +17,7 @@ Contains state of the server:
   errors: dict[str, dict[str, dict[str, Any]]]
   ```
 
-  Dictionary containing current errors, for notifications.
+  Dictionary containing current errors, to be able to notify of any changes.
 
 - ```py
   exception: str | None

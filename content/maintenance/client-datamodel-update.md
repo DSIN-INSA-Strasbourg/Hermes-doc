@@ -32,7 +32,7 @@ It may notify about datamodel warnings if some remote data type or attributes ar
 
 ### If its *hermesType* doesn't exists in dataschema yet
 
-1. 👱 Add data type to [clients datamodel](/hermes/key-concepts/#client-datamodel) so that they can process it when it will be added to the [server datamodel](/hermes/key-concepts/#server-datamodel), reload clients: ⚠️ new datamodel warning "*remote types don't exist in current Dataschema*"
+1. 👱 Add data type to [clients datamodel](/hermes/key-concepts/#client-datamodel) so that they can process it when it will be added to the [server datamodel](/hermes/key-concepts/#server-datamodel), reload clients: ⚠️ datamodel warning "*remote types don't exist in current Dataschema*"
 2. 👱 Add data type to [server datamodel](/hermes/key-concepts/#server-datamodel), reload server
     - 💻 Emission of a [dataschema event](/hermes/how-it-works/hermes-server/events-emitted/) by the server
     - 💻 Emission of "added" events for each entry of added data type

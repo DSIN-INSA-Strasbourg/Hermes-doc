@@ -25,7 +25,7 @@ Settings are separated in several YAML sections:
 
 For security reasons, it may be desirable to allow certain users to use the CLI without granting them read access to the configuration file. To do this, simply create an optional CLI configuration file named ***APPNAME*-cli-config.yml**, *e.g.*:
 
-- `hermes-server-cli-config.yml` for and *server-cli*
+- `hermes-server-cli-config.yml` for *server-cli*
 - `hermes-client-usersgroups_null-cli-config.yml` for *client-usersgroups_null-cli*
 
 This file should only contain the following directives :

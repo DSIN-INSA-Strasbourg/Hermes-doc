@@ -28,4 +28,4 @@ hermes-server
 
 If any exception is raised in step `2.`, this step is restarted until it succeeds.
 
-If any exception is raised in steps `3.` to `7.`, the cache is saved on disk, and the servers restart from step `3.`.
+If any exception is raised in steps `3.` to `7.`, the cache is saved on disk, and the server restart from step `3.`.

@@ -4,7 +4,7 @@ title: Messagebus producers
 
 ## Description
 
-A datasource plugin is simply a `AbstractMessageBusProducerPlugin` subclass designed to link hermes-server with any message bus.
+A messagebus producer plugin is simply a `AbstractMessageBusProducerPlugin` subclass designed to link hermes-server with any message bus.
 
 It requires methods to connect and disconnect to message bus, and to produce (send) events over it.
 

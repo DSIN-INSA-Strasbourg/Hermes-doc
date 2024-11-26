@@ -38,7 +38,7 @@ or
 1. 👱 Remove attribute from [server datamodel](/hermes/key-concepts/#server-datamodel), reload server
     - 💻 Emission of a [dataschema event](/hermes/how-it-works/hermes-server/events-emitted/) by the server
     - 💻 Emission of "modified" events for the concerned entries, with the removed attribute
-2. 💻 Processing of [dataschema event](/hermes/how-it-works/hermes-server/events-emitted/) by clients: updating their schema. ⚠️ new datamodel warning "*remote attributes don't exist in current Dataschema*". Processing incoming "modified" events
+2. 💻 Processing of [dataschema event](/hermes/how-it-works/hermes-server/events-emitted/) by clients: updating their schema. ⚠️ datamodel warning "*remote attributes don't exist in current Dataschema*". Processing incoming "modified" events
 3. 👱 Remove attribute from [clients datamodel](/hermes/key-concepts/#client-datamodel), reload clients: ✅ No more datamodel warning
 
 ## Modify the value of an attribute (by changing its Jinja filter, or its remote attribute from the data source)
@@ -75,7 +75,7 @@ or
 
 or
 
-1. 👱 Add data type to [clients datamodel](/hermes/key-concepts/#client-datamodel) so that they can process it when it will be added to the [server datamodel](/hermes/key-concepts/#server-datamodel), reload clients: ⚠️ new datamodel warning "*remote types don't exist in current Dataschema*"
+1. 👱 Add data type to [clients datamodel](/hermes/key-concepts/#client-datamodel) so that they can process it when it will be added to the [server datamodel](/hermes/key-concepts/#server-datamodel), reload clients: ⚠️ datamodel warning "*remote types don't exist in current Dataschema*"
 2. 👱 Add data type to [server datamodel](/hermes/key-concepts/#server-datamodel), reload server
     - 💻 Emission of a [dataschema event](/hermes/how-it-works/hermes-server/events-emitted/) by the server
     - 💻 Emission of "added" events for each entry of added data type
@@ -101,7 +101,7 @@ or
     - 💻 Purging cache files of removed data type
     - 💻 Emission of a [dataschema event](/hermes/how-it-works/hermes-server/events-emitted/) by the server
 2. 💻 Processing incoming "removed" events by clients
-    - 💻 Processing of [dataschema event](/hermes/how-it-works/hermes-server/events-emitted/) by clients: updating their schema. ⚠️ new datamodel warning "*remote types don't exist in current Dataschema*"
+    - 💻 Processing of [dataschema event](/hermes/how-it-works/hermes-server/events-emitted/) by clients: updating their schema. ⚠️ datamodel warning "*remote types don't exist in current Dataschema*"
     - 💻 Purging remote cache files of removed data type
 3. 👱 Remove data type from [clients datamodel](/hermes/key-concepts/#client-datamodel), reload clients: ✅ No more datamodel warning
     - 💻 Purging local cache files of removed data type

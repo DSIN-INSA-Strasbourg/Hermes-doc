@@ -18,6 +18,7 @@ Main subsections:
     - [messagebus](/setup/configuration/hermes/#hermes.plugins.messagebus)
 
 ---
+
 ## hermes.umask {#hermes.umask}
 
 - *Description*: Set up the default umask for each file or directory created by the application : cache dirs, cache files and log files. **Warning** as it is an octal value, it must be prefixed by a `0`.
@@ -63,7 +64,7 @@ Enable CLI socket that will allow communication between app and its CLI.
 
 ### hermes.cli_socket.owner {#hermes.cli_socket.owner}
 
-- *Description*:  Name of the user that should own the socket file when created, as would be fed to chown.  
+- *Description*: Name of the user that should own the socket file when created, as would be fed to chown.  
     When left unspecified, it uses the current hermes-server running user.
 - *Mandatory*: No
 - *Type*: string
@@ -180,7 +181,7 @@ The email will contain 3 attachments when possible: `previous.txt`, `current.txt
 
 ### hermes.mail.attachment_maxsize {#hermes.mail.attachment_maxsize}
 
-- *Description*: Max size in bytes for a single mail attachment. If content size is greater than *mailtext_maxsize*, then the attachment will not be joined to email, and a fallback message will be added to mail content instead.
+- *Description*: Max size in bytes for a single mail attachment. If the attachment size is greater than *attachment_maxsize*, it will not be attached to the email and a message indicating this will be added to the mail content.
 - *Mandatory*: No
 - *Type*: integer
 - *Default value*: 5242880 *(5 MB)*

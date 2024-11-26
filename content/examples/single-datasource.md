@@ -121,7 +121,7 @@ hermes-server:
   datamodel:
     SRVGroups: # Settings for SRVGroups data type
       primarykeyattr: srv_group_id # Attribute name that will be used as primary key
-      # Template of object string representation that will be used in logs
+      # Facultative template of object string representation that will be used in logs
       toString: "<SRVGroups[{{ srv_group_id }}, {{ srv_group_name | default('#UNDEF#') }}]>"
       sources: # datasource(s) to use to fetch data. Usually one, but several could be used
         datasource_of_example1: # The source name set in hermes.plugins.datasources
@@ -176,7 +176,7 @@ hermes-server:
           attrsmapping:
             srv_user_id: USER_ID
             srv_login: LOGIN
-             # Ensure first letter of each names is uppercase, and other are lowercase
+            # Ensure first letter of each names is uppercase, and other are lowercase
             srv_firstname: "{{ FIRSTNAME | title}}"
             srv_lastname: "{{ LASTNAME | title}}"
             srv_mail: MAIL
@@ -402,7 +402,7 @@ hermes-server:
           attrsmapping:
             srv_user_id: USER_ID
             srv_login: LOGIN
-             # Ensure first letter of each names is uppercase, and other are lowercase
+            # Ensure first letter of each names is uppercase, and other are lowercase
             srv_firstname: "{{ FIRSTNAME | title}}"
             srv_lastname: "{{ LASTNAME | title}}"
             srv_mail: MAIL
@@ -690,8 +690,8 @@ flowchart LR
     SRVUserPasswords_srv_password_ldap["srv_password_ldap"]
   end
   ORA_USERPASSWORDS_USER_ID --> SRVUserPasswords_srv_user_id
-  ORA_USERPASSWORDS_PASSWORD_ENCRYPTED -->|"'crypto_RSA_OAEP<br /> | ldapPasswordHash'<br />Jinja filter"| SRVUserPasswords_srv_password_ldap
-  ORA_USERPASSWORDS_LDAP_HASHES <-->|LDAP_HASHED is filled by,<br /> or provide its value| SRVUserPasswords_srv_password_ldap
+  ORA_USERPASSWORDS_PASSWORD_ENCRYPTED -->|"'crypto_RSA_OAEP | ldapPasswordHash' Jinja filter"| SRVUserPasswords_srv_password_ldap
+  ORA_USERPASSWORDS_LDAP_HASHES <-->|LDAP_HASHED is filled by, or provide its value| SRVUserPasswords_srv_password_ldap
 
   subgraph SRVGroupsMembers
     direction LR

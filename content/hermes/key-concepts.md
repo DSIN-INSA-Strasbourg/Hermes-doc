@@ -58,7 +58,7 @@ An Hermes plugin ran by [server](#server) or [client](#client) that will be offe
 
 ## Initsync
 
-A [client](#client) is unable to start processing new events safely without disposing of the previous complete data set. So the [server](#server) is able to send a specific event sequence called `initsync` that will contain the [server datamodel](#server-datamodel) and the whole data set. The already initialized client will silently ignore it, but the uninitialized will process it to initialize their target by adding all entries provided by initsync, and will then process subsequent events normally.
+A [client](#client) cannot safely begin processing new events without having the entire dataset first. So the [server](#server) is able to send a specific event sequence called `initsync` that will contain the [server datamodel](#server-datamodel) and the whole data set. The already initialized client will silently ignore it, but the uninitialized will process it to initialize their target by adding all entries provided by initsync, and will then process subsequent events normally.
 
 ## Datamodel
 
@@ -80,13 +80,13 @@ The server datamodel is built by specifying the following items:
 
 - Each [data type](#data-type) with:
   - its [primary key](#primary-key)
-  - its [foreign-keys](#foreign-keys)
-  - its [integrity-constraints](#integrity-constraints)
+  - its [foreign keys](#foreign-keys)
+  - its [integrity constraints](#integrity-constraints)
   - its [merge conflict policy](#merge-conflict-policy)
   - each of its [datasources](#datasource) name and operations with:
     - its [attributes mapping](#attributes-mapping)
     - its special attributes list: [local attributes](#local-attributes), [secrets attributes](#secrets-attributes) and [cache-only attributes](#cache-only-attributes)
-    - its [merge-constraints](#merge-constraints)
+    - its [merge constraints](#merge-constraints)
 
 #### Merge conflict policy
 

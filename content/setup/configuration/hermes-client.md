@@ -47,7 +47,7 @@ Main subsections:
     See [Foreign keys](/hermes/how-it-works/hermes-client/foreign-keys/) for more details.
 - *Mandatory*: No
 - *Type*: string
-- *Default value*: on_remove_event
+- *Default value*: `on_remove_event`
 - *Valid values*:
   - `disabled`: No event, policy is disabled.
   - `on_remove_event`: Only on *removed* events.
@@ -89,7 +89,7 @@ Main subsections:
 
 ## hermes-client.useFirstInitsyncSequence {#hermes-client.useFirstInitsyncSequence}
 
-- *Description*: If true, indicate to use the first/older initsync sequence available on message bus. If false, the latest/newer will be used.
+- *Description*: If `true`, indicate to use the first/older initsync sequence available on message bus. If `false`, the latest/newer will be used.
 - *Mandatory*: No
 - *Type*: boolean
 - *Default value*: `false`

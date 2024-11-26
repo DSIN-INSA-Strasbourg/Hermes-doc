@@ -43,7 +43,7 @@ class MyPluginClassName(GenericClient):
 
 ### Event handlers
 
-For each data type set up in the client datamodel, the plugin may implement a handler for the 5 possible event types:
+For each data type set up in the client datamodel, the plugin may implement a handler for each of the 5 possible event types:
 
 - `added`: when an object is added
 - `recycled`: when an object is restored from trashbin (will never be called if trashbin is disabled)
@@ -108,7 +108,7 @@ Example for a `Mydatatype` data type:
   - `added` / `recycled` events: contains all object attributes names as key, and their respective values as value
   - `modified` event: always contains three keys:
     - `added`: attributes that were previously unset, but now have a value. Attribute names as key, and their respective values as value
-    - `modified`: attributes that were previously set, but whose value has changed. Attribute names as key, and their respective new values as value.
+    - `modified`: attributes that were previously set, but whose value has changed. Attribute names as key, and their respective new values as value
     - `removed`: attributes that were previously set, but now don't have a value anymore. Attribute names as key, and `None` as value
   - `trashed` / `removed` events: always an empty dict `{}`
 
@@ -265,13 +265,13 @@ It's up to the implementation to avoid errors.
   currentStep: int
   ```
 
-  Step number of current event processed. Allow clients to resume an event where it has failed
+  Step number of current event processed. Allow clients to resume an event where it has failed.
 
 - ```py
   isPartiallyProcessed: bool
   ```
 
-  Indicates if the current event processing has already propagated some changes on target. Required to allow clients to resume an event where it has failed.  
+  Indicates if the current event processing has already propagated some changes on target.  
   Must be set to `True` as soon as the slightest modification has been propagated to the target.  
   It allows autoremediation to merge events whose `currentStep` is different from 0 but whose previous steps have not modified anything on the target.
 
@@ -285,7 +285,7 @@ It's up to the implementation to avoid errors.
   config: dict[str, Any]
   ```
 
-  Dict containing the client plugin configuration
+  Dict containing the client plugin configuration.
 
 ## Methods
 
@@ -293,7 +293,7 @@ It's up to the implementation to avoid errors.
   def getDataobjectlistFromCache(objtype: str) -> DataObjectList
   ```
 
-  Returns cache of specified objtype, by reference. Raise `IndexError` if objtype is invalid
+  Returns cache of specified objtype, by reference. Raise `IndexError` if `objtype` is invalid
   {{% notice warning %}}
   Any modification of the cache content will mess up your client!!!
   {{% /notice %}}
@@ -302,7 +302,7 @@ It's up to the implementation to avoid errors.
   def getObjectFromCache(objtype: str, objpkey: Any ) -> DataObject
   ```
 
-  Returns a deepcopy of an object from cache. Raise `IndexError` if objtype is invalid, or if `objpkey` is not found
+  Returns a deepcopy of an object from cache. Raise `IndexError` if `objtype` is invalid, or if `objpkey` is not found
 
 - ```py
   def mainLoop() -> None

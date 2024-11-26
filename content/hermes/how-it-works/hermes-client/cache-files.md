@@ -8,10 +8,10 @@ weight: 5
 Contains state of the client:
 
 - ```py
-  queueErrors: dict[str, dict[str, dict[str, Any]]]
+  queueErrors: dict[str, str]
   ```
 
-  Dictionary containing current objects in error queue, for notifications.
+  Dictionary containing all error messages of objects in error queue, to be able to notify of any changes.
 
 - ```py
   datamodelWarnings: dict[str, dict[str, dict[str, Any]]]

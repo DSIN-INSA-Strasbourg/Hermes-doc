@@ -4,7 +4,7 @@ title: Messagebus consumers
 
 ## Description
 
-A datasource plugin is simply a `AbstractMessageBusConsumerPlugin` subclass designed to link hermes-client with any message bus.
+A messagebus consumer plugin is simply a `AbstractMessageBusConsumerPlugin` subclass designed to link hermes-client with any message bus.
 
 It requires methods to connect and disconnect to message bus, and to consume available events.
 

@@ -48,9 +48,9 @@ flowchart LR
     webservice
     etc
   end
-  RefOracle[(Oracle source)]-->|Data|hermes-server
-  RefPostgreSQL[(PostgreSQL source)]-->|Data|hermes-server
-  RefLDAP[(LDAP source)]-->|Data|hermes-server
+  RefOracle[(Oracle)]-->|Data|hermes-server
+  RefPostgreSQL[(PostgreSQL)]-->|Data|hermes-server
+  RefLDAP[(LDAP)]-->|Data|hermes-server
   RefEtc[(...)]-->|Data|hermes-server
   hermes-server-->|Events|MessageBus((MessageBus))
   MessageBus-->|Events|hermes-client-ldap
@@ -62,9 +62,6 @@ flowchart LR
   hermes-client-webservice-->|Update|webservice[(Web service <i>name</i>)]
   hermes-client-etc-->|Update|etc[("...")]
 
-
   classDef external fill:#fafafa,stroke-dasharray: 5 5
   class Datasources,External_dependencies,Targets external
-
-  
 ```
