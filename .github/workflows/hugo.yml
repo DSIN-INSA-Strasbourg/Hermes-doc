@@ -19,7 +19,7 @@ jobs:
     permissions:
       contents: read
     env:
-      HUGO_VERSION: 0.136.3
+      HUGO_VERSION: 0.139.2
     runs-on: ubuntu-latest
     steps:
       - name: Install Hugo CLI
