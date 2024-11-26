@@ -92,7 +92,6 @@ outputs:
 
 languages:
   en:
-    disabled: false
     languageCode: en-US
     languageDirection: ltr
     languageName: "English"
@@ -115,7 +114,6 @@ languages:
           weight: 40
 
   fr:
-    disabled: true # TODO
     languageCode: fr-FR
     languageDirection: ltr
     languageName: "Français"
