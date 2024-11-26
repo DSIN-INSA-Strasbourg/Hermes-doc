@@ -1,0 +1,88 @@
+{{- /* based on https://nanmu.me/en/posts/2020/hugo-i18n-automatic-language-redirection/ */}}
+<!DOCTYPE html>
+<html>
+  <head>
+    {{- $url := .Permalink }}
+    {{- if site.BaseURL }}
+      {{- $url = replace .Permalink site.BaseURL "/" }}
+    {{- end }}
+    {{- $url = replace $url "//" "/" }}
+    {{- with site.Home.GetPage $url }}
+      {{- /* if defaultContentLanguageInSubdir=false we are ending here for home page of the default language */}}
+      {{- $url = partial "permalink.gotmpl" (dict "to" .) }}
+    {{- else }}
+      {{- $url_alt := replaceRE "^/[^/]*(/.*)" "${1}" $url }}
+      {{- with site.Home.GetPage $url_alt }}
+        {{- /* if defaultContentLanguageInSubdir=true we are ending here for home page */}}
+        {{- $url = partial "permalink.gotmpl" (dict "to" .) }}
+      {{- else }}
+        {{- /* for regular aliases we are ending here with no original page found */}}
+        {{- $url = partial "permalink.gotmpl" (dict "link" $url) }}
+      {{- end }}
+    {{- end }}
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <noscript>
+      <meta http-equiv="refresh" content="0; url={{ $url }}">
+    </noscript>
+    <script>
+      ;(function () {
+    {{- if not hugo.IsMultilingual }}
+        window.location.replace('{{ $url }}')
+        return
+    {{- else }}
+        // Only do i18n at root, 
+        // otherwise, redirect immediately
+        if (window.location.pathname !== '/') {
+          window.location.replace('{{ $url }}')
+          return
+        }
+
+        var getFirstBrowserLanguage = function () {
+          var nav = window.navigator,
+          browserLanguagePropertyKeys = ['language', 'browserLanguage', 'systemLanguage', 'userLanguage'],
+          i,
+          language
+
+          if (Array.isArray(nav.languages)) {
+            for (i = 0; i < nav.languages.length; i++) {
+              language = nav.languages[i]
+              if (language && language.length) {
+                return language
+              }
+            }
+          }
+
+          // support for other well known properties in browsers
+          for (i = 0; i < browserLanguagePropertyKeys.length; i++) {
+            language = nav[browserLanguagePropertyKeys[i]]
+            if (language && language.length) {
+              return language
+            }
+          }
+          return 'en'
+        }
+
+        var preferLang = getFirstBrowserLanguage()
+      {{- range first 1 site.Languages }}
+        if (preferLang.indexOf('{{ .Lang }}') !== -1) {
+          window.location.replace('\/{{ .Lang }}\/')
+        }
+      {{- end }}
+      {{- range after 1 site.Languages }}
+        else if (preferLang.indexOf('{{ .Lang }}') !== -1) {
+          window.location.replace('\/{{ .Lang }}\/')
+        }
+      {{- end }}
+        else {
+          // fallback to default
+          window.location.replace('{{ $url }}')
+        }
+    {{- end }}
+      })()
+    </script>
+    {{- $link := "<link href=\"%s\" rel=\"%s\">" }}
+    <title>{{ $url }}</title>
+    {{ (printf $link $url "canonical") | safeHTML }}
+  </head>
+</html>
