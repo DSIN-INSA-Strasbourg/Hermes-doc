@@ -22,6 +22,7 @@ Pour plus de détails sur l'API du plugin, veuillez consulter les sections suiva
 Certains modules utilitaires sont disponibles dans `helpers` :
 
 - `helpers.command` : pour exécuter des commandes locales sur l'hôte du client
+- `helpers.ldaphashes`: pour générer les hachages LDAP à partir de mots de passe en clair
 - `helpers.randompassword` : pour générer des mots de passe aléatoires avec des contraintes spécifiques
 {{% /notice %}}
 

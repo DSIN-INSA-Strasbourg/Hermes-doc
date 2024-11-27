@@ -22,6 +22,7 @@ For details about plugin API, please consult the following sections:
 Some helpers modules are available in `helpers`:
 
 - `helpers.command`: to run local commands on client's host
+- `helpers.ldaphashes`: to compute LDAP hashes from plaintext passwords
 - `helpers.randompassword`: to generate random passwords with specific constraints
 {{% /notice %}}
 
