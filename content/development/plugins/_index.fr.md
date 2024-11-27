@@ -18,6 +18,13 @@ Pour plus de détails sur l'API du plugin, veuillez consulter les sections suiva
 - [Consommateurs de bus de messages](/development/plugins/messagebus_consumers/)
 - [Producteurs de bus de messages](/development/plugins/messagebus_producers/)
 
+{{% notice tip %}}
+Certains modules utilitaires sont disponibles dans `helpers` :
+
+- `helpers.command` : pour exécuter des commandes locales sur l'hôte du client
+- `helpers.randompassword` : pour générer des mots de passe aléatoires avec des contraintes spécifiques
+{{% /notice %}}
+
 ## Schéma de configuration du plugin
 
 Selon le type de plugin, le fichier de schéma de configuration varie légèrement.

@@ -18,6 +18,13 @@ For details about plugin API, please consult the following sections:
 - [Messagebus consumers](/development/plugins/messagebus_consumers/)
 - [Messagebus producers](/development/plugins/messagebus_producers/)
 
+{{% notice tip %}}
+Some helpers modules are available in `helpers`:
+
+- `helpers.command`: to run local commands on client's host
+- `helpers.randompassword`: to generate random passwords with specific constraints
+{{% /notice %}}
+
 ## Plugin configuration schema
 
 Depending on the plugin type, the configuration schema file slightly differs.

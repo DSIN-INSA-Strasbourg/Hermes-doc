@@ -6,13 +6,6 @@ title: Clients
 
 A client plugin is simply a `GenericClient` subclass designed to implement simple events handlers, and to split their tasks in atomic subtasks to ensure consistent error reprocessing.
 
-{{% notice tip %}}
-Some helpers modules are available in `clients.helpers`:
-
-- `clients.helpers.command`: to run local commands on client's host
-- `clients.helpers.randompassword`: to generate random passwords with specific constraints
-{{% /notice %}}
-
 ## Requirements
 
 Here is a commented minimal plugin implementation that won't do anything, as it doesn't implement any event handlers yet.
