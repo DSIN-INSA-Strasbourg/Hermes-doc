@@ -23,7 +23,6 @@ _build:
   - [pypsrp](https://github.com/jborean93/pypsrp)
   - [pywinrm](https://github.com/diyan/pywinrm/)
   - [Cryptography](https://cryptography.io/en/latest/)
-  - [PassLib](https://passlib.readthedocs.io/)
   - [PyCryptodome](https://www.pycryptodome.org/)
 
 ## Dépendances d'hermes-doc

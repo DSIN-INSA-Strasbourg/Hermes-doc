@@ -113,7 +113,7 @@ Même si le plugin n'a pas de dépendance Python, veuillez créer un fichier pip
 Exemple :
 
 ```txt { title="requirements.txt" }
-# plugins/attributes/ldapPasswordHash
-passlib==1.7.4
+# plugins/attributes/crypto_RSA_OAEP
+pycryptodomex==3.21.0
  
 ```
