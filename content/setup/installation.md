@@ -12,7 +12,7 @@ weight: 2
 
 ## Install guide
 
-1. Download and extract the [hermes latest](https://github.com/DSIN-INSA-Strasbourg/Hermes/archive/refs/heads/main.zip) archive
+1. Download and extract the [hermes latest](https://github.com/DSIN-INSA-Strasbourg/Hermes/releases/latest) release
 
 2. (*Optional*) If you want to minimize install footprint, you may remove `tests` directory, `tox.ini` file and all unnecessary plugins by deleting their directory in:
 
