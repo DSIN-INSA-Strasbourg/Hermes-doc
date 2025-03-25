@@ -21,8 +21,6 @@ _build:
   - [python-oracledb](https://python-oracledb.readthedocs.io/)
   - [psycopg](https://www.psycopg.org/)
   - [pypsrp](https://github.com/jborean93/pypsrp)
-  - [pywinrm](https://github.com/diyan/pywinrm/)
-  - [Cryptography](https://cryptography.io/en/latest/)
   - [PyCryptodome](https://www.pycryptodome.org/)
 
 ## Dépendances d'hermes-doc
