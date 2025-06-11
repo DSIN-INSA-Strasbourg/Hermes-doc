@@ -10,6 +10,8 @@ jobs:
     env:
       HUGO_VERSION: 0.139.3
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Hermes-doc sources
         uses: actions/checkout@v4
