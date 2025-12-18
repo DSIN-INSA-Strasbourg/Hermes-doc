@@ -5,7 +5,7 @@ weight: 2
 
 ## Requirements
 
-- [Python](https://www.python.org/) 3.10, 3.11, 3.12 or 3.13 with [pip](https://pip.pypa.io/en/stable/)
+- [Python](https://www.python.org/) 3.10, 3.11, 3.12, 3.13 or 3.14 with [pip](https://pip.pypa.io/en/stable/)
 - Run on Linux (required for CLI that uses Unix socket)
 - A message bus server, *e.g.* [Apache Kafka](https://kafka.apache.org/) - recommended but an [sqlite](/setup/configuration/plugins/messagebus_producers/sqlite/) implementation is provided
 - [direnv](https://direnv.net/) - only if you wish to use the `reset_venv` helper script
