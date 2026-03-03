@@ -33,9 +33,9 @@ Sous-sections principales :
 
 ### hermes-server.datamodel {#hermes-server.datamodel}
 
-Sous-section obligatoire utilisée pour configurer le [modèle de données serveur](/hermes/hermes/key-concepts/#server-datamodel).
+Sous-section obligatoire utilisée pour configurer le [modèle de données serveur](/hermes/key-concepts/#server-datamodel).
 
-Pour chaque [type de données](/hermes/hermes/key-concepts/#data-type) requis, une sous-section avec le nom souhaité du type de données doit être créée et configurée. Le nom du type de données DOIT commencer par un caractère alphanumérique.
+Pour chaque [type de données](/hermes/key-concepts/#data-type) requis, une sous-section avec le nom souhaité du type de données doit être créée et configurée. Le nom du type de données DOIT commencer par un caractère alphanumérique.
 
 Bien évidemment, au moins un type de données doit être configuré.
 
@@ -51,7 +51,7 @@ Vous devez donc d'abord déclarer les types de données qui ne dépendent d'aucu
 
 #### hermes-server.datamodel.data-type-name.primarykeyattr {#hermes-server.datamodel.data-type-name.primarykeyattr}
 
-- *Description* : Le nom de l'attribut du modèle de données utilisé comme [clé primaire](/hermes/hermes/key-concepts/#primary-key). Si la clé primaire est un tuple, vous pouvez déclarer une liste de noms.
+- *Description* : Le nom de l'attribut du modèle de données utilisé comme [clé primaire](/hermes/key-concepts/#primary-key). Si la clé primaire est un tuple, vous pouvez déclarer une liste de noms.
 - *Obligatoire* : **Oui**
 - *Type* : string | string[]
 
@@ -73,7 +73,7 @@ Vous devez donc d'abord déclarer les types de données qui ne dépendent d'aucu
 
 #### hermes-server.datamodel.data-type-name.foreignkeys {#hermes-server.datamodel.data-type-name.foreignkeys}
 
-- *Description* : Permet de déclarer des clés étrangères dans un type de données, que les clients utiliseront pour appliquer leur politique de clés étrangères. Voir [Clés étrangères](/hermes/hermes/how-it-works/hermes-client/foreign-keys/) pour plus de détails.  
+- *Description* : Permet de déclarer des clés étrangères dans un type de données, que les clients utiliseront pour appliquer leur politique de clés étrangères. Voir [Clés étrangères](/hermes/how-it-works/hermes-client/foreign-keys/) pour plus de détails.  
 Le paramètre est un dictionnaire avec la clé primaire du type de données actuel comme clé, un dictionnaire avec deux entrées comme valeur, faisant référence au type de données parent `from_objtype` et à sa clé primaire `from_attr`.  
 Bien que cela puisse sembler intuitif, **la déclaration de clés étrangères ne créera aucune règle de contrainte d'intégrité automatiquement.**
 {{% notice warning %}}

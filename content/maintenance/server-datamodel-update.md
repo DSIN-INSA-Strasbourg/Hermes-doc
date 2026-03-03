@@ -47,7 +47,7 @@ or
     - 💻 Emission of "modified" events for the concerned entries, with the modified attribute new values
 2. 💻 Processing incoming "modified" events
 
-## Add an existing attribute of a data type to *[secrets_attrs](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.secrets_attrs)*
+## Add an existing attribute of a data type to *secrets_attrs*
 
 1. 👱 Modify *[secrets_attrs](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.secrets_attrs)* in [server datamodel](/hermes/key-concepts/#server-datamodel), reload server
     - 💻 Purging attribute from server cache
@@ -56,7 +56,7 @@ or
 2. 💻 Processing of [dataschema event](/hermes/how-it-works/hermes-server/events-emitted/) by clients: updating their schema, purging attribute from their cache
     - 💻 Processing incoming "modified" events
 
-## Remove an existing attribute of a data type from *[secrets_attrs](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.secrets_attrs)*
+## Remove an existing attribute of a data type from *secrets_attrs*
 
 1. 👱 Modify *[secrets_attrs](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.secrets_attrs)* in [server datamodel](/hermes/key-concepts/#server-datamodel), reload server
     - 💻 Emission of a [dataschema event](/hermes/how-it-works/hermes-server/events-emitted/) by the server

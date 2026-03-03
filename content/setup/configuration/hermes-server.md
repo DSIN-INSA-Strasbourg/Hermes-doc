@@ -73,7 +73,7 @@ So you really should first declare data types that do not depend on any other ty
 
 #### hermes-server.datamodel.data-type-name.foreignkeys {#hermes-server.datamodel.data-type-name.foreignkeys}
 
-- *Description*: Allow to declare foreign keys in a data type, that clients will use to enforce their foreign keys policy. See [Foreign keys](/hermes/hermes/how-it-works/hermes-client/foreign-keys/) for details.  
+- *Description*: Allow to declare foreign keys in a data type, that clients will use to enforce their foreign keys policy. See [Foreign keys](/hermes/how-it-works/hermes-client/foreign-keys/) for details.  
 The setting is a dict with current data type primary key as key, a dict with two entries as value, refering to the parent data type `from_objtype` and its primary key `from_attr`.  
 Although it might seem intuitive, **declaring foreign keys will not create any integrity constraint rules automatically.**
 {{% notice warning %}}

@@ -11,7 +11,7 @@ weight: 1
 2. Install Hermes by following the [Installation](/setup/installation/) section
 
 3. Configure hermes-server by following the following sections:
-    - [hermes](/setup/hermes/) for global settings
+    - [hermes](/setup/configuration/hermes/) for global settings
     - configure your [messagebus](/setup/configuration/plugins/messagebus_producers/) plugin
     - configure your [datasource](/setup/configuration/plugins/datasources/) plugin(s)
     - configure your [attribute](/setup/configuration/plugins/attributes/) plugins, if any
@@ -20,7 +20,7 @@ weight: 1
 4. Run hermes-server by following the [Run](/setup/run/) section, and once it has successfully done its first data polling, generate an initsync sequence using the hermes-server CLI, as explained in the [Run](/setup/run/) section
 
 5. Configure a first hermes-client by following the following sections:
-    - [hermes](/setup/hermes/) for global settings
+    - [hermes](/setup/configuration/hermes/) for global settings
     - configure your [messagebus](/setup/configuration/plugins/messagebus_consumers/) plugin
     - configure your [attribute](/setup/configuration/plugins/attributes/) plugins, if any
     - configure your [hermes-client](/setup/configuration/plugins/hermes-client/) plugin

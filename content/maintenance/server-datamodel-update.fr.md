@@ -47,7 +47,7 @@ ou
     - 💻 Émission d'événements "modified" pour les entrées concernées, avec les nouvelles valeurs de l'attribut modifié
 2. 💻 Traitement des événements "modified" entrants
 
-## Ajouter un attribut existant d'un type de données à *[secrets_attrs](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.secrets_attrs)*
+## Ajouter un attribut existant d'un type de données à *secrets_attrs*
 
 1. 👱 Modifier *[secrets_attrs](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.secrets_attrs)* dans le [modèle de données serveur](/hermes/key-concepts/#server-datamodel), redémarrer le serveur
     - 💻 Purge de l'attribut dans le cache du serveur
@@ -56,7 +56,7 @@ ou
 2. 💻 Traitement de l'[événement dataschema](/hermes/how-it-works/hermes-server/events-emitted/) par les clients : mise à jour de leur schéma, purge de l'attribut dans leur cache
     - 💻 Traitement des événements "modified" entrants
 
-## Supprimer un attribut existant d'un type de données de *[secrets_attrs](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.secrets_attrs)*
+## Supprimer un attribut existant d'un type de données de *secrets_attrs*
 
 1. 👱 Modifier *[secrets_attrs](/setup/configuration/hermes-server/#hermes-server.datamodel.data-type-name.sources.datasource-name.secrets_attrs)* in [modèle de données serveur](/hermes/key-concepts/#server-datamodel), redémarrer le serveur
     - 💻 Émission d'un [événement dataschema](/hermes/how-it-works/hermes-server/events-emitted/) par le serveur
