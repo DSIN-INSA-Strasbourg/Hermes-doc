@@ -88,7 +88,7 @@ Les types de données suivants peuvent être configurés :
 - `Users`
 - `UserPasswords` : nécessite évidemment `Users` et nécessite l'attribut `user_pkey` correspondant aux clés primaires de `Users`
 - `Groups`
-- `GroupsMembers` : nécessite évidemment `Users` et `Groups` et nécessite les attributs `user_pkey` et `group_pkey` correspondant aux clés primaires de `Users` et `Groups`
+- `GroupsMembers` : nécessite évidemment `Users` et `Groups` et nécessite les attributs `user_pkey` et `group_pkey` correspondant aux clés primaires de `Users` et `Groups`. Chaque entrée doit contenir un couple (`user_pkey`, `group_pkey`)
 
 ```yaml
   datamodel:

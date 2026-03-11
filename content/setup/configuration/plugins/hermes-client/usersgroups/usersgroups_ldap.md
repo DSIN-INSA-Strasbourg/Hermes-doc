@@ -85,7 +85,7 @@ The following data types may be set up:
 - `Users`
 - `UserPasswords`: obviously require `Users`, and requires the following attribute names `user_pkey` corresponding to the primary keys of `Users`
 - `Groups`
-- `GroupsMembers`: obviously require `Users` and `Groups`, and requires the following attribute names `user_pkey` `group_pkey` corresponding to the primary keys of `Users` and `Groups`
+- `GroupsMembers`: obviously require `Users` and `Groups`, and requires the following attribute names `user_pkey` `group_pkey` corresponding to the primary keys of `Users` and `Groups`. Each entry must contain a pair (`user_pkey`, `group_pkey`)
 
 ```yaml
   datamodel:
