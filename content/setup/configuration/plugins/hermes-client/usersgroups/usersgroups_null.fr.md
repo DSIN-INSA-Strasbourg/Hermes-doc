@@ -22,6 +22,7 @@ Les types de données suivants peuvent être configurés, sans contrainte partic
 - UserPasswords
 - Groups
 - GroupsMembers
+- MembersOfGroups
 
 ```yaml
   datamodel:
@@ -44,6 +45,12 @@ Les types de données suivants peuvent être configurés, sans contrainte partic
         # ...
 
     GroupsMembers:
+      hermesType: your_server_GroupsMembers_type_name
+      attrsmapping:
+        attr1_client:  attr1_server
+        # ...
+
+    MembersOfGroups:
       hermesType: your_server_GroupsMembers_type_name
       attrsmapping:
         attr1_client:  attr1_server
