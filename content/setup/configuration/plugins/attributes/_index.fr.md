@@ -8,4 +8,6 @@ ordersectionsby: title
 
 - [ldapPasswordHash](/setup/configuration/plugins/attributes/ldapPasswordHash/): générer des hachages LDAP de formats spécifiés à partir d'une chaîne contenant un mot de passe en clair
 
+- [regex_replace](/setup/configuration/plugins/attributes/regex_replace/): perform a replacement in a string using the specified regular expression
+
 - [regex_search](/setup/configuration/plugins/attributes/regex_search/): effectuer une recherche dans une chaîne pour en extraire la partie qui correspond à l'expression régulière spécifiée
